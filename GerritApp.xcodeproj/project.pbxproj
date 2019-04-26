@@ -7,25 +7,61 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BA2D99EA223807EE006960C6 /* SLLNetworkService.m in Sources */ = {isa = PBXBuildFile; fileRef = BA2D99E9223807EE006960C6 /* SLLNetworkService.m */; };
+		BA2D99EC22380832006960C6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BA2D99EB22380832006960C6 /* GoogleService-Info.plist */; };
 		BA355BB92228247F00EB90C4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BA355BB82228247F00EB90C4 /* AppDelegate.m */; };
-		BA355BBC2228247F00EB90C4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA355BBB2228247F00EB90C4 /* ViewController.m */; };
+		BA355BBC2228247F00EB90C4 /* SLLAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA355BBB2228247F00EB90C4 /* SLLAccountViewController.m */; };
 		BA355BC12228248100EB90C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA355BC02228248100EB90C4 /* Assets.xcassets */; };
 		BA355BC72228248100EB90C4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BA355BC62228248100EB90C4 /* main.m */; };
+		BA37418C226E5EA20081591A /* SLLNetworkCreateURL.m in Sources */ = {isa = PBXBuildFile; fileRef = BA37418B226E5EA20081591A /* SLLNetworkCreateURL.m */; };
+		BA374191226E67760081591A /* SLLChangeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA374190226E67760081591A /* SLLChangeViewController.m */; };
+		BA374194226E678B0081591A /* SLLProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA374193226E678B0081591A /* SLLProjectViewController.m */; };
+		BABC240C227395DA006128BD /* GerritAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BABC240B227395DA006128BD /* GerritAppTests.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		BABC240E227395DA006128BD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BA355BAC2228247F00EB90C4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BA355BB32228247F00EB90C4;
+			remoteInfo = GerritApp;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		BA2CF33322316E9F001EE0C7 /* SLLNetworkProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLLNetworkProtocol.h; sourceTree = "<group>"; };
+		BA2D99E8223807EE006960C6 /* SLLNetworkService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLLNetworkService.h; sourceTree = "<group>"; };
+		BA2D99E9223807EE006960C6 /* SLLNetworkService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLLNetworkService.m; sourceTree = "<group>"; };
+		BA2D99EB22380832006960C6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BA355BB42228247F00EB90C4 /* GerritApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GerritApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA355BB72228247F00EB90C4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BA355BB82228247F00EB90C4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		BA355BBA2228247F00EB90C4 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		BA355BBB2228247F00EB90C4 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		BA355BBA2228247F00EB90C4 /* SLLAccountViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLLAccountViewController.h; sourceTree = "<group>"; };
+		BA355BBB2228247F00EB90C4 /* SLLAccountViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLLAccountViewController.m; sourceTree = "<group>"; };
 		BA355BC02228248100EB90C4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BA355BC52228248100EB90C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BA355BC62228248100EB90C4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		BA37418A226E5EA20081591A /* SLLNetworkCreateURL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLLNetworkCreateURL.h; sourceTree = "<group>"; };
+		BA37418B226E5EA20081591A /* SLLNetworkCreateURL.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLLNetworkCreateURL.m; sourceTree = "<group>"; };
+		BA37418F226E67760081591A /* SLLChangeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLLChangeViewController.h; sourceTree = "<group>"; };
+		BA374190226E67760081591A /* SLLChangeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLLChangeViewController.m; sourceTree = "<group>"; };
+		BA374192226E678B0081591A /* SLLProjectViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLLProjectViewController.h; sourceTree = "<group>"; };
+		BA374193226E678B0081591A /* SLLProjectViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLLProjectViewController.m; sourceTree = "<group>"; };
+		BABC2409227395DA006128BD /* GerritAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GerritAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BABC240B227395DA006128BD /* GerritAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GerritAppTests.m; sourceTree = "<group>"; };
+		BABC240D227395DA006128BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		BA355BB12228247F00EB90C4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BABC2406227395DA006128BD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -39,6 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				BA355BB62228247F00EB90C4 /* GerritApp */,
+				BABC240A227395DA006128BD /* GerritAppTests */,
 				BA355BB52228247F00EB90C4 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -47,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				BA355BB42228247F00EB90C4 /* GerritApp.app */,
+				BABC2409227395DA006128BD /* GerritAppTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -54,23 +92,90 @@
 		BA355BB62228247F00EB90C4 /* GerritApp */ = {
 			isa = PBXGroup;
 			children = (
-				BA595629222C849C00874BE0 /* Network */,
+				BAF9467C2237035800D3F6A8 /* Modules */,
+				BAF9467A2236FCCE00D3F6A8 /* Service */,
+				BAF946782236FA6500D3F6A8 /* Resources */,
 				BA355BB72228247F00EB90C4 /* AppDelegate.h */,
 				BA355BB82228247F00EB90C4 /* AppDelegate.m */,
-				BA355BBA2228247F00EB90C4 /* ViewController.h */,
-				BA355BBB2228247F00EB90C4 /* ViewController.m */,
-				BA355BC02228248100EB90C4 /* Assets.xcassets */,
-				BA355BC52228248100EB90C4 /* Info.plist */,
 				BA355BC62228248100EB90C4 /* main.m */,
 			);
 			path = GerritApp;
 			sourceTree = "<group>";
 		};
-		BA595629222C849C00874BE0 /* Network */ = {
+		BA374185226E582A0081591A /* Account */ = {
 			isa = PBXGroup;
 			children = (
+				BA355BBA2228247F00EB90C4 /* SLLAccountViewController.h */,
+				BA355BBB2228247F00EB90C4 /* SLLAccountViewController.m */,
 			);
-			path = Network;
+			name = Account;
+			sourceTree = "<group>";
+		};
+		BA374187226E58C20081591A /* Projects */ = {
+			isa = PBXGroup;
+			children = (
+				BA374192226E678B0081591A /* SLLProjectViewController.h */,
+				BA374193226E678B0081591A /* SLLProjectViewController.m */,
+			);
+			name = Projects;
+			sourceTree = "<group>";
+		};
+		BA374197226F18E60081591A /* Changes */ = {
+			isa = PBXGroup;
+			children = (
+				BA37418F226E67760081591A /* SLLChangeViewController.h */,
+				BA374190226E67760081591A /* SLLChangeViewController.m */,
+			);
+			name = Changes;
+			sourceTree = "<group>";
+		};
+		BABC240A227395DA006128BD /* GerritAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				BABC240B227395DA006128BD /* GerritAppTests.m */,
+				BABC240D227395DA006128BD /* Info.plist */,
+			);
+			path = GerritAppTests;
+			sourceTree = "<group>";
+		};
+		BAF946782236FA6500D3F6A8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				BA2D99EB22380832006960C6 /* GoogleService-Info.plist */,
+				BA355BC02228248100EB90C4 /* Assets.xcassets */,
+				BA355BC52228248100EB90C4 /* Info.plist */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		BAF9467A2236FCCE00D3F6A8 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				BAF9467B223702D800D3F6A8 /* NetworkService */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		BAF9467B223702D800D3F6A8 /* NetworkService */ = {
+			isa = PBXGroup;
+			children = (
+				BA2CF33322316E9F001EE0C7 /* SLLNetworkProtocol.h */,
+				BA2D99E8223807EE006960C6 /* SLLNetworkService.h */,
+				BA2D99E9223807EE006960C6 /* SLLNetworkService.m */,
+				BA37418A226E5EA20081591A /* SLLNetworkCreateURL.h */,
+				BA37418B226E5EA20081591A /* SLLNetworkCreateURL.m */,
+			);
+			name = NetworkService;
+			sourceTree = "<group>";
+		};
+		BAF9467C2237035800D3F6A8 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				BA374197226F18E60081591A /* Changes */,
+				BA374187226E58C20081591A /* Projects */,
+				BA374185226E582A0081591A /* Account */,
+			);
+			path = Modules;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -93,6 +198,24 @@
 			productReference = BA355BB42228247F00EB90C4 /* GerritApp.app */;
 			productType = "com.apple.product-type.application";
 		};
+		BABC2408227395DA006128BD /* GerritAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BABC2412227395DA006128BD /* Build configuration list for PBXNativeTarget "GerritAppTests" */;
+			buildPhases = (
+				BABC2405227395DA006128BD /* Sources */,
+				BABC2406227395DA006128BD /* Frameworks */,
+				BABC2407227395DA006128BD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BABC240F227395DA006128BD /* PBXTargetDependency */,
+			);
+			name = GerritAppTests;
+			productName = GerritAppTests;
+			productReference = BABC2409227395DA006128BD /* GerritAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -104,6 +227,10 @@
 				TargetAttributes = {
 					BA355BB32228247F00EB90C4 = {
 						CreatedOnToolsVersion = 10.1;
+					};
+					BABC2408227395DA006128BD = {
+						CreatedOnToolsVersion = 10.2.1;
+						TestTargetID = BA355BB32228247F00EB90C4;
 					};
 				};
 			};
@@ -121,6 +248,7 @@
 			projectRoot = "";
 			targets = (
 				BA355BB32228247F00EB90C4 /* GerritApp */,
+				BABC2408227395DA006128BD /* GerritAppTests */,
 			);
 		};
 /* End PBXProject section */
@@ -131,6 +259,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA355BC12228248100EB90C4 /* Assets.xcassets in Resources */,
+				BA2D99EC22380832006960C6 /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BABC2407227395DA006128BD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,13 +277,33 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BA355BBC2228247F00EB90C4 /* ViewController.m in Sources */,
+				BA2D99EA223807EE006960C6 /* SLLNetworkService.m in Sources */,
+				BA37418C226E5EA20081591A /* SLLNetworkCreateURL.m in Sources */,
+				BA355BBC2228247F00EB90C4 /* SLLAccountViewController.m in Sources */,
 				BA355BC72228248100EB90C4 /* main.m in Sources */,
+				BA374191226E67760081591A /* SLLChangeViewController.m in Sources */,
 				BA355BB92228247F00EB90C4 /* AppDelegate.m in Sources */,
+				BA374194226E678B0081591A /* SLLProjectViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BABC2405227395DA006128BD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BABC240C227395DA006128BD /* GerritAppTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BABC240F227395DA006128BD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BA355BB32228247F00EB90C4 /* GerritApp */;
+			targetProxy = BABC240E227395DA006128BD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		BA355BC82228248100EB90C4 /* Debug */ = {
@@ -266,6 +422,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 37S8XGT8LR;
 				INFOPLIST_FILE = GerritApp/Info.plist;
@@ -275,7 +433,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.soulocal.GerritApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -283,6 +442,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 37S8XGT8LR;
 				INFOPLIST_FILE = GerritApp/Info.plist;
@@ -292,7 +453,48 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.soulocal.GerritApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		BABC2410227395DA006128BD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 37S8XGT8LR;
+				INFOPLIST_FILE = GerritAppTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.soulocal.GerritAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GerritApp.app/GerritApp";
+			};
+			name = Debug;
+		};
+		BABC2411227395DA006128BD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 37S8XGT8LR;
+				INFOPLIST_FILE = GerritAppTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.soulocal.GerritAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GerritApp.app/GerritApp";
 			};
 			name = Release;
 		};
@@ -313,6 +515,15 @@
 			buildConfigurations = (
 				BA355BCB2228248100EB90C4 /* Debug */,
 				BA355BCC2228248100EB90C4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BABC2412227395DA006128BD /* Build configuration list for PBXNativeTarget "GerritAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BABC2410227395DA006128BD /* Debug */,
+				BABC2411227395DA006128BD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

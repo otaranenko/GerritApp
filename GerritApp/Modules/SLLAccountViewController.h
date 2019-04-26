@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  SLLAccountViewController.h
 //  GerritApp
 //
 //  Created by Oleg Taranenko on 28/02/2019.
@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface SLLAccountViewController : UIViewController
 
--(void) loadData;
+- (void)loadData;
 
 @end
 
