@@ -1,30 +1,32 @@
 //
-//  ViewController.m
+//  SLLAccountViewController.m
 //  GerritApp
 //
 //  Created by Oleg Taranenko on 28/02/2019.
 //  Copyright © 2019 Oleg Taranenko. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "SLLAccountViewController.h"
 
-@interface ViewController ()
+@interface SLLAccountViewController ()
 @property (nonatomic, strong) NSString *SLLGerritURLString;
 @end
 
-@implementation ViewController
+@implementation SLLAccountViewController
 
 
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    [self.view setBackgroundColor:[UIColor greenColor]];
+    self.view.backgroundColor = [UIColor lightGrayColor];
     
     [self loadData];
-    // Do any additional setup after loading the view, typically from a nib.
+
 }
 
--(void) loadData {
+- (void)loadData
+{
     [self setSLLGerritURLString:@"https://gerrit-review.googlesource.com/changes/?q=is:open"];
     [self setSLLGerritURLString:@"https://gerrit-review.googlesource.com/accounts/1011323"];
     NSURLSession *session = [NSURLSession sharedSession];
@@ -42,7 +44,7 @@
             NSLog(@"json list = %@", jsonList);
             
             dispatch_async(dispatch_get_main_queue(), ^{
-                [self.view setBackgroundColor:[UIColor whiteColor]];
+                [self.view setBackgroundColor:[UIColor greenColor]];
             });
         }
         else
@@ -50,6 +52,10 @@
     }];
     
     [dataTask resume];
+}
+
+-(void) createTableView
+{
 
 }
 
