@@ -10,7 +10,6 @@
 
 @interface SLLAccountViewController : UIViewController
 
-- (void)loadData;
 
 @end
 
