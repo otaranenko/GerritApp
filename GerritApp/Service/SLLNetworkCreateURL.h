@@ -10,7 +10,14 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+
 @interface SLLNetworkCreateURL : NSObject
+
++ (NSString *)infoAccountFromId:(NSString *)id;
++ (NSString *)infoProjectFrom;
++ (NSString *)infoChangeForOpen;
++ (NSString *)infoChangeForMerged;
++ (NSString *)infoChangeForAbandoned;
 
 @end
 

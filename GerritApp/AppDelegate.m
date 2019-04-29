@@ -11,6 +11,8 @@
 #import "./Modules/SLLAccountViewController.h"
 #import "./Modules/SLLChangeViewController.h"
 
+#import "./Service/SLLNetworkService.h"
+
 @interface AppDelegate ()
 
 @end
@@ -44,6 +46,9 @@
     tabBarViewController.viewControllers = viewControllerArray;
     self.window.rootViewController = tabBarViewController;
     [self.window makeKeyAndVisible];
+    
+    SLLNetworkService *sll = [SLLNetworkService new];
+    [sll startConnection];
 
     return YES;
 }

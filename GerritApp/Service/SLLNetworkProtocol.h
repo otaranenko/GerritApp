@@ -14,9 +14,10 @@
 
 @protocol SLLNetworkInputProtocol <NSObject>
 
-@optional
-
+@required
 - (void)startConnection;
+
+@optional
 - (void)getChangeInfoForGerritForTime:(NSDate *)date;
 - (void)getAccountInfoForGerritForTime:(NSDate *)date;
 - (void)getProjectInfoForGerritForTime:(NSDate *)date;
@@ -28,7 +29,7 @@
 
 @optional
 
-- (void) loadingPartForChangeInfo:(NSData *)rawData;
+- (void) finishLoadingData:(NSData *)rawData;
 - (void) loadingPartForAccountInfo:(NSData *)rawData;
 - (void) loadingPartForProjectInfo:(NSData *)rawData;
 
