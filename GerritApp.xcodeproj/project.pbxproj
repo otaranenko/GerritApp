@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BA2AFF54227F73BE00C7B37E /* SLLInteractorMainService.m in Sources */ = {isa = PBXBuildFile; fileRef = BA2AFF53227F73BE00C7B37E /* SLLInteractorMainService.m */; };
+		BA2AFF58227F9CD400C7B37E /* SLLChangePresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = BA2AFF57227F9CD400C7B37E /* SLLChangePresenter.m */; };
+		BA2AFF5B227FA35B00C7B37E /* SLLRootCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = BA2AFF5A227FA35B00C7B37E /* SLLRootCoordinator.m */; };
+		BA2AFF5F22800F3E00C7B37E /* SLLChangesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BA2AFF5E22800F3E00C7B37E /* SLLChangesTableViewCell.m */; };
+		BA2AFF6322805DA000C7B37E /* UIColor+SLLColors.m in Sources */ = {isa = PBXBuildFile; fileRef = BA2AFF6222805DA000C7B37E /* UIColor+SLLColors.m */; };
+		BA2AFF6622805EA800C7B37E /* CAGradientLayer+SLLGradients.m in Sources */ = {isa = PBXBuildFile; fileRef = BA2AFF6522805EA800C7B37E /* CAGradientLayer+SLLGradients.m */; };
 		BA2D99EA223807EE006960C6 /* SLLNetworkService.m in Sources */ = {isa = PBXBuildFile; fileRef = BA2D99E9223807EE006960C6 /* SLLNetworkService.m */; };
 		BA2D99EC22380832006960C6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BA2D99EB22380832006960C6 /* GoogleService-Info.plist */; };
 		BA355BB92228247F00EB90C4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BA355BB82228247F00EB90C4 /* AppDelegate.m */; };
@@ -30,6 +36,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BA2AFF52227F73BE00C7B37E /* SLLInteractorMainService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLLInteractorMainService.h; sourceTree = "<group>"; };
+		BA2AFF53227F73BE00C7B37E /* SLLInteractorMainService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLLInteractorMainService.m; sourceTree = "<group>"; };
+		BA2AFF55227F81EA00C7B37E /* SLLIntercatorProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLLIntercatorProtocol.h; sourceTree = "<group>"; };
+		BA2AFF56227F9CD400C7B37E /* SLLChangePresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLLChangePresenter.h; sourceTree = "<group>"; };
+		BA2AFF57227F9CD400C7B37E /* SLLChangePresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLLChangePresenter.m; sourceTree = "<group>"; };
+		BA2AFF59227FA35B00C7B37E /* SLLRootCoordinator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLLRootCoordinator.h; sourceTree = "<group>"; };
+		BA2AFF5A227FA35B00C7B37E /* SLLRootCoordinator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLLRootCoordinator.m; sourceTree = "<group>"; };
+		BA2AFF5C227FAEE100C7B37E /* SLLChangePresenterProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLLChangePresenterProtocol.h; sourceTree = "<group>"; };
+		BA2AFF5D22800F3E00C7B37E /* SLLChangesTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLLChangesTableViewCell.h; sourceTree = "<group>"; };
+		BA2AFF5E22800F3E00C7B37E /* SLLChangesTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLLChangesTableViewCell.m; sourceTree = "<group>"; };
+		BA2AFF6122805DA000C7B37E /* UIColor+SLLColors.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+SLLColors.h"; sourceTree = "<group>"; };
+		BA2AFF6222805DA000C7B37E /* UIColor+SLLColors.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+SLLColors.m"; sourceTree = "<group>"; };
+		BA2AFF6422805EA800C7B37E /* CAGradientLayer+SLLGradients.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CAGradientLayer+SLLGradients.h"; sourceTree = "<group>"; };
+		BA2AFF6522805EA800C7B37E /* CAGradientLayer+SLLGradients.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "CAGradientLayer+SLLGradients.m"; sourceTree = "<group>"; };
 		BA2CF33322316E9F001EE0C7 /* SLLNetworkProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLLNetworkProtocol.h; sourceTree = "<group>"; };
 		BA2D99E8223807EE006960C6 /* SLLNetworkService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLLNetworkService.h; sourceTree = "<group>"; };
 		BA2D99E9223807EE006960C6 /* SLLNetworkService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLLNetworkService.m; sourceTree = "<group>"; };
@@ -71,6 +91,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BA2AFF6022805C7400C7B37E /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				BA2AFF6122805DA000C7B37E /* UIColor+SLLColors.h */,
+				BA2AFF6222805DA000C7B37E /* UIColor+SLLColors.m */,
+				BA2AFF6422805EA800C7B37E /* CAGradientLayer+SLLGradients.h */,
+				BA2AFF6522805EA800C7B37E /* CAGradientLayer+SLLGradients.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
 		BA355BAB2228247F00EB90C4 = {
 			isa = PBXGroup;
 			children = (
@@ -98,17 +129,19 @@
 				BA355BB72228247F00EB90C4 /* AppDelegate.h */,
 				BA355BB82228247F00EB90C4 /* AppDelegate.m */,
 				BA355BC62228248100EB90C4 /* main.m */,
+				BA2AFF59227FA35B00C7B37E /* SLLRootCoordinator.h */,
+				BA2AFF5A227FA35B00C7B37E /* SLLRootCoordinator.m */,
 			);
 			path = GerritApp;
 			sourceTree = "<group>";
 		};
-		BA374185226E582A0081591A /* Account */ = {
+		BA374185226E582A0081591A /* Accounts */ = {
 			isa = PBXGroup;
 			children = (
 				BA355BBA2228247F00EB90C4 /* SLLAccountViewController.h */,
 				BA355BBB2228247F00EB90C4 /* SLLAccountViewController.m */,
 			);
-			name = Account;
+			name = Accounts;
 			sourceTree = "<group>";
 		};
 		BA374187226E58C20081591A /* Projects */ = {
@@ -125,6 +158,11 @@
 			children = (
 				BA37418F226E67760081591A /* SLLChangeViewController.h */,
 				BA374190226E67760081591A /* SLLChangeViewController.m */,
+				BA2AFF5D22800F3E00C7B37E /* SLLChangesTableViewCell.h */,
+				BA2AFF5E22800F3E00C7B37E /* SLLChangesTableViewCell.m */,
+				BA2AFF56227F9CD400C7B37E /* SLLChangePresenter.h */,
+				BA2AFF57227F9CD400C7B37E /* SLLChangePresenter.m */,
+				BA2AFF5C227FAEE100C7B37E /* SLLChangePresenterProtocol.h */,
 			);
 			name = Changes;
 			sourceTree = "<group>";
@@ -152,6 +190,9 @@
 			isa = PBXGroup;
 			children = (
 				BAF9467B223702D800D3F6A8 /* NetworkService */,
+				BA2AFF52227F73BE00C7B37E /* SLLInteractorMainService.h */,
+				BA2AFF53227F73BE00C7B37E /* SLLInteractorMainService.m */,
+				BA2AFF55227F81EA00C7B37E /* SLLIntercatorProtocol.h */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -171,9 +212,10 @@
 		BAF9467C2237035800D3F6A8 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				BA2AFF6022805C7400C7B37E /* Categories */,
 				BA374197226F18E60081591A /* Changes */,
 				BA374187226E58C20081591A /* Projects */,
-				BA374185226E582A0081591A /* Account */,
+				BA374185226E582A0081591A /* Accounts */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -278,9 +320,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA2D99EA223807EE006960C6 /* SLLNetworkService.m in Sources */,
+				BA2AFF6622805EA800C7B37E /* CAGradientLayer+SLLGradients.m in Sources */,
 				BA37418C226E5EA20081591A /* SLLNetworkCreateURL.m in Sources */,
+				BA2AFF5F22800F3E00C7B37E /* SLLChangesTableViewCell.m in Sources */,
+				BA2AFF5B227FA35B00C7B37E /* SLLRootCoordinator.m in Sources */,
 				BA355BBC2228247F00EB90C4 /* SLLAccountViewController.m in Sources */,
+				BA2AFF54227F73BE00C7B37E /* SLLInteractorMainService.m in Sources */,
 				BA355BC72228248100EB90C4 /* main.m in Sources */,
+				BA2AFF6322805DA000C7B37E /* UIColor+SLLColors.m in Sources */,
+				BA2AFF58227F9CD400C7B37E /* SLLChangePresenter.m in Sources */,
 				BA374191226E67760081591A /* SLLChangeViewController.m in Sources */,
 				BA355BB92228247F00EB90C4 /* AppDelegate.m in Sources */,
 				BA374194226E678B0081591A /* SLLProjectViewController.m in Sources */,

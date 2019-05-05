@@ -12,26 +12,31 @@
 
 #import <Foundation/Foundation.h>
 
+/**
+ <#Description#>
+ */
 @protocol SLLNetworkInputProtocol <NSObject>
 
-@required
-- (void)startConnection;
-
 @optional
-- (void)getChangeInfoForGerritForTime:(NSDate *)date;
-- (void)getAccountInfoForGerritForTime:(NSDate *)date;
-- (void)getProjectInfoForGerritForTime:(NSDate *)date;
+
+- (void)downloadAllChangeGerrit;
+- (void)downloadSelfAccountGerrit;
+- (void)downloadAllProjectGerrit;
+- (void)downloadAccountGerritForListID:(NSArray<NSString *> *)listAccountID;
 
 @end
 
 
+/**
+ <#Description#>
+ */
 @protocol SLLNetworkOutputProtocol <NSObject>
 
 @optional
 
-- (void) finishLoadingData:(NSData *)rawData;
-- (void) loadingPartForAccountInfo:(NSData *)rawData;
-- (void) loadingPartForProjectInfo:(NSData *)rawData;
+- (void) finishLoadingData:(NSDictionary<NSString *, NSString *> *)rawData;
+- (void) loadingPartForAccountInfo:(NSDictionary<NSString *, NSString *> *)rawData;
+- (void) loadingPartForProjectInfo:(NSDictionary<NSString *, NSString *> *)rawData;
 
 @end
 

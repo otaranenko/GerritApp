@@ -7,13 +7,12 @@
 //
 
 #import "AppDelegate.h"
-#import "./Modules/SLLProjectViewController.h"
-#import "./Modules/SLLAccountViewController.h"
-#import "./Modules/SLLChangeViewController.h"
+#import "SLLRootCoordinator.h"
 
-#import "./Service/SLLNetworkService.h"
 
 @interface AppDelegate ()
+
+@property (nonatomic, strong) SLLRootCoordinator *rootViewControllerCoordinator;
 
 @end
 
@@ -22,33 +21,14 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];    
+    self.window.layer.masksToBounds = YES;
+    self.window.layer.cornerRadius = 7;
     
-    SLLChangeViewController *changeVC = [[SLLChangeViewController alloc] init];
-    changeVC.tabBarItem.title = @"Изменения";
-    changeVC.tabBarItem.image = [UIImage imageNamed:@"noun_change"];
-    
-    SLLProjectViewController *projectVC = [[SLLProjectViewController alloc] init];
-    projectVC.tabBarItem.title = @"Проекты";
-    projectVC.tabBarItem.image = [UIImage imageNamed:@"noun_project"];
-    
-    SLLAccountViewController *accountVC = [[SLLAccountViewController alloc] init];
-    accountVC.tabBarItem.title = @"Аккаунт";
-    accountVC.tabBarItem.image = [UIImage imageNamed:@"noun_account"];
-    accountVC.tabBarItem.selectedImage = [UIImage imageNamed:@"zodiak2"];
-    
-    NSArray *viewControllerArray = @[changeVC, projectVC, accountVC];
-    UITabBarController *tabBarViewController = [[UITabBarController alloc] init];
-    tabBarViewController.tabBar.translucent = YES;
-    tabBarViewController.tabBar.tintColor = [UIColor whiteColor];
-    tabBarViewController.tabBar.barTintColor = [UIColor blackColor];
-    
-    tabBarViewController.viewControllers = viewControllerArray;
-    self.window.rootViewController = tabBarViewController;
+    self.rootViewControllerCoordinator = [SLLRootCoordinator new];
+    self.window.rootViewController = [self.rootViewControllerCoordinator rootCustomViewController];
+
     [self.window makeKeyAndVisible];
-    
-    SLLNetworkService *sll = [SLLNetworkService new];
-    [sll startConnection];
 
     return YES;
 }
