@@ -7,9 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "SLLNetworkProtocol.h"
 
-@protocol SLLNetworkInputProtocol;
-@protocol SLLNetworkOutputProtocol;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -18,7 +17,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, weak, nullable) id<SLLNetworkOutputProtocol> interactor;
 
-- (void)startConnection;
 
 @end
 

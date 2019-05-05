@@ -22,8 +22,6 @@
 {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor lightGrayColor];
-//    [self loadData];
-
 }
 
 - (void) createTableView

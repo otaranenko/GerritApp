@@ -10,41 +10,58 @@
 
 
 static NSString *const SLLdomainNameString = @"gerrit-review.googlesource.com";
-static NSString *const SLLgetStatusChangeForOpen = @"?q=status:open";
-static NSString *const SLLgetStatusChangeForMerged = @"?q=status:merged";
-static NSString *const SLLgetStatusChangeForAbandoned = @"?q=status:abandoned";
-//https://gerrit-review.googlesource.com/changes/?q=status:open
+
 
 @implementation SLLNetworkCreateURL
 
 + (NSString *)infoAccountFromId:(NSString *)id
 {
-    return [NSString stringWithFormat:@"https://%@/accounts/", SLLdomainNameString ];
+    return [NSString stringWithFormat:@"https://%@/%@/%@", SLLdomainNameString,
+            [SLLNetworkCreateURL formatTypeToString:SLLAccount], id];
 }
 
-+ (NSString *)infoProjectFrom
++ (NSString *)infoProject
 {
-    return [NSString stringWithFormat:@"https://%@/projects/", SLLdomainNameString ];
+    return [NSString stringWithFormat:@"https://%@/%@/",
+            SLLdomainNameString, [SLLNetworkCreateURL formatTypeToString:SLLProject]];
 }
 
-+ (NSString *)infoChangeForParameters:(NSString *)string
++ (NSString *)infoChangeForParameters:(SLLNetworkRequestType )formatType
 {
-    return [NSString stringWithFormat:@"https://%@/changes/%@", SLLdomainNameString, string];
+    return [NSString stringWithFormat:@"https://%@/%@/%@",
+            SLLdomainNameString, [SLLNetworkCreateURL formatTypeToString:SLLChange],
+            [SLLNetworkCreateURL formatTypeToString:formatType]];
 }
 
-+ (NSString *)infoChangeForOpen
-{
-    return [self infoChangeForParameters:SLLgetStatusChangeForOpen];
-}
++ (NSString*)formatTypeToString:(SLLNetworkRequestType)formatType
+{    
+    NSString *result = nil;
 
-+ (NSString *)infoChangeForMerged
-{
-    return [self infoChangeForParameters:SLLgetStatusChangeForMerged];
-}
-
-+ (NSString *)infoChangeForAbandoned
-{
-    return [self infoChangeForParameters:SLLgetStatusChangeForAbandoned];
+    switch(formatType)
+    {
+        case SLLChange:
+            result = @"changes";
+            break;
+        case SLLAccount:
+            result = @"accounts";
+            break;
+        case SLLProject:
+            result = @"projects";
+            break;
+        case SLLChangeForOpen:
+            result = @"?q=status:open";
+            break;
+        case SLLChangeForMerged:
+            result = @"?q=status:merged";
+            break;
+        case SLLChangeForAbandoned:
+            result = @"?q=status:abandoned";
+            break;
+        default:
+            [NSException raise:NSGenericException format:@"Unknown type."];
+    }
+    
+    return result;
 }
 
 @end
