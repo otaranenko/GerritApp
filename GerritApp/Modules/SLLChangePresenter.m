@@ -10,4 +10,27 @@
 
 @implementation SLLChangePresenter
 
+
+#pragma mark -  SLLChangePresenterInputProtocol
+
+- (void)getDataForChangesisAbandoned {
+        NSLog(@"getDataForChangesisAbandoned");
+}
+
+- (void)getDataForChangesisMerged {
+    NSLog(@"getDataForChangesisMerged");
+}
+
+- (void)getDataForChangesisOpen {
+    [self.interactor dataForChangesisOpen];
+}
+
+
+#pragma mark -  SLLItercatorOutupProtocol
+
+- (void)getChangeGerritForPresenter
+{
+    
+}
+
 @end

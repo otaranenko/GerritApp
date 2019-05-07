@@ -28,9 +28,6 @@ typedef NS_ENUM(NSUInteger, SLLNetworkRequestType) {
 + (NSString *)infoProject;
 + (NSString *)infoChangeForParameters:(SLLNetworkRequestType )formatType;
 + (NSString*)formatTypeToString:(SLLNetworkRequestType)formatType;
-//+ (NSString *)infoChangeForOpen;
-//+ (NSString *)infoChangeForMerged;
-//+ (NSString *)infoChangeForAbandoned;
 
 @end
 

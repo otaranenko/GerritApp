@@ -39,7 +39,7 @@ static const CGFloat SLLmarginsBorder = 5.0f;
     if (self)
     {
         _frontView = [[UIView alloc] init];
-        _frontView.layer.cornerRadius = 14;
+        _frontView.layer.cornerRadius = 13;
         _frontView.layer.masksToBounds = YES;
         _frontView.backgroundColor = [UIColor whiteColor];
         [self.contentView addSubview:_frontView];
@@ -74,7 +74,7 @@ static const CGFloat SLLmarginsBorder = 5.0f;
         // Аватарка пользователя
         _avatarImageView = [[UIImageView alloc] init];
         _avatarImageView.contentMode = UIViewContentModeScaleAspectFill;
-        _avatarImageView.backgroundColor = [UIColor redColor];
+        _avatarImageView.backgroundColor = [UIColor whiteColor];
         _avatarImageView.layer.cornerRadius = 10;
         _avatarImageView.layer.masksToBounds = YES;
         _avatarImageView.clipsToBounds = YES;
@@ -93,11 +93,11 @@ static const CGFloat SLLmarginsBorder = 5.0f;
 
 - (void) defaultValueUI
 {
-    _numberChangesLabel.text = @"00000";
-    _repoChangesLabel.text = @"Repo";
-    _dateChangesLabel.text = @"01.01.2000";
-    _descriptionChangesLabel.text = @"Description";
-    _authorLabel.text = @"Unknown Unknown";
+    self.numberChangesLabel.text = @"00000";
+    self.repoChangesLabel.text = @"Repo";
+    self.dateChangesLabel.text = @"01.01.2000";
+    self.descriptionChangesLabel.text = @"Description";
+    self.authorLabel.text = @"Unknown Unknown";
 }
 
 - (void)updateConstraints {
@@ -149,6 +149,7 @@ static const CGFloat SLLmarginsBorder = 5.0f;
 {
     [super layoutSubviews];
     self.frontLayer.frame = self.frontView.frame = self.contentView.bounds;
+    [self updateConstraints];
 }
 
 
@@ -156,6 +157,7 @@ static const CGFloat SLLmarginsBorder = 5.0f;
 {
     [super prepareForReuse];
     [self defaultValueUI];
+    [self updateConstraints];
 }
 
 @end

@@ -13,9 +13,11 @@
 NS_ASSUME_NONNULL_BEGIN
 
 
-@interface SLLInteractorMainService : NSObject <SLLNetworkOutputProtocol, SLLItercatorOutupProtocol>
+@interface SLLInteractorMainService : NSObject <SLLNetworkOutputProtocol, SLLItercatorInputProtocol>
 
 @property (nonatomic, weak, nullable) id<SLLNetworkInputProtocol> networkService;
+//@property (nonatomic, weak, nullable) id<SLLMainPresenter> presenter;
+// ТУТ ТРАБЛА надо иметь общий протокол для презентеров
 
 @end
 

@@ -7,8 +7,18 @@
 //
 
 
-@protocol SLLChangePresenterProtocol <NSObject>
+@protocol SLLChangePresenterOutputProtocol <NSObject>
 
-<#methods#>
+- (void)setTableViewForCellData:(NSArray<NSString *> *)data;
+
+@end
+
+
+
+@protocol SLLChangePresenterInputProtocol <NSObject>
+
+- (void)getDataForChangesisOpen;
+- (void)getDataForChangesisMerged;
+- (void)getDataForChangesisAbandoned;
 
 @end
