@@ -22,6 +22,7 @@
 {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor lightGrayColor];
+        self.navigationItem.title = @"Настройки аккаунта";
 }
 
 - (void) createTableView

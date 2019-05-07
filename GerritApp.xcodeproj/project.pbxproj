@@ -22,6 +22,9 @@
 		BA37418C226E5EA20081591A /* SLLNetworkCreateURL.m in Sources */ = {isa = PBXBuildFile; fileRef = BA37418B226E5EA20081591A /* SLLNetworkCreateURL.m */; };
 		BA374191226E67760081591A /* SLLChangeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA374190226E67760081591A /* SLLChangeViewController.m */; };
 		BA374194226E678B0081591A /* SLLProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA374193226E678B0081591A /* SLLProjectViewController.m */; };
+		BA901A5B2281CEDB0088BF22 /* SLLChangesRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = BA901A5A2281CEDB0088BF22 /* SLLChangesRouter.m */; };
+		BA901A5E228226810088BF22 /* SLLProjectRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = BA901A5D228226810088BF22 /* SLLProjectRouter.m */; };
+		BA901A612282269C0088BF22 /* SLLAccountRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = BA901A602282269C0088BF22 /* SLLAccountRouter.m */; };
 		BABC240C227395DA006128BD /* GerritAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BABC240B227395DA006128BD /* GerritAppTests.m */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +71,12 @@
 		BA374190226E67760081591A /* SLLChangeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLLChangeViewController.m; sourceTree = "<group>"; };
 		BA374192226E678B0081591A /* SLLProjectViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLLProjectViewController.h; sourceTree = "<group>"; };
 		BA374193226E678B0081591A /* SLLProjectViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLLProjectViewController.m; sourceTree = "<group>"; };
+		BA901A592281CEDB0088BF22 /* SLLChangesRouter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLLChangesRouter.h; sourceTree = "<group>"; };
+		BA901A5A2281CEDB0088BF22 /* SLLChangesRouter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLLChangesRouter.m; sourceTree = "<group>"; };
+		BA901A5C228226810088BF22 /* SLLProjectRouter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLLProjectRouter.h; sourceTree = "<group>"; };
+		BA901A5D228226810088BF22 /* SLLProjectRouter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLLProjectRouter.m; sourceTree = "<group>"; };
+		BA901A5F2282269C0088BF22 /* SLLAccountRouter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLLAccountRouter.h; sourceTree = "<group>"; };
+		BA901A602282269C0088BF22 /* SLLAccountRouter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLLAccountRouter.m; sourceTree = "<group>"; };
 		BABC2409227395DA006128BD /* GerritAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GerritAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BABC240B227395DA006128BD /* GerritAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GerritAppTests.m; sourceTree = "<group>"; };
 		BABC240D227395DA006128BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -110,6 +119,7 @@
 				BA355BB52228247F00EB90C4 /* Products */,
 			);
 			sourceTree = "<group>";
+			usesTabs = 0;
 		};
 		BA355BB52228247F00EB90C4 /* Products */ = {
 			isa = PBXGroup;
@@ -140,6 +150,8 @@
 			children = (
 				BA355BBA2228247F00EB90C4 /* SLLAccountViewController.h */,
 				BA355BBB2228247F00EB90C4 /* SLLAccountViewController.m */,
+				BA901A5F2282269C0088BF22 /* SLLAccountRouter.h */,
+				BA901A602282269C0088BF22 /* SLLAccountRouter.m */,
 			);
 			name = Accounts;
 			sourceTree = "<group>";
@@ -149,6 +161,8 @@
 			children = (
 				BA374192226E678B0081591A /* SLLProjectViewController.h */,
 				BA374193226E678B0081591A /* SLLProjectViewController.m */,
+				BA901A5C228226810088BF22 /* SLLProjectRouter.h */,
+				BA901A5D228226810088BF22 /* SLLProjectRouter.m */,
 			);
 			name = Projects;
 			sourceTree = "<group>";
@@ -163,6 +177,8 @@
 				BA2AFF56227F9CD400C7B37E /* SLLChangePresenter.h */,
 				BA2AFF57227F9CD400C7B37E /* SLLChangePresenter.m */,
 				BA2AFF5C227FAEE100C7B37E /* SLLChangePresenterProtocol.h */,
+				BA901A592281CEDB0088BF22 /* SLLChangesRouter.h */,
+				BA901A5A2281CEDB0088BF22 /* SLLChangesRouter.m */,
 			);
 			name = Changes;
 			sourceTree = "<group>";
@@ -200,11 +216,11 @@
 		BAF9467B223702D800D3F6A8 /* NetworkService */ = {
 			isa = PBXGroup;
 			children = (
-				BA2CF33322316E9F001EE0C7 /* SLLNetworkProtocol.h */,
-				BA2D99E8223807EE006960C6 /* SLLNetworkService.h */,
-				BA2D99E9223807EE006960C6 /* SLLNetworkService.m */,
 				BA37418A226E5EA20081591A /* SLLNetworkCreateURL.h */,
 				BA37418B226E5EA20081591A /* SLLNetworkCreateURL.m */,
+				BA2D99E8223807EE006960C6 /* SLLNetworkService.h */,
+				BA2D99E9223807EE006960C6 /* SLLNetworkService.m */,
+				BA2CF33322316E9F001EE0C7 /* SLLNetworkProtocol.h */,
 			);
 			name = NetworkService;
 			sourceTree = "<group>";
@@ -264,6 +280,7 @@
 		BA355BAC2228247F00EB90C4 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = SLL;
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = "Oleg Taranenko";
 				TargetAttributes = {
@@ -321,10 +338,13 @@
 			files = (
 				BA2D99EA223807EE006960C6 /* SLLNetworkService.m in Sources */,
 				BA2AFF6622805EA800C7B37E /* CAGradientLayer+SLLGradients.m in Sources */,
+				BA901A5B2281CEDB0088BF22 /* SLLChangesRouter.m in Sources */,
 				BA37418C226E5EA20081591A /* SLLNetworkCreateURL.m in Sources */,
 				BA2AFF5F22800F3E00C7B37E /* SLLChangesTableViewCell.m in Sources */,
 				BA2AFF5B227FA35B00C7B37E /* SLLRootCoordinator.m in Sources */,
+				BA901A612282269C0088BF22 /* SLLAccountRouter.m in Sources */,
 				BA355BBC2228247F00EB90C4 /* SLLAccountViewController.m in Sources */,
+				BA901A5E228226810088BF22 /* SLLProjectRouter.m in Sources */,
 				BA2AFF54227F73BE00C7B37E /* SLLInteractorMainService.m in Sources */,
 				BA355BC72228248100EB90C4 /* main.m in Sources */,
 				BA2AFF6322805DA000C7B37E /* UIColor+SLLColors.m in Sources */,

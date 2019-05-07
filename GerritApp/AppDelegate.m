@@ -21,13 +21,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];    
-    self.window.layer.masksToBounds = YES;
-    self.window.layer.cornerRadius = 7;
-    
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.rootViewControllerCoordinator = [SLLRootCoordinator new];
     self.window.rootViewController = [self.rootViewControllerCoordinator rootCustomViewController];
-
     [self.window makeKeyAndVisible];
 
     return YES;

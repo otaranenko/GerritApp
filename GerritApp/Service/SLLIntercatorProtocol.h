@@ -15,3 +15,15 @@
 - (void)getChangeGerritForPresenter;
 
 @end
+
+
+
+@protocol SLLItercatorInputProtocol <NSObject>
+
+@optional
+
+- (void)dataForChangesisOpen;
+- (void)dataForChangesisMerged;
+- (void)dataForChangesisAbandoned;
+
+@end

@@ -7,10 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "SLLChangePresenterProtocol.h"
+#import "../Service/SLLIntercatorProtocol.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SLLChangePresenter : NSObject
+@interface SLLChangePresenter : NSObject <SLLChangePresenterInputProtocol, SLLItercatorOutupProtocol>
+
+@property (nonatomic, weak) id<SLLChangePresenterOutputProtocol> view;
+@property (nonatomic, weak) id<SLLItercatorInputProtocol> interactor;
 
 @end
 

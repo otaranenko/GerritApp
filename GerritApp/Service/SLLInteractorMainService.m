@@ -8,16 +8,26 @@
 
 #import "SLLInteractorMainService.h"
 
+
 @implementation SLLInteractorMainService
 
 
-#pragma mark -  SLLNetworkOutputProtocol
+#pragma mark -  SLLItercatorInputProtocol
 
-- (void)getChangeGerritForPresenter
+- (void)dataForChangesisOpen
 {
     [self.networkService downloadAllChangeGerrit];
 }
 
+- (void)dataForChangesisMerged
+{
+    
+}
+
+- (void)dataForChangesisAbandoned
+{
+    
+}
 
 - (void) finishLoadingData:(NSDictionary<NSString *, NSString *> *)rawData
 {
@@ -36,7 +46,7 @@
 
 - (void) loadingPartForAccountInfo:(NSDictionary<NSString *, NSString *> *)rawData
 {
-    
+    NSLog(@"FINISH");
 }
 
 - (void) loadingPartForProjectInfo:(NSDictionary<NSString *, NSString *> *)rawData

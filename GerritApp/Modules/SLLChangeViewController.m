@@ -13,7 +13,9 @@
 @interface SLLChangeViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) UITableView *changesTableView;
+@property (nonatomic, strong) UISegmentedControl *segmentedControl;
 @property (nonatomic, strong) NSString *identifierCell;
+@property (nonatomic, strong) NSArray <NSString *> *dataForCell;
 
 @end
 
@@ -23,19 +25,36 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor lightGrayColor];
+    self.navigationItem.title = @"Изменения";
+    
     [self buildUI];
+    [self setupRefreshControl];
+    [self updateViewConstraints];
 }
 
-- (void) buildUI
+- (void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
+    if ([self.changesTableView.refreshControl isRefreshing])
+    {
+        [self.changesTableView.refreshControl endRefreshing];
+    }
+}
+
+- (void)buildUI
+{
+    NSArray <NSString *> *itemSegmentedControl = @[@"Открытые", @"Объединенные", @"Отклоненные"];
+    self.segmentedControl = [[UISegmentedControl alloc] initWithItems:itemSegmentedControl];
+    self.segmentedControl.selectedSegmentIndex = 0;
+    self.navigationItem.titleView = self.segmentedControl;
+    
     self.identifierCell = NSStringFromClass([SLLChangesTableViewCell class]);
-    self.changesTableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
+    self.changesTableView = [[UITableView alloc] init];
     
     self.changesTableView.delegate = self;
     self.changesTableView.dataSource = self;
     
     self.changesTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    self.changesTableView.contentInset = UIEdgeInsetsMake(0, 0, 16, 0);
     self.changesTableView.showsVerticalScrollIndicator = NO;
     self.changesTableView.showsHorizontalScrollIndicator = NO;
     
@@ -46,12 +65,50 @@
 }
 
 
+- (void)setupRefreshControl
+{
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl addTarget:self action:@selector(actionRefreshParties:) forControlEvents:UIControlEventValueChanged];
+    self.changesTableView.refreshControl = refreshControl;
+}
+
+- (void)actionRefreshParties:(id)sender
+{
+    if ([sender isKindOfClass:[UIRefreshControl class]])
+    {
+        [self.changesTableView.refreshControl beginRefreshing];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            NSLog(@"START UPDATE to INTERACOR TIMER !!!");
+              [self.presenter getDataForChangesisOpen];
+        });
+    }
+    else
+    {
+        [self.presenter getDataForChangesisOpen];
+        NSLog(@"Start UPDATE INTERACOR");
+    }
+}
+
+- (void)updateViewConstraints
+{
+    self.changesTableView.translatesAutoresizingMaskIntoConstraints = NO;
+    [NSLayoutConstraint activateConstraints:
+     @[
+       [self.changesTableView.topAnchor constraintEqualToAnchor: self.view.topAnchor],
+       [self.changesTableView.leftAnchor constraintEqualToAnchor: self.view.leftAnchor ],
+       [self.changesTableView.rightAnchor constraintEqualToAnchor: self.view.rightAnchor ],
+       [self.changesTableView.bottomAnchor constraintEqualToAnchor: self.view.bottomAnchor],
+       ]];
+    
+    [super updateViewConstraints];
+}
+
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-//    return self.partiesArray.count
-    return 20;
+   // return self.dataForCell.count;
+    return 10;
 }
 
 
@@ -75,25 +132,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Получение начального фрейма перехода из ячейки
-//    DAZPartyTableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
-//    CGRect cellFrame = [self.view convertRect:cell.cardView.bounds fromView:cell.cardView];
-//
-//    self.presentDetailsViewController = [[DAZPresentPartyDetailsTransitionController alloc] init];
-//    self.presentDetailsViewController.cellFrame = cellFrame;
-//
-//    PartyMO *party = self.partiesArray[indexPath.row];
-//    DAZPartyDetailsViewControllers *partyDetailsViewController = [[DAZPartyDetailsViewControllers alloc] initWithParty:party];
-//    partyDetailsViewController.delegate = self;
-//    partyDetailsViewController.transitioningDelegate = self;
-    
-//    [self presentViewController:partyDetailsViewController animated:YES completion:nil];
+    NSLog(@"ffdfdfdfd");
+//    [self presentViewController:detailsViewController animated:YES completion:nil];
 }
-
-//- (id <UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source
-//{
-//    return self.presentDetailsViewController;
-//}
 
 - (void)reloadTableView
 {
@@ -111,8 +152,12 @@
             [self.changesTableView.refreshControl endRefreshing];
         }
     }];
-    
 }
 
+
+- (void)setTableViewForCellData:(NSArray<NSString *> *)data {
+    self.dataForCell = data;
+    [self reloadTableView];
+}
 
 @end
