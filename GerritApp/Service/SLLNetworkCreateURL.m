@@ -17,44 +17,44 @@ static NSString *const SLLdomainNameString = @"gerrit-review.googlesource.com";
 + (NSString *)infoAccountFromId:(NSString *)id
 {
     return [NSString stringWithFormat:@"https://%@/%@/%@", SLLdomainNameString,
-            [SLLNetworkCreateURL formatTypeToString:SLLAccount], id];
+            [SLLNetworkCreateURL formatTypeToString:SLLNetworkRequestTypeAccount], id];
 }
 
 + (NSString *)infoProject
 {
     return [NSString stringWithFormat:@"https://%@/%@/",
-            SLLdomainNameString, [SLLNetworkCreateURL formatTypeToString:SLLProject]];
+            SLLdomainNameString, [SLLNetworkCreateURL formatTypeToString:SLLNetworkRequestTypeProject]];
 }
 
 + (NSString *)infoChangeForParameters:(SLLNetworkRequestType )formatType
 {
     return [NSString stringWithFormat:@"https://%@/%@/%@",
-            SLLdomainNameString, [SLLNetworkCreateURL formatTypeToString:SLLChange],
+            SLLdomainNameString, [SLLNetworkCreateURL formatTypeToString:SLLNetworkRequestTypeChange],
             [SLLNetworkCreateURL formatTypeToString:formatType]];
 }
 
-+ (NSString*)formatTypeToString:(SLLNetworkRequestType)formatType
++ (NSString *)formatTypeToString:(SLLNetworkRequestType)formatType
 {    
     NSString *result = nil;
 
     switch(formatType)
     {
-        case SLLChange:
+        case SLLNetworkRequestTypeChange:
             result = @"changes";
             break;
-        case SLLAccount:
+        case SLLNetworkRequestTypeAccount:
             result = @"accounts";
             break;
-        case SLLProject:
+        case SLLNetworkRequestTypeProject:
             result = @"projects";
             break;
-        case SLLChangeForOpen:
+        case SLLNetworkRequestTypeChangeForOpen:
             result = @"?q=status:open";
             break;
-        case SLLChangeForMerged:
+        case SLLNetworkRequestTypeChangeForMerged:
             result = @"?q=status:merged";
             break;
-        case SLLChangeForAbandoned:
+        case SLLNetworkRequestTypeChangeForAbandoned:
             result = @"?q=status:abandoned";
             break;
         default:

@@ -17,7 +17,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, weak, nullable) id<SLLNetworkOutputProtocol> interactor;
 
-
 @end
 
 NS_ASSUME_NONNULL_END

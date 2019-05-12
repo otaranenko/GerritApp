@@ -7,22 +7,10 @@
 //
 
 #import "SLLAccountRouter.h"
-#import "SLLAccountViewController.h"
 
 
-@interface SLLAccountRouter ()
-
-@property (nonatomic, strong) SLLAccountViewController *viewController;
-
-@end
 
 
 @implementation SLLAccountRouter
-
-- (UIViewController *)assemblyModuleAccount:(id<SLLItercatorInputProtocol>)interactor
-{
-    self.viewController = [SLLAccountViewController new];
-    return self.viewController;
-}
 
 @end

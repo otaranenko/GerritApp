@@ -7,12 +7,9 @@
 //
 
 #import "SLLRootCoordinator.h"
-#import "./Modules/SLLProjectRouter.h"
-#import "./Modules/SLLAccountRouter.h"
-#import "./Modules/SLLChangesRouter.h"
-
-#import "./Service/SLLNetworkService.h"
-#import "./Service/SLLInteractorMainService.h"
+#import "./Modules/SLLProjectAssembly.h"
+#import "./Modules/SLLAccountAssembly.h"
+#import "./Modules/SLLChangesAssembly.h"
 
 
 @interface SLLRootCoordinator ()
@@ -21,12 +18,9 @@
 @property (nonatomic, readonly) UIViewController *changesViewController;
 @property (nonatomic, readonly) UIViewController *projectsViewController;
 @property (nonatomic, readonly) UIViewController *accountsViewController;
-@property (nonatomic, strong) SLLChangesRouter *changeRouteModule;
-@property (nonatomic, strong) SLLAccountRouter *accountRouteModule;
-@property (nonatomic, strong) SLLProjectRouter *projectRouteModule;
-
-@property (nonatomic, strong)SLLNetworkService *sll;
-@property (nonatomic, strong)SLLInteractorMainService *interactorService;
+@property (nonatomic, strong) SLLChangesAssembly *changeModule;
+@property (nonatomic, strong) SLLAccountAssembly *accountModule;
+@property (nonatomic, strong) SLLProjectAssembly *projectModule;
 
 @end
 
@@ -34,33 +28,18 @@
 @implementation SLLRootCoordinator
 
 
-- (UIViewController *)rootCustomViewController
-{
-    [self assemblyService];
-    return [self tabBarController];
-}
-
-
 #pragma mark - RootViewController Assembly
 
-- (UITabBarController *)tabBarController
+- (UIViewController *)rootCustomViewController
 {
     UITabBarController *tabBarViewController = [[UITabBarController alloc] init];
     tabBarViewController.tabBar.translucent = YES;
     tabBarViewController.tabBar.tintColor = [UIColor whiteColor];
     tabBarViewController.tabBar.barTintColor = [UIColor blackColor];
     tabBarViewController.viewControllers = @[self.changesViewController,
-                                         self.projectsViewController,
-                                         self.accountsViewController];
+                                             self.projectsViewController,
+                                             self.accountsViewController];
     return tabBarViewController;
-}
-
-- (void)assemblyService
-{
-    self.sll = [SLLNetworkService new];
-    self.interactorService = [SLLInteractorMainService new];
-    self.sll.interactor = self.interactorService;
-    self.interactorService.networkService = self.sll;
 }
 
 
@@ -68,8 +47,8 @@
 
 - (UIViewController *)changesViewController
 {
-    self.changeRouteModule = [SLLChangesRouter new];
-    UIViewController *viewController = [[UINavigationController alloc] initWithRootViewController:[self.changeRouteModule assemblyModuleChange:self.interactorService]];
+    self.changeModule = [SLLChangesAssembly new];
+    UIViewController *viewController = [[UINavigationController alloc] initWithRootViewController:[self.changeModule assemblyModuleChange]];
     viewController.tabBarItem.title = @"Изменения";
     viewController.tabBarItem.image = [UIImage imageNamed:@"noun_change"];
     return viewController;
@@ -80,8 +59,8 @@
 
 - (UIViewController *)projectsViewController
 {
-    self.projectRouteModule = [SLLProjectRouter new];
-    UIViewController *viewController = [[UINavigationController alloc] initWithRootViewController:[self.projectRouteModule assemblyModuleProject:self.interactorService]];
+    self.projectModule = [SLLProjectAssembly new];
+    UIViewController *viewController = [[UINavigationController alloc] initWithRootViewController:[self.projectModule assemblyModuleProject]];
     viewController.tabBarItem.title = @"Проекты";
     viewController.tabBarItem.image = [UIImage imageNamed:@"noun_project"];
     return viewController;
@@ -92,8 +71,8 @@
 
 - (UIViewController *)accountsViewController
 {
-    self.accountRouteModule = [SLLAccountRouter new];
-    UIViewController *viewController = [[UINavigationController alloc] initWithRootViewController:[self.accountRouteModule assemblyModuleAccount:self.interactorService]];
+    self.accountModule = [SLLAccountAssembly new];
+    UIViewController *viewController = [[UINavigationController alloc] initWithRootViewController:[self.accountModule assemblyModuleAccount]];
     viewController.tabBarItem.title = @"Аккаунт";
     viewController.tabBarItem.image = [UIImage imageNamed:@"noun_account"];
     return viewController;

@@ -19,8 +19,8 @@
 @end
 
 
-@implementation SLLNetworkService
 
+@implementation SLLNetworkService
 
 - (NSData *)clearMagicSimbolsForRAWData:(NSData *)data
 {
@@ -53,33 +53,18 @@
     });
 }
 
-- (void)downloadAllChangeGerrit
+- (void)startDownloadImage:(NSString *)url forTransferData:(id) transferData
 {
-    NSArray <NSString *> *url = @[[SLLNetworkCreateURL infoChangeForParameters:SLLChangeForOpen]];
-    [self startDownloadData:url];
-}
-
-- (void)downloadSelfAccountGerrit
-{
-//    NSArray <NSString *> *url = @[[SLLNetworkCreateURL infoChangeForOpen]];
-//    [self startDownloadData:url];
-}
-
-- (void)downloadAccountGerritForListID:(NSArray<NSString *> *)listAccountID
-{
-    NSMutableArray *arrayURL = [NSMutableArray new];
-    for (NSString *accountID in listAccountID)
-    {
-        [arrayURL addObject:[SLLNetworkCreateURL infoAccountFromId:accountID] ];
-    }
-    [self startDownloadData:arrayURL];
+    NSURLSession *session = [NSURLSession sharedSession];
+    NSURLSessionDataTask *dataTask = [session dataTaskWithURL:[NSURL URLWithString:url] completionHandler:^(NSData *  data, NSURLResponse *  response, NSError *  error) {
+        if (!error) {
+            [self.interactor finishLoadingSerialData:data forData:transferData];
+        }
+        else
+            NSLog(@"error %@", error);
+    }];
     
-}
-
-- (void)downloadAllProjectGerrit
-{
-    NSArray <NSString *> *url = @[[SLLNetworkCreateURL infoProject]];
-    [self startDownloadData:url];
+    [dataTask resume];
 }
 
 
@@ -87,25 +72,25 @@
 
 - (void)URLSession:(nonnull NSURLSession *)session downloadTask:(nonnull NSURLSessionDownloadTask *)downloadTask didFinishDownloadingToURL:(nonnull NSURL *)location
 {
+    NSString *url = [[[downloadTask currentRequest].URL absoluteString] stringByRemovingPercentEncoding];
     NSData *data = [self clearMagicSimbolsForRAWData:[NSData dataWithContentsOfURL:location]];
     NSError *errorSerialization;
     NSDictionary *jsonList = [NSJSONSerialization JSONObjectWithData:data  options: kNilOptions error: &errorSerialization];
+    NSLog(@"json list = %@", jsonList);
     
     if (errorSerialization)
     {
         NSLog(@"Error = %@", errorSerialization);
         return;
     }
-    NSString *url = [[[downloadTask currentRequest].URL absoluteString] stringByRemovingPercentEncoding];
-    NSLog(@"json list = %@", jsonList);
     
-    if ([url containsString:[SLLNetworkCreateURL formatTypeToString:SLLAccount]])
+    if ([url containsString:[SLLNetworkCreateURL formatTypeToString:SLLNetworkRequestTypeAccount]])
     {
-        [self.interactor loadingPartForAccountInfo:jsonList];
+        [self.interactor finishLoadingParallelData:jsonList];
         return;
     }
     
-    if ([url containsString:[SLLNetworkCreateURL formatTypeToString:SLLChange]])
+    if ([url containsString:[SLLNetworkCreateURL formatTypeToString:SLLNetworkRequestTypeChange]])
     {
         [self.interactor finishLoadingData:jsonList];
         return;

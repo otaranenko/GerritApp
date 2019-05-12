@@ -7,13 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SLLChangePresenterProtocol.h"
+#import "SLLChangesPresenterProtocol.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SLLChangeViewController : UIViewController <SLLChangePresenterOutputProtocol>
+@interface SLLChangeViewController : UIViewController <SLLChangesPresenterOutputProtocol>
 
-@property (nonatomic, weak, nullable) id<SLLChangePresenterInputProtocol> presenter;
+@property (nonatomic, weak, nullable) id<SLLChangesPresenterInputProtocol> presenter;
 
 @end
 

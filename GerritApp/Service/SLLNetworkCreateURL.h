@@ -12,22 +12,21 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 typedef NS_ENUM(NSUInteger, SLLNetworkRequestType) {
-    SLLChange = 1,
-    SLLChangeForOpen,
-    SLLChangeForMerged,
-    SLLChangeForAbandoned,
-    SLLProject = 32,
-    SLLAccount = 64
+    SLLNetworkRequestTypeChange = 1,
+    SLLNetworkRequestTypeChangeForOpen,
+    SLLNetworkRequestTypeChangeForMerged,
+    SLLNetworkRequestTypeChangeForAbandoned,
+    SLLNetworkRequestTypeProject = 32,
+    SLLNetworkRequestTypeAccount = 64
 };
 
 
 @interface SLLNetworkCreateURL : NSObject
 
-
 + (NSString *)infoAccountFromId:(NSString *)id;
 + (NSString *)infoProject;
 + (NSString *)infoChangeForParameters:(SLLNetworkRequestType )formatType;
-+ (NSString*)formatTypeToString:(SLLNetworkRequestType)formatType;
++ (NSString *)formatTypeToString:(SLLNetworkRequestType)formatType;
 
 @end
 

@@ -8,7 +8,8 @@
 
 #import "SLLChangesTableViewCell.h"
 #import "CAGradientLayer+SLLGradients.h"
-
+#import "SLLChange.h"
+#import "SLLAccount.h"
 
 static const CGFloat SLLmarginsBorder = 5.0f;
 
@@ -31,7 +32,6 @@ static const CGFloat SLLmarginsBorder = 5.0f;
 
 
 @implementation SLLChangesTableViewCell
-
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -69,6 +69,7 @@ static const CGFloat SLLmarginsBorder = 5.0f;
         _descriptionChangesLabel = [[UILabel alloc] init];
         _descriptionChangesLabel.font = [UIFont systemFontOfSize:15 weight:UIFontWeightBold];
         _descriptionChangesLabel.textColor = [UIColor whiteColor];
+        _descriptionChangesLabel.numberOfLines = 2;
         [_frontView addSubview:_descriptionChangesLabel];
         
         // Аватарка пользователя
@@ -85,13 +86,24 @@ static const CGFloat SLLmarginsBorder = 5.0f;
         _authorLabel.font = [UIFont systemFontOfSize:13 weight:UIFontWeightRegular];
         _authorLabel.textColor = [UIColor whiteColor];
         [_frontView addSubview:_authorLabel];
-        [self defaultValueUI];
-        [self updateConstraints];
+        [self defaultValueDataForCell];
     }
     return self;
 }
 
-- (void) defaultValueUI
+- (SLLChangesTableViewCell *)setCell:(SLLChangesTableViewCell *)cell ForData:(SLLChange *)changeData
+                           withOwner:(SLLAccount *)account
+{
+    cell.numberChangesLabel.text = [changeData.changeNumber stringValue];
+    cell.repoChangesLabel.text = changeData.changeProject;
+    cell.dateChangesLabel.text = changeData.changeUpdateDate;
+    cell.descriptionChangesLabel.text = changeData.changeSubject;
+    cell.authorLabel.text = account.name;
+    cell.avatarImageView.image = [UIImage imageWithData:account.avatarImage];
+    return cell;
+}
+
+- (void) defaultValueDataForCell
 {
     self.numberChangesLabel.text = @"00000";
     self.repoChangesLabel.text = @"Repo";
@@ -100,8 +112,8 @@ static const CGFloat SLLmarginsBorder = 5.0f;
     self.authorLabel.text = @"Unknown Unknown";
 }
 
-- (void)updateConstraints {
-
+- (void)updateConstraints
+{    
     self.frontView.translatesAutoresizingMaskIntoConstraints = NO;
     self.numberChangesLabel.translatesAutoresizingMaskIntoConstraints = NO;
     self.repoChangesLabel.translatesAutoresizingMaskIntoConstraints = NO;
@@ -128,7 +140,7 @@ static const CGFloat SLLmarginsBorder = 5.0f;
        
        [self.descriptionChangesLabel.leftAnchor constraintEqualToAnchor: self.frontView.leftAnchor constant:SLLmarginsBorder],
        [self.descriptionChangesLabel.rightAnchor constraintEqualToAnchor: self.frontView.rightAnchor ],
-       [self.descriptionChangesLabel.heightAnchor constraintEqualToConstant:20.0],
+       [self.descriptionChangesLabel.heightAnchor constraintGreaterThanOrEqualToConstant:20.0],
        
        [self.avatarImageView.leftAnchor constraintEqualToAnchor: self.frontView.leftAnchor constant:SLLmarginsBorder],
        [self.avatarImageView.widthAnchor constraintEqualToConstant:22.0],
@@ -156,7 +168,7 @@ static const CGFloat SLLmarginsBorder = 5.0f;
 - (void)prepareForReuse
 {
     [super prepareForReuse];
-    [self defaultValueUI];
+    [self defaultValueDataForCell];
     [self updateConstraints];
 }
 
