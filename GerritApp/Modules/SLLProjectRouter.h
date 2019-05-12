@@ -7,16 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "../Service/SLLIntercatorProtocol.h"
-
-@class UIViewController;
-
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SLLProjectRouter : NSObject
 
-- (UIViewController *)assemblyModuleProject:(id<SLLItercatorInputProtocol>)interactor;
+@interface SLLProjectRouter : NSObject
 
 @end
 

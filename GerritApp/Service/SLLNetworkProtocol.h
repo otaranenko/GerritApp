@@ -6,25 +6,20 @@
 //  Copyright © 2019 Oleg Taranenko. All rights reserved.
 //
 
-#ifndef SLLNetworkProtocol_h
-#define SLLNetworkProtocol_h
-
-
 #import <Foundation/Foundation.h>
+
 
 /**
  <#Description#>
  */
 @protocol SLLNetworkInputProtocol <NSObject>
 
-@optional
-
-- (void)downloadAllChangeGerrit;
-- (void)downloadSelfAccountGerrit;
-- (void)downloadAllProjectGerrit;
-- (void)downloadAccountGerritForListID:(NSArray<NSString *> *)listAccountID;
+@required
+- (void)startDownloadData:(NSArray<NSString *> *)listUrls;
+- (void)startDownloadImage:(NSString *)url forTransferData:(id)transferData;
 
 @end
+
 
 
 /**
@@ -32,12 +27,10 @@
  */
 @protocol SLLNetworkOutputProtocol <NSObject>
 
-@optional
+@required
+- (void)finishLoadingData:(NSDictionary<NSString *, NSString *> *)rawData;
+- (void)finishLoadingParallelData:(NSDictionary<NSString *, id> *)rawData;
+- (void)finishLoadingSerialData:(NSData *)rawImage forData:(id)data;
 
-- (void) finishLoadingData:(NSDictionary<NSString *, NSString *> *)rawData;
-- (void) loadingPartForAccountInfo:(NSDictionary<NSString *, NSString *> *)rawData;
-- (void) loadingPartForProjectInfo:(NSDictionary<NSString *, NSString *> *)rawData;
 
 @end
-
-#endif /* SLLNetworkProtocol_h */

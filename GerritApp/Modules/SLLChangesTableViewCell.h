@@ -8,9 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+@class SLLChange;
+@class SLLAccount;
+
 NS_ASSUME_NONNULL_BEGIN
 
+
 @interface SLLChangesTableViewCell : UITableViewCell
+
+- (SLLChangesTableViewCell *)setCell:(SLLChangesTableViewCell *)cell ForData:(SLLChange *)changeData withOwner:(SLLAccount *)account;
 
 @end
 

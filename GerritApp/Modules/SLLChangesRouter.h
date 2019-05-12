@@ -7,14 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "../Service/SLLIntercatorProtocol.h"
+#import "SLLChangesRouterProtocol.h"
+
 @class UIViewController;
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SLLChangesRouter : NSObject
 
-- (UIViewController *)assemblyModuleChange:(id<SLLItercatorInputProtocol>)interactor;
+@interface SLLChangesRouter : NSObject <SLLChangesRouter>
+
+- (void)presentDetailViewController:(UIViewController *)viewController;
 
 @end
 

@@ -7,29 +7,22 @@
 //
 
 #import "SLLChangesRouter.h"
-#import "SLLChangePresenter.h"
-#import "SLLChangeViewController.h"
+#import "SLLChangesDetailViewController.h"
 
 
 @interface SLLChangesRouter ()
-
-@property (nonatomic, strong) SLLChangePresenter *presenter;
-@property (nonatomic, strong) SLLChangeViewController *viewController;
 
 @end
 
 
 @implementation SLLChangesRouter
 
-- (UIViewController *)assemblyModuleChange:(id<SLLItercatorInputProtocol>)interactor
-{
-    self.presenter = [SLLChangePresenter new];
-    self.viewController = [SLLChangeViewController new];
-    
-    self.viewController.presenter = self.presenter;
-    self.presenter.interactor = interactor;
-    self.presenter.view = self.viewController;
-    return self.viewController;
+- (void)presentDetailViewController:(UIViewController *)viewController {
+  
+    SLLChangesDetailViewController *detailViewController = [SLLChangesDetailViewController new];
+    detailViewController.modalPresentationStyle = UIModalPresentationCustom;
+    [viewController.navigationController pushViewController:detailViewController animated:YES ];
 }
+
 
 @end

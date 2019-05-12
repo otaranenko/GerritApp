@@ -8,21 +8,23 @@
 
 #import "SLLChangeViewController.h"
 #import "SLLChangesTableViewCell.h"
-
+#import "SLLChange.h"
 
 @interface SLLChangeViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) UITableView *changesTableView;
 @property (nonatomic, strong) UISegmentedControl *segmentedControl;
 @property (nonatomic, strong) NSString *identifierCell;
-@property (nonatomic, strong) NSArray <NSString *> *dataForCell;
+@property (nonatomic, strong) NSArray<SLLChange *> *dataChangeForCell;
+@property (nonatomic, strong) NSDictionary<NSNumber *, SLLAccount *> *dataAccountForChange;
 
 @end
 
 
 @implementation SLLChangeViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor lightGrayColor];
     self.navigationItem.title = @"Изменения";
@@ -61,7 +63,6 @@
     [self.changesTableView registerClass:[SLLChangesTableViewCell class] forCellReuseIdentifier:self.identifierCell];
     
     [self.view addSubview:self.changesTableView];
-    
 }
 
 
@@ -78,7 +79,6 @@
     {
         [self.changesTableView.refreshControl beginRefreshing];
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            NSLog(@"START UPDATE to INTERACOR TIMER !!!");
               [self.presenter getDataForChangesisOpen];
         });
     }
@@ -103,12 +103,12 @@
     [super updateViewConstraints];
 }
 
+
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-   // return self.dataForCell.count;
-    return 10;
+    return self.dataChangeForCell.count;
 }
 
 
@@ -120,11 +120,14 @@
         cell = [[SLLChangesTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:self.identifierCell];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
+    SLLAccount *account = [self.dataAccountForChange objectForKey:self.dataChangeForCell[indexPath.row].changeOwnerAccountId];
+    cell = [cell setCell:cell ForData:self.dataChangeForCell[indexPath.row] withOwner:account];
     return cell;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 100;
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 90;
 }
 
 
@@ -132,8 +135,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"ffdfdfdfd");
-//    [self presentViewController:detailsViewController animated:YES completion:nil];
+    [self.presenter showDetailViewControllerFor:self];
 }
 
 - (void)reloadTableView
@@ -155,9 +157,19 @@
 }
 
 
-- (void)setTableViewForCellData:(NSArray<NSString *> *)data {
-    self.dataForCell = data;
-    [self reloadTableView];
+- (void)setTableViewForCellData:(NSArray<SLLChange *> *)data
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.dataChangeForCell = data;
+        [self reloadTableView];
+    });
 }
 
+- (void)setTableViewForCellDataAccount:(NSDictionary<NSNumber *, SLLAccount *> *)data
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.dataAccountForChange  = data;
+        [self reloadTableView];
+    });
+}
 @end
