@@ -17,8 +17,8 @@
 
 @implementation SLLChangesRouter
 
-- (void)presentDetailViewController:(UIViewController *)viewController {
-  
+- (void)presentDetailViewController:(UIViewController *)viewController
+{
     SLLChangesDetailViewController *detailViewController = [SLLChangesDetailViewController new];
     detailViewController.modalPresentationStyle = UIModalPresentationCustom;
     [viewController.navigationController pushViewController:detailViewController animated:YES ];

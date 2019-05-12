@@ -32,6 +32,7 @@
     [self buildUI];
     [self setupRefreshControl];
     [self updateViewConstraints];
+    [self actionRefreshParties];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -48,6 +49,7 @@
     NSArray <NSString *> *itemSegmentedControl = @[@"Открытые", @"Объединенные", @"Отклоненные"];
     self.segmentedControl = [[UISegmentedControl alloc] initWithItems:itemSegmentedControl];
     self.segmentedControl.selectedSegmentIndex = 0;
+    [self.segmentedControl addTarget:self action:@selector(actionSegmentChanged:) forControlEvents:UIControlEventValueChanged];
     self.navigationItem.titleView = self.segmentedControl;
     
     self.identifierCell = NSStringFromClass([SLLChangesTableViewCell class]);
@@ -65,28 +67,12 @@
     [self.view addSubview:self.changesTableView];
 }
 
-
 - (void)setupRefreshControl
 {
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
-    [refreshControl addTarget:self action:@selector(actionRefreshParties:) forControlEvents:UIControlEventValueChanged];
+    refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"Обновление"];
+    [refreshControl addTarget:self action:@selector(actionRefreshParties) forControlEvents:UIControlEventValueChanged];
     self.changesTableView.refreshControl = refreshControl;
-}
-
-- (void)actionRefreshParties:(id)sender
-{
-    if ([sender isKindOfClass:[UIRefreshControl class]])
-    {
-        [self.changesTableView.refreshControl beginRefreshing];
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-              [self.presenter getDataForChangesisOpen];
-        });
-    }
-    else
-    {
-        [self.presenter getDataForChangesisOpen];
-        NSLog(@"Start UPDATE INTERACOR");
-    }
 }
 
 - (void)updateViewConstraints
@@ -99,8 +85,43 @@
        [self.changesTableView.rightAnchor constraintEqualToAnchor: self.view.rightAnchor ],
        [self.changesTableView.bottomAnchor constraintEqualToAnchor: self.view.bottomAnchor],
        ]];
-    
     [super updateViewConstraints];
+}
+
+
+#pragma mark -  Action
+
+- (void)actionForSelectionSegmentControl:(UISegmentedControl *)control
+{
+    NSInteger selectedSegment = control.selectedSegmentIndex;
+    if (selectedSegment == 0)
+    {
+        [self.presenter getDataForChangesisOpen];
+    }
+    else if (selectedSegment == 1)
+    {
+        [self.presenter getDataForChangesisMerged];
+    }
+    else
+    {
+        [self.presenter getDataForChangesisAbandoned];
+    }
+}
+
+- (void)actionRefreshParties
+{
+    [self.changesTableView.refreshControl beginRefreshing];
+    [self actionForSelectionSegmentControl:self.segmentedControl];
+}
+
+- (void)actionSegmentChanged:(id)sender
+{
+    if ([sender isKindOfClass:[UISegmentedControl class]])
+    {
+        UISegmentedControl *segmentedControl = (UISegmentedControl *)sender;
+        [self actionForSelectionSegmentControl:segmentedControl];
+    }
+    [self.changesTableView reloadData];
 }
 
 
@@ -110,7 +131,6 @@
 {
     return self.dataChangeForCell.count;
 }
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -157,6 +177,8 @@
 }
 
 
+#pragma mark -  SLLChangesPresenterOutputProtocol
+
 - (void)setTableViewForCellData:(NSArray<SLLChange *> *)data
 {
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -168,7 +190,7 @@
 - (void)setTableViewForCellDataAccount:(NSDictionary<NSNumber *, SLLAccount *> *)data
 {
     dispatch_async(dispatch_get_main_queue(), ^{
-        self.dataAccountForChange  = data;
+        self.dataAccountForChange = data;
         [self reloadTableView];
     });
 }
