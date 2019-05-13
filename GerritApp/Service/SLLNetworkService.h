@@ -13,6 +13,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 
+/**
+ Сервис для взаимодействия с данными, получаеммыми из сети
+ */
 @interface SLLNetworkService : NSObject <SLLNetworkInputProtocol>
 
 @property (nonatomic, weak, nullable) id<SLLNetworkOutputProtocol> interactor;
