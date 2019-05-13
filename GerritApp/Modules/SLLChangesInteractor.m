@@ -76,9 +76,23 @@
 
 - (void)finishLoadingSerialData:(NSData *)rawImage forData:(id)data
 {
+    if (![data isKindOfClass:[SLLAccount class]])
+    {
+        return;
+    }
+    
     SLLAccount *account = data;
     account.avatarImage = rawImage;
     [self.presenter presentDataForAccount:account];
+    [self.coreDataService setDataForCoreData:account];
+    
+}
+
+
+#pragma mark -  SLLCoreDataOutputProtocol
+
+- (void)finishLoadingCoreData:(NSDictionary<NSString *,NSString *> *)rawData {
+    NSLog(@"NO Impl");
 }
 
 @end

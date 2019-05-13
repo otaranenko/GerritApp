@@ -21,6 +21,9 @@ typedef NS_ENUM(NSUInteger, SLLNetworkRequestType) {
 };
 
 
+/**
+Обертка для сборки строк URL запросов к REST API Gerrit
+ */
 @interface SLLNetworkCreateURL : NSObject
 
 + (NSString *)infoAccountFromId:(NSString *)id;

@@ -10,7 +10,8 @@
 
 
 /**
- <#Description#>
+ Контракт взаимодействия со внешним слоем (Interactor)
+ Воздействие из Interactora
  */
 @protocol SLLNetworkInputProtocol <NSObject>
 
@@ -21,9 +22,9 @@
 @end
 
 
-
 /**
- <#Description#>
+ Контракт взаимодействия со внешним слоем (Interactor)
+ Результат (Notification) в Interactor
  */
 @protocol SLLNetworkOutputProtocol <NSObject>
 
@@ -31,6 +32,5 @@
 - (void)finishLoadingData:(NSDictionary<NSString *, NSString *> *)rawData;
 - (void)finishLoadingParallelData:(NSDictionary<NSString *, id> *)rawData;
 - (void)finishLoadingSerialData:(NSData *)rawImage forData:(id)data;
-
 
 @end

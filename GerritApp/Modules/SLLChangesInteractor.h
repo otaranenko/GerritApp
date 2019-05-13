@@ -8,13 +8,15 @@
 
 #import <Foundation/Foundation.h>
 #import "../Service/SLLNetworkProtocol.h"
+#import "../Service/SLLCoreDataProtocol.h"
 #import "SLLChangesInteractorProtocol.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SLLChangesInteractor : NSObject <SLLNetworkOutputProtocol, SLLChangesItercatorInputProtocol>
+@interface SLLChangesInteractor : NSObject <SLLNetworkOutputProtocol, SLLChangesItercatorInputProtocol, SLLCoreDataOutputProtocol>
 
 @property (nonatomic, weak, nullable) id<SLLNetworkInputProtocol> networkService;
+@property (nonatomic, weak, nullable) id<SLLCoreDataInputProtocol> coreDataService;
 @property (nonatomic, weak, nullable) id<SLLChangesItercatorOutputProtocol> presenter;
 
 @end

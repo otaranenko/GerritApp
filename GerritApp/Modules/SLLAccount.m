@@ -7,6 +7,7 @@
 //
 
 #import "SLLAccount.h"
+#import "../Service/SLLAccountCoreData+CoreDataClass.h"
 
 
 @interface SLLAccount ()
@@ -38,6 +39,21 @@
                 break;
             }
         }
+    }
+    return self;
+}
+
+- (instancetype)initWithCoreData:(NSManagedObject *)object
+{
+    self = [super init];
+    if (self && [object isKindOfClass:[SLLAccountCoreData class]])
+    {
+        SLLAccountCoreData *accountCoreData = (SLLAccountCoreData *)object;
+        _account_id = accountCoreData.idAccount;
+        _name = accountCoreData.name;
+        _email = accountCoreData.name;
+        _avatarURL = accountCoreData.avatarURL;
+        _avatarImage = accountCoreData.avatarImage;
     }
     return self;
 }
