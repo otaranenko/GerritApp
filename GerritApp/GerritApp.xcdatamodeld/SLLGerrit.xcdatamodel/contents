@@ -8,6 +8,6 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="SLLAccountCoreData" positionX="-17216.68359375" positionY="-4781.2265625" width="128" height="118"/>
+        <element name="SLLAccountCoreData" positionX="-17216.68359375" positionY="-4781.2265625" width="128" height="120"/>
     </elements>
 </model>

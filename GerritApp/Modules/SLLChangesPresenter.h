@@ -15,9 +15,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface SLLChangesPresenter : NSObject <SLLChangesPresenterInputProtocol, SLLChangesItercatorOutputProtocol>
 
-@property (nonatomic, weak) id<SLLChangesPresenterOutputProtocol> view;
-@property (nonatomic, weak) id<SLLChangesItercatorInputProtocol> interactor;
-@property (nonatomic, weak) id<SLLChangesRouter> router;
+@property (nonatomic, weak, nullable) id<SLLChangesPresenterOutputProtocol> view;
+@property (nonatomic, weak, nullable) id<SLLChangesItercatorInputProtocol> interactor;
+@property (nonatomic, weak, nullable) id<SLLChangesRouter> router;
 
 @end
 

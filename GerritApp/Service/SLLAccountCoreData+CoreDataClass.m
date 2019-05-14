@@ -8,7 +8,33 @@
 //
 
 #import "SLLAccountCoreData+CoreDataClass.h"
+#import "../Modules/SLLAccount.h"
+
 
 @implementation SLLAccountCoreData
+
++ (instancetype)accountCoreDataWithContext:(NSManagedObjectContext *)context;
+{
+    SLLAccountCoreData *objectAccountCoreData = [NSEntityDescription insertNewObjectForEntityForName:[self entityName] inManagedObjectContext:context];
+    
+    return objectAccountCoreData;
+}
+
++ (instancetype)accountCoreDataWithContext:(NSManagedObjectContext *)context internalData:(SLLAccount *)data
+{
+    SLLAccountCoreData *objectACcountCoreData = [self accountCoreDataWithContext:context];
+    objectACcountCoreData.idAccount = [NSDecimalNumber decimalNumberWithDecimal:[data.account_id decimalValue]];
+    objectACcountCoreData.name = data.name;
+    objectACcountCoreData.email = data.email;
+    objectACcountCoreData.avatarURL = data.avatarURL;
+    objectACcountCoreData.avatarImage = data.avatarImage;
+    
+    return objectACcountCoreData;
+}
+
++ (NSString *)entityName
+{
+    return NSStringFromClass([self class]);
+}
 
 @end

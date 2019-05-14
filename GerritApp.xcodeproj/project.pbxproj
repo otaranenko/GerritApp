@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BA281BA72288C6B70026E18A /* SLLGerrit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BA281BA52288C6B70026E18A /* SLLGerrit.xcdatamodeld */; };
+		BA281BA72288C6B70026E18A /* GerritApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BA281BA52288C6B70026E18A /* GerritApp.xcdatamodeld */; };
 		BA281BBB2288CE390026E18A /* SLLCoreDataService.m in Sources */ = {isa = PBXBuildFile; fileRef = BA281BBA2288CE390026E18A /* SLLCoreDataService.m */; };
 		BA281BC02288DDD10026E18A /* SLLAccountCoreData+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = BA281BBE2288DDD10026E18A /* SLLAccountCoreData+CoreDataClass.m */; };
 		BA281BC12288DDD10026E18A /* SLLAccountCoreData+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = BA281BBF2288DDD10026E18A /* SLLAccountCoreData+CoreDataProperties.m */; };
@@ -285,7 +285,7 @@
 				BA2D99EB22380832006960C6 /* GoogleService-Info.plist */,
 				BA355BC02228248100EB90C4 /* Assets.xcassets */,
 				BA355BC52228248100EB90C4 /* Info.plist */,
-				BA281BA52288C6B70026E18A /* SLLGerrit.xcdatamodeld */,
+				BA281BA52288C6B70026E18A /* GerritApp.xcdatamodeld */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -441,7 +441,7 @@
 				BA91F18B22834B620081B509 /* SLLChange.m in Sources */,
 				BA2AFF6322805DA000C7B37E /* UIColor+SLLColors.m in Sources */,
 				BA2AFF58227F9CD400C7B37E /* SLLChangesPresenter.m in Sources */,
-				BA281BA72288C6B70026E18A /* SLLGerrit.xcdatamodeld in Sources */,
+				BA281BA72288C6B70026E18A /* GerritApp.xcdatamodeld in Sources */,
 				BA281BBB2288CE390026E18A /* SLLCoreDataService.m in Sources */,
 				BA374191226E67760081591A /* SLLChangeViewController.m in Sources */,
 				BA91F181228336EE0081B509 /* SLLProjectAssembly.m in Sources */,
@@ -701,13 +701,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		BA281BA52288C6B70026E18A /* SLLGerrit.xcdatamodeld */ = {
+		BA281BA52288C6B70026E18A /* GerritApp.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
 				BA281BA62288C6B70026E18A /* SLLGerrit.xcdatamodel */,
 			);
 			currentVersion = BA281BA62288C6B70026E18A /* SLLGerrit.xcdatamodel */;
-			path = SLLGerrit.xcdatamodeld;
+			path = GerritApp.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

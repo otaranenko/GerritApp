@@ -6,6 +6,7 @@
 //  Copyright © 2019 Oleg Taranenko. All rights reserved.
 //
 #import "../Modules/SLLInternalData.h"
+#import "SLLAccountCoreData+CoreDataProperties.h"
 
 /**
  Контракт взаимодействия со внешним слоем (Interactor)
@@ -13,10 +14,8 @@
  */
 @protocol SLLCoreDataInputProtocol <NSObject>
 
-@required
-
-- (void)getDataForCoreData:(id<SLLInternalData>)data;
-- (void)setDataForCoreData:(id<SLLInternalData>)data;
+- (NSDictionary<NSNumber *, SLLAccount*> *)getDataForCoreData;
+- (BOOL)setDataForCoreData:(id<SLLInternalData>)data;
 
 @end
 
@@ -27,9 +26,7 @@
  */
 @protocol SLLCoreDataOutputProtocol <NSObject>
 
-@required
+@optional
 - (void)finishLoadingCoreData:(NSDictionary<NSString *, NSString *> *)rawData;
-
-
 
 @end

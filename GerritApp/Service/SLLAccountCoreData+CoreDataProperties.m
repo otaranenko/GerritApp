@@ -11,8 +11,18 @@
 
 @implementation SLLAccountCoreData (CoreDataProperties)
 
-+ (NSFetchRequest<SLLAccountCoreData *> *)fetchRequest {
++ (NSFetchRequest<SLLAccountCoreData *> *)fetchRequest
+{
 	return [NSFetchRequest fetchRequestWithEntityName:@"SLLAccountCoreData"];
+}
+
++ (NSFetchRequest<SLLAccountCoreData *> *)fetchRequestForAccountId
+{
+    NSFetchRequest *fetchRequest = [SLLAccountCoreData fetchRequest];
+    
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"idAccount" ascending:YES];
+    [fetchRequest setSortDescriptors:@[sortDescriptor]];
+    return fetchRequest;
 }
 
 @dynamic idAccount;
