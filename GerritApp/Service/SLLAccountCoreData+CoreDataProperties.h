@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface SLLAccountCoreData (CoreDataProperties)
 
 + (NSFetchRequest<SLLAccountCoreData *> *)fetchRequest;
++ (NSFetchRequest<SLLAccountCoreData *> *)fetchRequestForAccountId;
 
 @property (nullable, nonatomic, copy) NSDecimalNumber *idAccount;
 @property (nullable, nonatomic, copy) NSString *name;

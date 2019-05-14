@@ -52,7 +52,7 @@
 
 #pragma mark -  SLLNetworkOutputProtocol
 
-- (void)finishLoadingData:(NSDictionary<NSString *,id> *)rawData
+- (void)finishLoadingData:(NSDictionary<NSString *, id> *)rawData
 {
     NSMutableArray <SLLChange *>  *arrayChange = [NSMutableArray new];
     NSMutableArray  *arrayID = [NSMutableArray new];
@@ -64,8 +64,15 @@
     }
     
     [self.presenter presentDataForChange:arrayChange];
-    NSArray<NSString *> *uniqueArray = [[NSOrderedSet orderedSetWithArray:[arrayID copy]] array];
-    [self dataForAccountGerritForListID:uniqueArray];
+    NSArray<NSNumber *> *uniqueArray = [[NSOrderedSet orderedSetWithArray:[arrayID copy]] array];
+    NSDictionary<NSNumber *, SLLAccount *> * dictionaryAccount = [self.coreDataService getDataForCoreData];
+    
+    NSMutableArray <NSNumber *>  *arrayAccountIdCoreData = [NSMutableArray arrayWithArray:[dictionaryAccount allKeys]];
+    NSMutableArray *array = [NSMutableArray arrayWithArray:uniqueArray];
+    [array removeObjectsInArray:arrayAccountIdCoreData];
+    
+    [self.presenter presentDataForArrayAccount:dictionaryAccount];
+    [self dataForAccountGerritForListID:[array copy]];
 }
 
 - (void)finishLoadingParallelData:(NSDictionary<NSString *, id> *)rawData
@@ -85,14 +92,7 @@
     account.avatarImage = rawImage;
     [self.presenter presentDataForAccount:account];
     [self.coreDataService setDataForCoreData:account];
-    
 }
 
-
-#pragma mark -  SLLCoreDataOutputProtocol
-
-- (void)finishLoadingCoreData:(NSDictionary<NSString *,NSString *> *)rawData {
-    NSLog(@"NO Impl");
-}
 
 @end

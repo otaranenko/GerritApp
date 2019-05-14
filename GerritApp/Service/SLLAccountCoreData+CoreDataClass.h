@@ -10,9 +10,16 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
+@class SLLAccount;
+
 NS_ASSUME_NONNULL_BEGIN
 
+
 @interface SLLAccountCoreData : NSManagedObject
+
++ (instancetype)accountCoreDataWithContext:(NSManagedObjectContext *)context;
++ (instancetype)accountCoreDataWithContext:(NSManagedObjectContext *)context internalData:(SLLAccount *)data;
++ (NSString *)entityName;
 
 @end
 

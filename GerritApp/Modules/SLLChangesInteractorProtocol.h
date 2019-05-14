@@ -21,6 +21,7 @@
 @protocol SLLChangesItercatorOutputProtocol <NSObject>
 
 - (void)presentDataForChange:(NSArray<SLLChange *> *)data;
+- (void)presentDataForArrayAccount:(NSDictionary<NSNumber *, SLLAccount *> *)data;
 - (void)presentDataForAccount:(SLLAccount *)data;
 
 @end

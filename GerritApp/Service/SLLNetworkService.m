@@ -76,7 +76,7 @@
     NSData *data = [self clearMagicSimbolsForRAWData:[NSData dataWithContentsOfURL:location]];
     NSError *errorSerialization;
     NSDictionary *jsonList = [NSJSONSerialization JSONObjectWithData:data  options: kNilOptions error: &errorSerialization];
-    NSLog(@"json list = %@", jsonList);
+    NSLog(@"json list change IS LOAD ");
     
     if (errorSerialization)
     {

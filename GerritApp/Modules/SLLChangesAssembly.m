@@ -56,6 +56,7 @@
     self.serviceNetwork.interactor = self.interactor;
     
     self.serviceCoreData.interactor = self.interactor;
+    
     return self.viewController;
 }
 
