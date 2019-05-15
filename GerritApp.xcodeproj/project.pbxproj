@@ -35,7 +35,10 @@
 		BA91F1842283382E0081B509 /* SLLAccountAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = BA91F1832283382E0081B509 /* SLLAccountAssembly.m */; };
 		BA91F18B22834B620081B509 /* SLLChange.m in Sources */ = {isa = PBXBuildFile; fileRef = BA91F18A22834B620081B509 /* SLLChange.m */; };
 		BA91F18E22849B120081B509 /* SLLAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = BA91F18D22849B120081B509 /* SLLAccount.m */; };
-		BABC240C227395DA006128BD /* GerritAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BABC240B227395DA006128BD /* GerritAppTests.m */; };
+		BAC354E4228C6ABA00644FB7 /* SLLNetworkCreateURLTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BAC354E3228C6ABA00644FB7 /* SLLNetworkCreateURLTest.m */; };
+		BAC354E7228CA79300644FB7 /* SLLNetworkServiceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BAC354E6228CA79300644FB7 /* SLLNetworkServiceTest.m */; };
+		BAC354F8228CB75400644FB7 /* OCMock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAC354F4228CB07900644FB7 /* OCMock.framework */; };
+		BAC354FB228CB86100644FB7 /* OCMock.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BAC354F4228CB07900644FB7 /* OCMock.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +50,19 @@
 			remoteInfo = GerritApp;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		BAC354FA228CB85800644FB7 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				BAC354FB228CB86100644FB7 /* OCMock.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		BA281BA62288C6B70026E18A /* SLLGerrit.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SLLGerrit.xcdatamodel; sourceTree = "<group>"; };
@@ -110,8 +126,10 @@
 		BA91F18D22849B120081B509 /* SLLAccount.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLLAccount.m; sourceTree = "<group>"; };
 		BA91F18F2287808F0081B509 /* SLLInternalData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLLInternalData.h; sourceTree = "<group>"; };
 		BABC2409227395DA006128BD /* GerritAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GerritAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		BABC240B227395DA006128BD /* GerritAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GerritAppTests.m; sourceTree = "<group>"; };
 		BABC240D227395DA006128BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BAC354E3228C6ABA00644FB7 /* SLLNetworkCreateURLTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLLNetworkCreateURLTest.m; sourceTree = "<group>"; };
+		BAC354E6228CA79300644FB7 /* SLLNetworkServiceTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLLNetworkServiceTest.m; sourceTree = "<group>"; };
+		BAC354F4228CB07900644FB7 /* OCMock.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCMock.framework; path = lib/OCMock.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +144,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAC354F8228CB75400644FB7 /* OCMock.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -161,6 +180,7 @@
 				BA355BB62228247F00EB90C4 /* GerritApp */,
 				BABC240A227395DA006128BD /* GerritAppTests */,
 				BA355BB52228247F00EB90C4 /* Products */,
+				BAC354F3228CB07900644FB7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 			usesTabs = 0;
@@ -273,10 +293,27 @@
 		BABC240A227395DA006128BD /* GerritAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				BABC240B227395DA006128BD /* GerritAppTests.m */,
+				BAC354E5228C6C1600644FB7 /* Service */,
 				BABC240D227395DA006128BD /* Info.plist */,
 			);
 			path = GerritAppTests;
+			sourceTree = "<group>";
+		};
+		BAC354E5228C6C1600644FB7 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				BAC354E3228C6ABA00644FB7 /* SLLNetworkCreateURLTest.m */,
+				BAC354E6228CA79300644FB7 /* SLLNetworkServiceTest.m */,
+			);
+			name = Service;
+			sourceTree = "<group>";
+		};
+		BAC354F3228CB07900644FB7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BAC354F4228CB07900644FB7 /* OCMock.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		BAF946782236FA6500D3F6A8 /* Resources */ = {
@@ -349,6 +386,7 @@
 				BABC2405227395DA006128BD /* Sources */,
 				BABC2406227395DA006128BD /* Frameworks */,
 				BABC2407227395DA006128BD /* Resources */,
+				BAC354FA228CB85800644FB7 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -456,7 +494,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BABC240C227395DA006128BD /* GerritAppTests.m in Sources */,
+				BAC354E7228CA79300644FB7 /* SLLNetworkServiceTest.m in Sources */,
+				BAC354E4228C6ABA00644FB7 /* SLLNetworkCreateURLTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -591,7 +630,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 37S8XGT8LR;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = GerritApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -614,7 +653,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 37S8XGT8LR;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = GerritApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -634,6 +673,10 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 37S8XGT8LR;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/lib",
+				);
 				INFOPLIST_FILE = GerritAppTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -654,6 +697,10 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 37S8XGT8LR;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/lib",
+				);
 				INFOPLIST_FILE = GerritAppTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -14,10 +14,15 @@ static NSString *const SLLdomainNameString = @"gerrit-review.googlesource.com";
 
 @implementation SLLNetworkCreateURL
 
-+ (NSString *)infoAccountFromId:(NSString *)id
++ (NSString *)infoAccountFromId:(NSString *)idNumber
 {
+    if (!idNumber)
+    {
+        return nil;
+    }
+    
     return [NSString stringWithFormat:@"https://%@/%@/%@", SLLdomainNameString,
-            [SLLNetworkCreateURL formatTypeToString:SLLNetworkRequestTypeAccount], id];
+            [SLLNetworkCreateURL formatTypeToString:SLLNetworkRequestTypeAccount], idNumber];
 }
 
 + (NSString *)infoProject
