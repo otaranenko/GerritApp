@@ -41,6 +41,11 @@
 
 - (void)dataForAccountGerritForListID:(NSArray<NSString *> *)listAccountID
 {
+    if (!listAccountID)
+    {
+        return;
+    }
+    
     NSMutableArray *arrayURL = [NSMutableArray new];
     for (NSString *accountID in listAccountID)
     {
@@ -54,6 +59,11 @@
 
 - (void)finishLoadingData:(NSDictionary<NSString *, id> *)rawData
 {
+    if (!rawData)
+    {
+        return;
+    }
+    
     NSMutableArray <SLLChange *>  *arrayChange = [NSMutableArray new];
     NSMutableArray  *arrayID = [NSMutableArray new];
     for (id key in rawData)
@@ -75,7 +85,7 @@
     [self dataForAccountGerritForListID:[array copy]];
 }
 
-- (void)finishLoadingParallelData:(NSDictionary<NSString *, id> *)rawData
+- (void)finishLoadingParallelData:(NSDictionary<NSString *, id<SLLInternalData>> *)rawData
 {
     SLLAccount *account = [[SLLAccount alloc] initWithDictionary:rawData];
     [self.networkService startDownloadImage:account.avatarURL forTransferData:account];

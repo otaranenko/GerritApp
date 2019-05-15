@@ -26,7 +26,7 @@ typedef NS_ENUM(NSUInteger, SLLNetworkRequestType) {
  */
 @interface SLLNetworkCreateURL : NSObject
 
-+ (NSString *)infoAccountFromId:(NSString *)id;
++ (NSString *)infoAccountFromId:(NSString *)idNumber;
 + (NSString *)infoProject;
 + (NSString *)infoChangeForParameters:(SLLNetworkRequestType )formatType;
 + (NSString *)formatTypeToString:(SLLNetworkRequestType)formatType;

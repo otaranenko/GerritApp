@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "../Modules/SLLInternalData.h"
 
 
 /**
@@ -16,8 +17,8 @@
 @protocol SLLNetworkInputProtocol <NSObject>
 
 @required
-- (void)startDownloadData:(NSArray<NSString *> *)listUrls;
-- (void)startDownloadImage:(NSString *)url forTransferData:(id)transferData;
+- (BOOL)startDownloadData:(NSArray<NSString *> *)listUrls;
+- (BOOL)startDownloadImage:(NSString *)url forTransferData:(id<SLLInternalData>)transferData;
 
 @end
 

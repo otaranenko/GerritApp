@@ -24,8 +24,17 @@
 
 - (NSData *)clearMagicSimbolsForRAWData:(NSData *)data
 {
+    if (!data)
+    {
+        return nil;
+    }
     NSString *prefixMagic = @")]}'\n";
     NSString* JSONStringRAW = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    if (![JSONStringRAW containsString:prefixMagic])
+    {
+        return data;
+    }
+    
     NSRange rangeSubstrig = NSMakeRange(prefixMagic.length, JSONStringRAW.length - prefixMagic.length);
     JSONStringRAW = [JSONStringRAW substringWithRange:rangeSubstrig];
     return [JSONStringRAW dataUsingEncoding:NSUTF8StringEncoding];
@@ -34,11 +43,11 @@
 
 #pragma mark -  SLLNetworkInputProtocol
 
-- (void)startDownloadData:(NSArray<NSString *> *)listUrls
+- (BOOL)startDownloadData:(NSArray<NSString *> *)listUrls
 {
     if (listUrls.count == 0)
     {
-        return;
+        return NO;
     }
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
@@ -51,20 +60,27 @@
             [self.sessionDownloadTask resume];
         }
     });
+    return YES;
 }
 
-- (void)startDownloadImage:(NSString *)url forTransferData:(id) transferData
+- (BOOL)startDownloadImage:(NSString *)url forTransferData:(id<SLLInternalData>) transferData
 {
+    if (!url || !transferData)
+    {
+        return NO;
+    }
+
+    
     NSURLSession *session = [NSURLSession sharedSession];
-    NSURLSessionDataTask *dataTask = [session dataTaskWithURL:[NSURL URLWithString:url] completionHandler:^(NSData *  data, NSURLResponse *  response, NSError *  error) {
-        if (!error) {
+    NSURLSessionDataTask *dataTask = [session dataTaskWithURL:[NSURL URLWithString:url] completionHandler:^(NSData *  data, NSURLResponse *response, NSError *error) {
+        if (!error)
+        {
             [self.interactor finishLoadingSerialData:data forData:transferData];
         }
-        else
-            NSLog(@"error %@", error);
     }];
     
     [dataTask resume];
+    return YES;
 }
 
 
@@ -76,7 +92,7 @@
     NSData *data = [self clearMagicSimbolsForRAWData:[NSData dataWithContentsOfURL:location]];
     NSError *errorSerialization;
     NSDictionary *jsonList = [NSJSONSerialization JSONObjectWithData:data  options: kNilOptions error: &errorSerialization];
-    NSLog(@"json list change IS LOAD ");
+    NSLog(@"json list change IS LOAD");
     
     if (errorSerialization)
     {
