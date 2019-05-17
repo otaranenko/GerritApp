@@ -14,7 +14,7 @@ static NSString *const SLLdomainNameString = @"gerrit-review.googlesource.com";
 
 @implementation SLLNetworkCreateURL
 
-+ (NSString *)infoAccountFromId:(NSString *)idNumber
++ (NSString *)createURLFromAccountId:(NSString *)idNumber
 {
     if (!idNumber)
     {
@@ -22,45 +22,54 @@ static NSString *const SLLdomainNameString = @"gerrit-review.googlesource.com";
     }
     
     return [NSString stringWithFormat:@"https://%@/%@/%@", SLLdomainNameString,
-            [SLLNetworkCreateURL formatTypeToString:SLLNetworkRequestTypeAccount], idNumber];
+            [SLLNetworkCreateURL formatTypeToString:SLLRequestTypeAccount], idNumber];
 }
 
-+ (NSString *)infoProject
++ (NSString *)createURLFromOneLevelType:(SLLRequestLeveLType)oneType
 {
-    return [NSString stringWithFormat:@"https://%@/%@/",
-            SLLdomainNameString, [SLLNetworkCreateURL formatTypeToString:SLLNetworkRequestTypeProject]];
+    return [SLLNetworkCreateURL createURLFromOneLevelType:oneType andTwoLevelType:SLLRequestTypeNil];
 }
 
-+ (NSString *)infoChangeForParameters:(SLLNetworkRequestType )formatType
++ (NSString *)createURLFromOneLevelType:(SLLRequestLeveLType)oneType andTwoLevelType:(SLLRequestLeveLType)twoType;
 {
+    if (oneType > 32)
+    {
+        [NSException raise:NSGenericException format:@"Wrong enum type for one parametr!"];
+    }
     return [NSString stringWithFormat:@"https://%@/%@/%@",
-            SLLdomainNameString, [SLLNetworkCreateURL formatTypeToString:SLLNetworkRequestTypeChange],
-            [SLLNetworkCreateURL formatTypeToString:formatType]];
+            SLLdomainNameString, [SLLNetworkCreateURL formatTypeToString:oneType],
+            [SLLNetworkCreateURL formatTypeToString:twoType]];
 }
 
-+ (NSString *)formatTypeToString:(SLLNetworkRequestType)formatType
++ (NSString *)formatTypeToString:(SLLRequestLeveLType)formatType
 {    
     NSString *result = nil;
 
     switch(formatType)
     {
-        case SLLNetworkRequestTypeChange:
+        case SLLRequestTypeNil:
+            result = @"";
+            break;
+        case SLLRequestTypeChange:
             result = @"changes";
             break;
-        case SLLNetworkRequestTypeAccount:
+        case SLLRequestTypeAccount:
             result = @"accounts";
             break;
-        case SLLNetworkRequestTypeProject:
+        case SLLRequestTypeProject:
             result = @"projects";
             break;
-        case SLLNetworkRequestTypeChangeForOpen:
+        case SLLRequestTypeChangeForOpen:
             result = @"?q=status:open";
             break;
-        case SLLNetworkRequestTypeChangeForMerged:
+        case SLLRequestTypeChangeForMerged:
             result = @"?q=status:merged";
             break;
-        case SLLNetworkRequestTypeChangeForAbandoned:
+        case SLLRequestTypeChangeForAbandoned:
             result = @"?q=status:abandoned";
+            break;
+        case  SLLRequestTypeProjectAll:
+            result = @"?all";
             break;
         default:
             [NSException raise:NSGenericException format:@"Unknown type."];

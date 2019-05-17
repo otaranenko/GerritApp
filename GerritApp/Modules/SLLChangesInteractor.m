@@ -23,19 +23,19 @@
 
 - (void)dataForChangesisAbandoned
 {
-    NSArray <NSString *> *url = @[[SLLNetworkCreateURL infoChangeForParameters:SLLNetworkRequestTypeChangeForAbandoned]];
+    NSArray <NSString *> *url = @[[SLLNetworkCreateURL createURLFromOneLevelType:SLLRequestTypeChange andTwoLevelType:SLLRequestTypeChangeForAbandoned]];
     [self.networkService startDownloadData:url];
 }
 
 - (void)dataForChangesisMerged
 {
-    NSArray <NSString *> *url = @[[SLLNetworkCreateURL infoChangeForParameters:SLLNetworkRequestTypeChangeForMerged]];
+    NSArray <NSString *> *url = @[[SLLNetworkCreateURL createURLFromOneLevelType:SLLRequestTypeChange andTwoLevelType:SLLRequestTypeChangeForMerged]];
     [self.networkService startDownloadData:url];
 }
 
 - (void)dataForChangesisOpen
 {
-    NSArray <NSString *> *url = @[[SLLNetworkCreateURL infoChangeForParameters:SLLNetworkRequestTypeChangeForOpen]];
+    NSArray <NSString *> *url = @[[SLLNetworkCreateURL createURLFromOneLevelType:SLLRequestTypeChange andTwoLevelType:SLLRequestTypeChangeForOpen]];
     [self.networkService startDownloadData:url];
 }
 
@@ -49,7 +49,7 @@
     NSMutableArray *arrayURL = [NSMutableArray new];
     for (NSString *accountID in listAccountID)
     {
-        [arrayURL addObject:[SLLNetworkCreateURL infoAccountFromId:accountID] ];
+        [arrayURL addObject:[SLLNetworkCreateURL createURLFromAccountId:accountID] ];
     }
     [self.networkService startDownloadData:arrayURL];
 }

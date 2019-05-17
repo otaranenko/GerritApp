@@ -1,5 +1,5 @@
 //
-//  SLLProjectRouter.h
+//  SLLProjectsRouter.h
 //  GerritApp
 //
 //  Created by Oleg Taranenko on 07/05/2019.
@@ -7,11 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "SLLProjectsRouterProtocol.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 
-@interface SLLProjectRouter : NSObject
+@interface SLLProjectsRouter : NSObject <SLLProjectsRouterProtocol>
 
 @end
 

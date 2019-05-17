@@ -7,7 +7,7 @@
 //
 
 #import "SLLRootCoordinator.h"
-#import "./Modules/SLLProjectAssembly.h"
+#import "./Modules/SLLProjectsAssembly.h"
 #import "./Modules/SLLAccountAssembly.h"
 #import "./Modules/SLLChangesAssembly.h"
 
@@ -20,7 +20,7 @@
 @property (nonatomic, readonly) UIViewController *accountsViewController;
 @property (nonatomic, strong) SLLChangesAssembly *changeModule;
 @property (nonatomic, strong) SLLAccountAssembly *accountModule;
-@property (nonatomic, strong) SLLProjectAssembly *projectModule;
+@property (nonatomic, strong) SLLProjectsAssembly *projectModule;
 
 @end
 
@@ -59,8 +59,8 @@
 
 - (UIViewController *)projectsViewController
 {
-    self.projectModule = [SLLProjectAssembly new];
-    UIViewController *viewController = [[UINavigationController alloc] initWithRootViewController:[self.projectModule assemblyModuleProject]];
+    self.projectModule = [SLLProjectsAssembly new];
+    UIViewController *viewController = [[UINavigationController alloc] initWithRootViewController:[self.projectModule assemblyModuleProjects]];
     viewController.tabBarItem.title = @"Проекты";
     viewController.tabBarItem.image = [UIImage imageNamed:@"noun_project"];
     return viewController;
