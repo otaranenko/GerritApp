@@ -100,13 +100,14 @@
         return;
     }
     
-    if ([url containsString:[SLLNetworkCreateURL formatTypeToString:SLLNetworkRequestTypeAccount]])
+    if ([url containsString:[SLLNetworkCreateURL formatTypeToString:SLLRequestTypeAccount]])
     {
         [self.interactor finishLoadingParallelData:jsonList];
         return;
     }
     
-    if ([url containsString:[SLLNetworkCreateURL formatTypeToString:SLLNetworkRequestTypeChange]])
+    if ([url containsString:[SLLNetworkCreateURL formatTypeToString:SLLRequestTypeChange]] ||
+        [url containsString:[SLLNetworkCreateURL formatTypeToString:SLLRequestTypeProject]])
     {
         [self.interactor finishLoadingData:jsonList];
         return;

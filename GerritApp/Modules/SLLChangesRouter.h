@@ -14,7 +14,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 
-@interface SLLChangesRouter : NSObject <SLLChangesRouter>
+@interface SLLChangesRouter : NSObject <SLLChangesRouterProtocol>
 
 - (void)presentDetailViewController:(UIViewController *)viewController;
 

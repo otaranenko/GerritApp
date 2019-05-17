@@ -24,17 +24,19 @@
 		BA355BC72228248100EB90C4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BA355BC62228248100EB90C4 /* main.m */; };
 		BA37418C226E5EA20081591A /* SLLNetworkCreateURL.m in Sources */ = {isa = PBXBuildFile; fileRef = BA37418B226E5EA20081591A /* SLLNetworkCreateURL.m */; };
 		BA374191226E67760081591A /* SLLChangeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA374190226E67760081591A /* SLLChangeViewController.m */; };
-		BA374194226E678B0081591A /* SLLProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA374193226E678B0081591A /* SLLProjectViewController.m */; };
+		BA374194226E678B0081591A /* SLLProjectsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA374193226E678B0081591A /* SLLProjectsViewController.m */; };
 		BA901A5B2281CEDB0088BF22 /* SLLChangesRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = BA901A5A2281CEDB0088BF22 /* SLLChangesRouter.m */; };
-		BA901A5E228226810088BF22 /* SLLProjectRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = BA901A5D228226810088BF22 /* SLLProjectRouter.m */; };
+		BA901A5E228226810088BF22 /* SLLProjectsRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = BA901A5D228226810088BF22 /* SLLProjectsRouter.m */; };
 		BA901A612282269C0088BF22 /* SLLAccountRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = BA901A602282269C0088BF22 /* SLLAccountRouter.m */; };
 		BA901A6422823DD80088BF22 /* SLLChangesInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = BA901A6322823DD80088BF22 /* SLLChangesInteractor.m */; };
 		BA901A69228244E10088BF22 /* SLLChangesAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = BA901A68228244E10088BF22 /* SLLChangesAssembly.m */; };
 		BA901A6C22824D240088BF22 /* SLLChangesDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA901A6B22824D240088BF22 /* SLLChangesDetailViewController.m */; };
-		BA91F181228336EE0081B509 /* SLLProjectAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = BA91F180228336EE0081B509 /* SLLProjectAssembly.m */; };
+		BA91F181228336EE0081B509 /* SLLProjectsAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = BA91F180228336EE0081B509 /* SLLProjectsAssembly.m */; };
 		BA91F1842283382E0081B509 /* SLLAccountAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = BA91F1832283382E0081B509 /* SLLAccountAssembly.m */; };
 		BA91F18B22834B620081B509 /* SLLChange.m in Sources */ = {isa = PBXBuildFile; fileRef = BA91F18A22834B620081B509 /* SLLChange.m */; };
 		BA91F18E22849B120081B509 /* SLLAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = BA91F18D22849B120081B509 /* SLLAccount.m */; };
+		BAA8FC7F228EE36A009EA4CA /* SLLProjectsPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = BAA8FC7E228EE36A009EA4CA /* SLLProjectsPresenter.m */; };
+		BAA8FC83228EE62D009EA4CA /* SLLProjectsInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = BAA8FC82228EE62D009EA4CA /* SLLProjectsInteractor.m */; };
 		BAC354E4228C6ABA00644FB7 /* SLLNetworkCreateURLTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BAC354E3228C6ABA00644FB7 /* SLLNetworkCreateURLTest.m */; };
 		BAC354E7228CA79300644FB7 /* SLLNetworkServiceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BAC354E6228CA79300644FB7 /* SLLNetworkServiceTest.m */; };
 		BAC354F8228CB75400644FB7 /* OCMock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAC354F4228CB07900644FB7 /* OCMock.framework */; };
@@ -100,12 +102,12 @@
 		BA37418B226E5EA20081591A /* SLLNetworkCreateURL.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLLNetworkCreateURL.m; sourceTree = "<group>"; };
 		BA37418F226E67760081591A /* SLLChangeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLLChangeViewController.h; sourceTree = "<group>"; };
 		BA374190226E67760081591A /* SLLChangeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLLChangeViewController.m; sourceTree = "<group>"; };
-		BA374192226E678B0081591A /* SLLProjectViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLLProjectViewController.h; sourceTree = "<group>"; };
-		BA374193226E678B0081591A /* SLLProjectViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLLProjectViewController.m; sourceTree = "<group>"; };
+		BA374192226E678B0081591A /* SLLProjectsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLLProjectsViewController.h; sourceTree = "<group>"; };
+		BA374193226E678B0081591A /* SLLProjectsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLLProjectsViewController.m; sourceTree = "<group>"; };
 		BA901A592281CEDB0088BF22 /* SLLChangesRouter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLLChangesRouter.h; sourceTree = "<group>"; };
 		BA901A5A2281CEDB0088BF22 /* SLLChangesRouter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLLChangesRouter.m; sourceTree = "<group>"; };
-		BA901A5C228226810088BF22 /* SLLProjectRouter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLLProjectRouter.h; sourceTree = "<group>"; };
-		BA901A5D228226810088BF22 /* SLLProjectRouter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLLProjectRouter.m; sourceTree = "<group>"; };
+		BA901A5C228226810088BF22 /* SLLProjectsRouter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLLProjectsRouter.h; sourceTree = "<group>"; };
+		BA901A5D228226810088BF22 /* SLLProjectsRouter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLLProjectsRouter.m; sourceTree = "<group>"; };
 		BA901A5F2282269C0088BF22 /* SLLAccountRouter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLLAccountRouter.h; sourceTree = "<group>"; };
 		BA901A602282269C0088BF22 /* SLLAccountRouter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLLAccountRouter.m; sourceTree = "<group>"; };
 		BA901A6222823DD80088BF22 /* SLLChangesInteractor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLLChangesInteractor.h; sourceTree = "<group>"; };
@@ -116,8 +118,8 @@
 		BA901A68228244E10088BF22 /* SLLChangesAssembly.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLLChangesAssembly.m; sourceTree = "<group>"; };
 		BA901A6A22824D240088BF22 /* SLLChangesDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLLChangesDetailViewController.h; sourceTree = "<group>"; };
 		BA901A6B22824D240088BF22 /* SLLChangesDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLLChangesDetailViewController.m; sourceTree = "<group>"; };
-		BA91F17F228336EE0081B509 /* SLLProjectAssembly.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLLProjectAssembly.h; sourceTree = "<group>"; };
-		BA91F180228336EE0081B509 /* SLLProjectAssembly.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLLProjectAssembly.m; sourceTree = "<group>"; };
+		BA91F17F228336EE0081B509 /* SLLProjectsAssembly.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLLProjectsAssembly.h; sourceTree = "<group>"; };
+		BA91F180228336EE0081B509 /* SLLProjectsAssembly.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLLProjectsAssembly.m; sourceTree = "<group>"; };
 		BA91F1822283382E0081B509 /* SLLAccountAssembly.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLLAccountAssembly.h; sourceTree = "<group>"; };
 		BA91F1832283382E0081B509 /* SLLAccountAssembly.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLLAccountAssembly.m; sourceTree = "<group>"; };
 		BA91F18922834B620081B509 /* SLLChange.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLLChange.h; sourceTree = "<group>"; };
@@ -125,6 +127,13 @@
 		BA91F18C22849B120081B509 /* SLLAccount.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLLAccount.h; sourceTree = "<group>"; };
 		BA91F18D22849B120081B509 /* SLLAccount.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLLAccount.m; sourceTree = "<group>"; };
 		BA91F18F2287808F0081B509 /* SLLInternalData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLLInternalData.h; sourceTree = "<group>"; };
+		BAA8FC7B228ECA2C009EA4CA /* SLLProjectsRouterProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLLProjectsRouterProtocol.h; sourceTree = "<group>"; };
+		BAA8FC7C228ECC14009EA4CA /* SLLProjectsPresenterProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLLProjectsPresenterProtocol.h; sourceTree = "<group>"; };
+		BAA8FC7D228EE36A009EA4CA /* SLLProjectsPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLLProjectsPresenter.h; sourceTree = "<group>"; };
+		BAA8FC7E228EE36A009EA4CA /* SLLProjectsPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLLProjectsPresenter.m; sourceTree = "<group>"; };
+		BAA8FC80228EE479009EA4CA /* SLLProjectsInteractorProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLLProjectsInteractorProtocol.h; sourceTree = "<group>"; };
+		BAA8FC81228EE62D009EA4CA /* SLLProjectsInteractor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLLProjectsInteractor.h; sourceTree = "<group>"; };
+		BAA8FC82228EE62D009EA4CA /* SLLProjectsInteractor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLLProjectsInteractor.m; sourceTree = "<group>"; };
 		BABC2409227395DA006128BD /* GerritAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GerritAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BABC240D227395DA006128BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BAC354E3228C6ABA00644FB7 /* SLLNetworkCreateURLTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLLNetworkCreateURLTest.m; sourceTree = "<group>"; };
@@ -154,9 +163,9 @@
 		BA281BB82288CD450026E18A /* CoreDataService */ = {
 			isa = PBXGroup;
 			children = (
-				BA281BBC2288DDD10026E18A /* SLLAccountCoreData+CoreDataProperties.h */,
 				BA281BBD2288DDD10026E18A /* SLLAccountCoreData+CoreDataClass.h */,
 				BA281BBE2288DDD10026E18A /* SLLAccountCoreData+CoreDataClass.m */,
+				BA281BBC2288DDD10026E18A /* SLLAccountCoreData+CoreDataProperties.h */,
 				BA281BBF2288DDD10026E18A /* SLLAccountCoreData+CoreDataProperties.m */,
 				BA281BB92288CE390026E18A /* SLLCoreDataService.h */,
 				BA281BBA2288CE390026E18A /* SLLCoreDataService.m */,
@@ -225,12 +234,19 @@
 		BA374187226E58C20081591A /* Projects */ = {
 			isa = PBXGroup;
 			children = (
-				BA374192226E678B0081591A /* SLLProjectViewController.h */,
-				BA374193226E678B0081591A /* SLLProjectViewController.m */,
-				BA901A5C228226810088BF22 /* SLLProjectRouter.h */,
-				BA901A5D228226810088BF22 /* SLLProjectRouter.m */,
-				BA91F17F228336EE0081B509 /* SLLProjectAssembly.h */,
-				BA91F180228336EE0081B509 /* SLLProjectAssembly.m */,
+				BA374192226E678B0081591A /* SLLProjectsViewController.h */,
+				BA374193226E678B0081591A /* SLLProjectsViewController.m */,
+				BAA8FC7D228EE36A009EA4CA /* SLLProjectsPresenter.h */,
+				BAA8FC7E228EE36A009EA4CA /* SLLProjectsPresenter.m */,
+				BAA8FC7C228ECC14009EA4CA /* SLLProjectsPresenterProtocol.h */,
+				BA901A5C228226810088BF22 /* SLLProjectsRouter.h */,
+				BA901A5D228226810088BF22 /* SLLProjectsRouter.m */,
+				BAA8FC7B228ECA2C009EA4CA /* SLLProjectsRouterProtocol.h */,
+				BAA8FC81228EE62D009EA4CA /* SLLProjectsInteractor.h */,
+				BAA8FC82228EE62D009EA4CA /* SLLProjectsInteractor.m */,
+				BAA8FC80228EE479009EA4CA /* SLLProjectsInteractorProtocol.h */,
+				BA91F17F228336EE0081B509 /* SLLProjectsAssembly.h */,
+				BA91F180228336EE0081B509 /* SLLProjectsAssembly.m */,
 			);
 			name = Projects;
 			sourceTree = "<group>";
@@ -471,7 +487,7 @@
 				BA2AFF5B227FA35B00C7B37E /* SLLRootCoordinator.m in Sources */,
 				BA901A612282269C0088BF22 /* SLLAccountRouter.m in Sources */,
 				BA355BBC2228247F00EB90C4 /* SLLAccountViewController.m in Sources */,
-				BA901A5E228226810088BF22 /* SLLProjectRouter.m in Sources */,
+				BA901A5E228226810088BF22 /* SLLProjectsRouter.m in Sources */,
 				BA355BC72228248100EB90C4 /* main.m in Sources */,
 				BA91F18E22849B120081B509 /* SLLAccount.m in Sources */,
 				BA901A69228244E10088BF22 /* SLLChangesAssembly.m in Sources */,
@@ -479,14 +495,16 @@
 				BA91F18B22834B620081B509 /* SLLChange.m in Sources */,
 				BA2AFF6322805DA000C7B37E /* UIColor+SLLColors.m in Sources */,
 				BA2AFF58227F9CD400C7B37E /* SLLChangesPresenter.m in Sources */,
+				BAA8FC83228EE62D009EA4CA /* SLLProjectsInteractor.m in Sources */,
 				BA281BA72288C6B70026E18A /* GerritApp.xcdatamodeld in Sources */,
 				BA281BBB2288CE390026E18A /* SLLCoreDataService.m in Sources */,
 				BA374191226E67760081591A /* SLLChangeViewController.m in Sources */,
-				BA91F181228336EE0081B509 /* SLLProjectAssembly.m in Sources */,
+				BA91F181228336EE0081B509 /* SLLProjectsAssembly.m in Sources */,
 				BA281BC12288DDD10026E18A /* SLLAccountCoreData+CoreDataProperties.m in Sources */,
 				BA355BB92228247F00EB90C4 /* AppDelegate.m in Sources */,
 				BA901A6422823DD80088BF22 /* SLLChangesInteractor.m in Sources */,
-				BA374194226E678B0081591A /* SLLProjectViewController.m in Sources */,
+				BAA8FC7F228EE36A009EA4CA /* SLLProjectsPresenter.m in Sources */,
+				BA374194226E678B0081591A /* SLLProjectsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

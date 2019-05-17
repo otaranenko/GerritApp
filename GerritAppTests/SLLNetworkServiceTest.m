@@ -166,8 +166,9 @@
 {
     id session = OCMClassMock([NSURLSession class]);
     id downloadTask = OCMClassMock([NSURLSessionDownloadTask class]);
-    id protocolIterctor = OCMProtocolMock(@protocol(SLLNetworkOutputProtocol));
     id url = OCMClassMock([NSURL class]);
+    id protocolIterctor = OCMProtocolMock(@protocol(SLLNetworkOutputProtocol));
+    self.network.interactor = protocolIterctor;
     NSDictionary <NSString *, NSString *> *dictionary = @{@"Test1":@"Value1",
                                                           @"Test2":@"Value2"
                                                           };
@@ -176,7 +177,6 @@
     
     OCMStub([downloadTask currentRequest]).andReturn(request);
     OCMStub([self.network clearMagicSimbolsForRAWData:nil]).andReturn(dataInput);
-    self.network.interactor = protocolIterctor;
     [self.network URLSession:session downloadTask:downloadTask didFinishDownloadingToURL:url];
     
     OCMReject([self.network.interactor finishLoadingData:nil]);
@@ -188,8 +188,9 @@
 {
     id session = OCMClassMock([NSURLSession class]);
     id downloadTask = OCMClassMock([NSURLSessionDownloadTask class]);
-    id protocolIterctor = OCMProtocolMock(@protocol(SLLNetworkOutputProtocol));
     id url = OCMClassMock([NSURL class]);
+    id protocolIterctor = OCMProtocolMock(@protocol(SLLNetworkOutputProtocol));
+    self.network.interactor = protocolIterctor;
     NSDictionary <NSString *, NSString *> *dictionary = @{@"Test1":@"Value1",
                                                           @"Test2":@"Value2"
                                                           };
@@ -198,7 +199,6 @@
     
     OCMStub([downloadTask currentRequest]).andReturn(request);
     OCMStub([self.network clearMagicSimbolsForRAWData:nil]).andReturn(dataInput);
-    self.network.interactor = protocolIterctor;
     [self.network URLSession:session downloadTask:downloadTask didFinishDownloadingToURL:url];
     
     OCMReject([self.network.interactor finishLoadingParallelData:nil]);
@@ -210,8 +210,9 @@
 {
     id session = OCMClassMock([NSURLSession class]);
     id downloadTask = OCMClassMock([NSURLSessionDownloadTask class]);
-    id protocolIterctor = OCMProtocolMock(@protocol(SLLNetworkOutputProtocol));
     id url = OCMClassMock([NSURL class]);
+    id protocolIterctor = OCMProtocolMock(@protocol(SLLNetworkOutputProtocol));
+    self.network.interactor = protocolIterctor;
     NSDictionary <NSString *, NSString *> *dictionary = @{@"Test1":@"Value1",
                                                           @"Test2":@"Value2"
                                                           };
@@ -220,7 +221,6 @@
     
     OCMStub([downloadTask currentRequest]).andReturn(request);
     OCMStub([self.network clearMagicSimbolsForRAWData:nil]).andReturn(dataInput);
-    self.network.interactor = protocolIterctor;
     [self.network URLSession:session downloadTask:downloadTask didFinishDownloadingToURL:url];
     
     OCMReject([self.network.interactor finishLoadingData:nil]);

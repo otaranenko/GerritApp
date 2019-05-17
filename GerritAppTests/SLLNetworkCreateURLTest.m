@@ -25,64 +25,68 @@
     [super tearDown];
 }
 
-- (void)testInfoAccountFromId_NilNumber
+- (void)testCreateURLFromAccountId_NilNumber
 {
     NSString *sourceString = nil;
     
-    NSString *string = [SLLNetworkCreateURL infoAccountFromId:sourceString];
+    NSString *string = [SLLNetworkCreateURL createURLFromAccountId:sourceString];
     
     XCTAssertNil(string);
 }
 
-- (void)testInfoAccountFromId_
+- (void)testCreateURLFromAccountId_
 {
     NSString *sourceString = @"123456789";
     
-    NSString *string = [SLLNetworkCreateURL infoAccountFromId:sourceString];
+    NSString *string = [SLLNetworkCreateURL createURLFromAccountId:sourceString];
     
     XCTAssertNotNil(string);
     XCTAssertTrue([string isEqualToString:@"https://gerrit-review.googlesource.com/accounts/123456789"]);
 }
 
-- (void)testInfoProject_
+- (void)testCreateURLFromOneLevelTypeAndTwoLevelType_ForOpen
 {
-    NSString *string = [SLLNetworkCreateURL infoProject];
+    SLLRequestLeveLType oneFormatType = SLLRequestTypeChange;
+    SLLRequestLeveLType twoFormatType = SLLRequestTypeChangeForOpen;
     
-    XCTAssertNotNil(string);
-    XCTAssertTrue([string isEqualToString:@"https://gerrit-review.googlesource.com/projects/"]);
-}
-
-- (void)testInfoChangeForParameters_ForOpen
-{
-    SLLNetworkRequestType formatType = SLLNetworkRequestTypeChangeForOpen;
-    
-    NSString *string = [SLLNetworkCreateURL infoChangeForParameters:formatType];
+    NSString *string = [SLLNetworkCreateURL createURLFromOneLevelType:oneFormatType andTwoLevelType:twoFormatType];
     
     XCTAssertNotNil(string);
     XCTAssertTrue([string isEqualToString:@"https://gerrit-review.googlesource.com/changes/?q=status:open"]);
 }
 
-- (void)testInfoChangeForParameters_ForMerge
+- (void)testCreateURLFromOneLevelTypeAndTwoLevelType_ForMerge
 {
-    SLLNetworkRequestType formatType = SLLNetworkRequestTypeChangeForMerged;
+    SLLRequestLeveLType oneFormatType = SLLRequestTypeChange;
+    SLLRequestLeveLType twoFormatType = SLLRequestTypeChangeForMerged;
     
-    NSString *string = [SLLNetworkCreateURL infoChangeForParameters:formatType];
+    NSString *string = [SLLNetworkCreateURL createURLFromOneLevelType:oneFormatType andTwoLevelType:twoFormatType];
     
     XCTAssertNotNil(string);
     XCTAssertTrue([string isEqualToString:@"https://gerrit-review.googlesource.com/changes/?q=status:merged"]);
 }
 
+- (void)testCreateURLFromOneLevelType_
+{
+    SLLRequestLeveLType oneFormatType = SLLRequestTypeProject;
+    
+    NSString *string = [SLLNetworkCreateURL createURLFromOneLevelType:oneFormatType];
+    
+    XCTAssertNotNil(string);
+    XCTAssertTrue([string isEqualToString:@"https://gerrit-review.googlesource.com/projects/"]);
+}
+
 
 - (void)testFormatTypeToString_ExceptionNotValid
 {
-    SLLNetworkRequestType formatType = 666;
+    SLLRequestLeveLType formatType = 666;
     
     XCTAssertThrows([SLLNetworkCreateURL formatTypeToString:formatType], @"Unknown type.");
 }
 
 - (void)testFormatTypeToString_Abandoned
 {
-    SLLNetworkRequestType formatType = SLLNetworkRequestTypeChangeForAbandoned;
+    SLLRequestLeveLType formatType = SLLRequestTypeChangeForAbandoned;
     
     XCTAssertNoThrow([SLLNetworkCreateURL formatTypeToString:formatType], @"Unknown type.");
     NSString *string = [SLLNetworkCreateURL formatTypeToString:formatType];
@@ -92,7 +96,7 @@
 
 - (void)testFormatTypeToString_Merged
 {
-    SLLNetworkRequestType formatType = SLLNetworkRequestTypeChangeForMerged;
+    SLLRequestLeveLType formatType = SLLRequestTypeChangeForMerged;
     XCTAssertNoThrow([SLLNetworkCreateURL formatTypeToString:formatType], @"Unknown type.");
     NSString *string = [SLLNetworkCreateURL formatTypeToString:formatType];
     XCTAssertTrue([string isEqualToString:@"?q=status:merged"]);
@@ -100,7 +104,7 @@
 
 - (void)testFormatTypeToString_ForAccount
 {
-    SLLNetworkRequestType formatType = SLLNetworkRequestTypeAccount;
+    SLLRequestLeveLType formatType = SLLRequestTypeAccount;
     XCTAssertNoThrow([SLLNetworkCreateURL formatTypeToString:formatType], @"Unknown type.");
     NSString *string = [SLLNetworkCreateURL formatTypeToString:formatType];
     XCTAssertTrue([string isEqualToString:@"accounts"]);

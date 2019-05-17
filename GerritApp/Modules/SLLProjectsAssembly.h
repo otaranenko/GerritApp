@@ -1,5 +1,5 @@
 //
-//  SLLProjectAssembly.h
+//  SLLProjectsAssembly.h
 //  GerritApp
 //
 //  Created by Oleg Taranenko on 08/05/2019.
@@ -13,9 +13,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 
-@interface SLLProjectAssembly : NSObject
+@interface SLLProjectsAssembly : NSObject
 
-- (UIViewController *)assemblyModuleProject;
+- (UIViewController *)assemblyModuleProjects;
 
 @end
 
