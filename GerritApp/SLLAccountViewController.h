@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SLLAccountPresenterProtocol.h"
 
-@interface SLLAccountViewController : UIViewController
 
+@interface SLLAccountViewController : UIViewController <SLLAccountPresenterOutputProtocol>
+
+@property (nonatomic, weak, nullable) id<SLLAccountPresenterInputProtocol> presenter;
 
 @end
 

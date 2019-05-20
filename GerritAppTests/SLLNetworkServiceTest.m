@@ -8,7 +8,7 @@
 
 #import <XCTest/XCTest.h>
 #import <OCMock/OCMock.h>
-#import "SLLNetworkService.h"
+#import "../GerritApp/SLLNetworkService.h"
 
 @interface SLLNetworkService (Tests)
 

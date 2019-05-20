@@ -30,4 +30,11 @@
 
 }
 
+
+#pragma mark -  SLLAccountPresenterOutputProtocol
+
+- (void)setTableViewForCellDataAccount:(NSDictionary<NSString *,id<SLLInternalData>> *)data {
+    
+}
+
 @end

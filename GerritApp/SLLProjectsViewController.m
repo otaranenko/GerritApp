@@ -117,7 +117,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-   // [self.presenter showDetailViewControllerFor:self];
+    SLLProject *project = [self.dataForCell allValues][indexPath.row];
+    [self.presenter showBrowserProject:project forView:self];
 }
 
 - (void)reloadTableView

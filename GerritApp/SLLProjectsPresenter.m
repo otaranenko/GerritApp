@@ -18,12 +18,16 @@
     [self.interactor dataForProjects];
 }
 
+- (void)showBrowserProject:(SLLProject *) data forView:(UIViewController *)view;
+{
+    [self.router presentBrowserForLoadProject:data forView:view];
+}
+
 
 #pragma mark -  SLLProjectsPresenterInputProtocol
 
-- (void)presentDataForDictionaryAccount:(NSDictionary<NSString *, SLLProject *> *)data;
-{
-    [self.view setTableViewForCellDataAccount:data];
+- (void)presentDataForDictionaryProject:(NSDictionary<NSString *,SLLProject *> *)data { 
+      [self.view setTableViewForCellDataAccount:data];
 }
 
 @end
