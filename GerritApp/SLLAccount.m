@@ -7,7 +7,7 @@
 //
 
 #import "SLLAccount.h"
-#import "../Service/SLLAccountCoreData+CoreDataClass.h"
+#import "SLLAccountCoreData+CoreDataClass.h"
 
 
 @interface SLLAccount ()

@@ -7,7 +7,8 @@
 //
 
 #import "SLLProjectsInteractor.h"
-#import "../Service/SLLNetworkCreateURL.h"
+#import "SLLNetworkCreateURL.h"
+#import "SLLProject.h"
 
 
 @implementation SLLProjectsInteractor 
@@ -17,17 +18,26 @@
 
 - (void)finishLoadingData:(NSDictionary<NSString *,NSString *> *)rawData
 {
-    NSLog(@"ddd %@", rawData);
+    NSMutableDictionary<NSString *, SLLProject *> * dictionaryAccount = [NSMutableDictionary new ];
+    int i = 0;
+    for (id key in rawData.allValues)
+    {
+        SLLProject *project = [[SLLProject alloc] initWithDictionary:key];
+        project.nameProject = [rawData allKeys][i];
+        [dictionaryAccount setObject:project forKey:[rawData allKeys][i]];
+        i++;
+    }
+    [self.presenter presentDataForDictionaryAccount:[dictionaryAccount copy]];
 }
 
 - (void)finishLoadingParallelData:(NSDictionary<NSString *,id> *)rawData
 {
-    
+    //TO DO
 }
 
 - (void)finishLoadingSerialData:(NSData *)rawImage forData:(id)data
 {
-    NSLog(@"ddd %@", data);
+    //TO DO
 }
 
 

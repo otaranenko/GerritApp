@@ -18,8 +18,6 @@ static const CGFloat SLLmarginsBorder = 5.0f;
 
 @property (nonatomic, strong) UIView *frontView;
 @property (nonatomic, strong) CAGradientLayer *frontLayer;
-
-//@property (nonatomic, strong) UIImageView *favoritsChangesImageView;
 @property (nonatomic, strong) UILabel *numberChangesLabel;
 @property (nonatomic, strong) UILabel *dateChangesLabel;
 @property (nonatomic, strong) UILabel *repoChangesLabel;
@@ -125,8 +123,8 @@ static const CGFloat SLLmarginsBorder = 5.0f;
     [NSLayoutConstraint activateConstraints:
      @[
        [self.frontView.topAnchor constraintEqualToAnchor: self.contentView.topAnchor],
-       [self.frontView.leftAnchor constraintEqualToAnchor: self.contentView.leftAnchor constant:SLLmarginsBorder],
-       [self.frontView.rightAnchor constraintEqualToAnchor: self.contentView.rightAnchor constant:-SLLmarginsBorder],
+       [self.frontView.leftAnchor constraintEqualToAnchor: self.contentView.leftAnchor],
+       [self.frontView.rightAnchor constraintEqualToAnchor: self.contentView.rightAnchor],
        [self.frontView.bottomAnchor constraintEqualToAnchor: self.contentView.bottomAnchor],
        
        [self.numberChangesLabel.topAnchor constraintEqualToAnchor: self.frontView.topAnchor constant:SLLmarginsBorder],

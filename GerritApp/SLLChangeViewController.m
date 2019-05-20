@@ -50,6 +50,7 @@
     self.segmentedControl = [[UISegmentedControl alloc] initWithItems:itemSegmentedControl];
     self.segmentedControl.selectedSegmentIndex = 0;
     [self.segmentedControl addTarget:self action:@selector(actionSegmentChanged:) forControlEvents:UIControlEventValueChanged];
+    self.segmentedControl.tintColor = [UIColor grayColor];
     self.navigationItem.titleView = self.segmentedControl;
     
     self.identifierCell = NSStringFromClass([SLLChangesTableViewCell class]);
@@ -136,7 +137,8 @@
 {
     SLLChangesTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:self.identifierCell forIndexPath:indexPath];
 
-    if (!cell) {
+    if (!cell)
+    {
         cell = [[SLLChangesTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:self.identifierCell];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }

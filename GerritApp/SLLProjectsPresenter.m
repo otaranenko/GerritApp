@@ -21,9 +21,9 @@
 
 #pragma mark -  SLLProjectsPresenterInputProtocol
 
-- (void)presentDataForChange:(NSArray *)data
+- (void)presentDataForDictionaryAccount:(NSDictionary<NSString *, SLLProject *> *)data;
 {
-    
+    [self.view setTableViewForCellDataAccount:data];
 }
 
 @end

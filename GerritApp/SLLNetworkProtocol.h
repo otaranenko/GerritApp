@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "../Modules/SLLInternalData.h"
+#import "SLLInternalData.h"
 
 
 /**

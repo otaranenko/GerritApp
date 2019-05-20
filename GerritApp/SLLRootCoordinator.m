@@ -7,9 +7,9 @@
 //
 
 #import "SLLRootCoordinator.h"
-#import "./Modules/SLLProjectsAssembly.h"
-#import "./Modules/SLLAccountAssembly.h"
-#import "./Modules/SLLChangesAssembly.h"
+#import "SLLProjectsAssembly.h"
+#import "SLLAccountAssembly.h"
+#import "SLLChangesAssembly.h"
 
 
 @interface SLLRootCoordinator ()

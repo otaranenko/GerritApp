@@ -33,7 +33,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor lightGrayColor];
-    self.navigationItem.title = @"Подробнее";
+    self.navigationItem.title = @"Подробно об изменении";
     [self buildUI];
 }
 

@@ -81,7 +81,7 @@
     [self.view setTableViewForCellDataAccount:self.account];
 }
 
-- (void)presentDataForArrayAccount:(NSDictionary<NSNumber *, SLLAccount *> *)data
+- (void)presentDataForDictionaryAccount:(NSDictionary<NSNumber *, SLLAccount *> *)data
 {
     NSMutableDictionary<NSNumber *, SLLAccount *> *array = [self.account mutableCopy];
     [array addEntriesFromDictionary:data];
