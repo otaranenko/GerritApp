@@ -21,7 +21,6 @@
 		BA2AFF6322805DA000C7B37E /* UIColor+SLLColors.m in Sources */ = {isa = PBXBuildFile; fileRef = BA2AFF6222805DA000C7B37E /* UIColor+SLLColors.m */; };
 		BA2AFF6622805EA800C7B37E /* CAGradientLayer+SLLGradients.m in Sources */ = {isa = PBXBuildFile; fileRef = BA2AFF6522805EA800C7B37E /* CAGradientLayer+SLLGradients.m */; };
 		BA2D99EA223807EE006960C6 /* SLLNetworkService.m in Sources */ = {isa = PBXBuildFile; fileRef = BA2D99E9223807EE006960C6 /* SLLNetworkService.m */; };
-		BA2D99EC22380832006960C6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BA2D99EB22380832006960C6 /* GoogleService-Info.plist */; };
 		BA355BB92228247F00EB90C4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BA355BB82228247F00EB90C4 /* AppDelegate.m */; };
 		BA355BBC2228247F00EB90C4 /* SLLAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA355BBB2228247F00EB90C4 /* SLLAccountViewController.m */; };
 		BA355BC12228248100EB90C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA355BC02228248100EB90C4 /* Assets.xcassets */; };
@@ -29,6 +28,12 @@
 		BA37418C226E5EA20081591A /* SLLNetworkCreateURL.m in Sources */ = {isa = PBXBuildFile; fileRef = BA37418B226E5EA20081591A /* SLLNetworkCreateURL.m */; };
 		BA374191226E67760081591A /* SLLChangeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA374190226E67760081591A /* SLLChangeViewController.m */; };
 		BA374194226E678B0081591A /* SLLProjectsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA374193226E678B0081591A /* SLLProjectsViewController.m */; };
+		BA3D8E2B22934674005D1B2A /* GoogleSignInDependencies.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA3D8E2822934673005D1B2A /* GoogleSignInDependencies.framework */; };
+		BA3D8E2C22934674005D1B2A /* GoogleSignIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA3D8E2922934673005D1B2A /* GoogleSignIn.framework */; };
+		BA3D8E33229348F6005D1B2A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BA2D99EB22380832006960C6 /* GoogleService-Info.plist */; };
+		BA3D8E3522934984005D1B2A /* GoogleSignIn.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BA3D8E3422934984005D1B2A /* GoogleSignIn.bundle */; };
+		BA3D8E37229349C2005D1B2A /* OCMock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA3D8E36229349C2005D1B2A /* OCMock.framework */; };
+		BA3D8E3822934A8D005D1B2A /* OCMock.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA3D8E36229349C2005D1B2A /* OCMock.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BA901A5B2281CEDB0088BF22 /* SLLChangesRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = BA901A5A2281CEDB0088BF22 /* SLLChangesRouter.m */; };
 		BA901A5E228226810088BF22 /* SLLProjectsRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = BA901A5D228226810088BF22 /* SLLProjectsRouter.m */; };
 		BA901A612282269C0088BF22 /* SLLAccountRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = BA901A602282269C0088BF22 /* SLLAccountRouter.m */; };
@@ -43,8 +48,6 @@
 		BAA8FC83228EE62D009EA4CA /* SLLProjectsInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = BAA8FC82228EE62D009EA4CA /* SLLProjectsInteractor.m */; };
 		BAC354E4228C6ABA00644FB7 /* SLLNetworkCreateURLTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BAC354E3228C6ABA00644FB7 /* SLLNetworkCreateURLTest.m */; };
 		BAC354E7228CA79300644FB7 /* SLLNetworkServiceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BAC354E6228CA79300644FB7 /* SLLNetworkServiceTest.m */; };
-		BAC354F8228CB75400644FB7 /* OCMock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAC354F4228CB07900644FB7 /* OCMock.framework */; };
-		BAC354FB228CB86100644FB7 /* OCMock.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BAC354F4228CB07900644FB7 /* OCMock.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,13 +61,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		BA2834742292DE0E00D21623 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BAC354FA228CB85800644FB7 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				BAC354FB228CB86100644FB7 /* OCMock.framework in CopyFiles */,
+				BA3D8E3822934A8D005D1B2A /* OCMock.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,6 +131,10 @@
 		BA374190226E67760081591A /* SLLChangeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLLChangeViewController.m; sourceTree = "<group>"; };
 		BA374192226E678B0081591A /* SLLProjectsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLLProjectsViewController.h; sourceTree = "<group>"; };
 		BA374193226E678B0081591A /* SLLProjectsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLLProjectsViewController.m; sourceTree = "<group>"; };
+		BA3D8E2822934673005D1B2A /* GoogleSignInDependencies.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleSignInDependencies.framework; sourceTree = "<group>"; };
+		BA3D8E2922934673005D1B2A /* GoogleSignIn.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleSignIn.framework; sourceTree = "<group>"; };
+		BA3D8E3422934984005D1B2A /* GoogleSignIn.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GoogleSignIn.bundle; path = lib/GoogleSignIn.bundle; sourceTree = "<group>"; };
+		BA3D8E36229349C2005D1B2A /* OCMock.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCMock.framework; path = lib/OCMock.framework; sourceTree = "<group>"; };
 		BA901A592281CEDB0088BF22 /* SLLChangesRouter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLLChangesRouter.h; sourceTree = "<group>"; };
 		BA901A5A2281CEDB0088BF22 /* SLLChangesRouter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLLChangesRouter.m; sourceTree = "<group>"; };
 		BA901A5C228226810088BF22 /* SLLProjectsRouter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLLProjectsRouter.h; sourceTree = "<group>"; };
@@ -150,10 +166,8 @@
 		BAA8FC81228EE62D009EA4CA /* SLLProjectsInteractor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLLProjectsInteractor.h; sourceTree = "<group>"; };
 		BAA8FC82228EE62D009EA4CA /* SLLProjectsInteractor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLLProjectsInteractor.m; sourceTree = "<group>"; };
 		BABC2409227395DA006128BD /* GerritAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GerritAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		BABC240D227395DA006128BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BAC354E3228C6ABA00644FB7 /* SLLNetworkCreateURLTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLLNetworkCreateURLTest.m; sourceTree = "<group>"; };
 		BAC354E6228CA79300644FB7 /* SLLNetworkServiceTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLLNetworkServiceTest.m; sourceTree = "<group>"; };
-		BAC354F4228CB07900644FB7 /* OCMock.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCMock.framework; path = lib/OCMock.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +175,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA3D8E2B22934674005D1B2A /* GoogleSignInDependencies.framework in Frameworks */,
+				BA3D8E2C22934674005D1B2A /* GoogleSignIn.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -168,7 +184,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BAC354F8228CB75400644FB7 /* OCMock.framework in Frameworks */,
+				BA3D8E37229349C2005D1B2A /* OCMock.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,7 +360,6 @@
 			isa = PBXGroup;
 			children = (
 				BAC354E5228C6C1600644FB7 /* Service */,
-				BABC240D227395DA006128BD /* Info.plist */,
 			);
 			path = GerritAppTests;
 			sourceTree = "<group>";
@@ -361,7 +376,10 @@
 		BAC354F3228CB07900644FB7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				BAC354F4228CB07900644FB7 /* OCMock.framework */,
+				BA3D8E36229349C2005D1B2A /* OCMock.framework */,
+				BA3D8E2922934673005D1B2A /* GoogleSignIn.framework */,
+				BA3D8E2822934673005D1B2A /* GoogleSignInDependencies.framework */,
+				BA3D8E3422934984005D1B2A /* GoogleSignIn.bundle */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -369,9 +387,9 @@
 		BAF946782236FA6500D3F6A8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				BA2D99EB22380832006960C6 /* GoogleService-Info.plist */,
 				BA355BC02228248100EB90C4 /* Assets.xcassets */,
 				BA355BC52228248100EB90C4 /* Info.plist */,
+				BA2D99EB22380832006960C6 /* GoogleService-Info.plist */,
 				BA281BA52288C6B70026E18A /* GerritApp.xcdatamodeld */,
 			);
 			name = Resources;
@@ -419,6 +437,7 @@
 				BA355BB02228247F00EB90C4 /* Sources */,
 				BA355BB12228247F00EB90C4 /* Frameworks */,
 				BA355BB22228247F00EB90C4 /* Resources */,
+				BA2834742292DE0E00D21623 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -492,8 +511,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA3D8E33229348F6005D1B2A /* GoogleService-Info.plist in Resources */,
+				BA3D8E3522934984005D1B2A /* GoogleSignIn.bundle in Resources */,
 				BA355BC12228248100EB90C4 /* Assets.xcassets in Resources */,
-				BA2D99EC22380832006960C6 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -686,12 +706,18 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 37S8XGT8LR;
+				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/lib",
+				);
 				INFOPLIST_FILE = GerritApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.soulocal.GerritApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -709,12 +735,18 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 37S8XGT8LR;
+				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/lib",
+				);
 				INFOPLIST_FILE = GerritApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.soulocal.GerritApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -728,7 +760,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 37S8XGT8LR;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/lib",
@@ -752,7 +784,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 37S8XGT8LR;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/lib",
