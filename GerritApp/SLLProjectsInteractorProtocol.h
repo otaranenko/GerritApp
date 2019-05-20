@@ -6,7 +6,7 @@
 //  Copyright © 2019 Oleg Taranenko. All rights reserved.
 //
 
-#import "SLLInternalData.h"
+#import "SLLProject.h"
 
 
 @protocol SLLProjectsItercatorInputProtocol <NSObject>
@@ -18,7 +18,6 @@
 
 @protocol SLLProjectsIntercatorOutputProtocol <NSObject>
 
-- (void)presentDataForChange:(NSArray<id<SLLInternalData> > *)data;
-
+- (void)presentDataForDictionaryAccount:(NSDictionary<NSString *, SLLProject *> *)data;
 
 @end

@@ -7,8 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "../Service/SLLNetworkProtocol.h"
-#import "../Service/SLLCoreDataProtocol.h"
+#import "SLLNetworkProtocol.h"
+#import "SLLCoreDataProtocol.h"
 #import "SLLChangesInteractorProtocol.h"
 
 NS_ASSUME_NONNULL_BEGIN

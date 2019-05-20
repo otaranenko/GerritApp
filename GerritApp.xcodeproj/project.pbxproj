@@ -11,6 +11,8 @@
 		BA281BBB2288CE390026E18A /* SLLCoreDataService.m in Sources */ = {isa = PBXBuildFile; fileRef = BA281BBA2288CE390026E18A /* SLLCoreDataService.m */; };
 		BA281BC02288DDD10026E18A /* SLLAccountCoreData+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = BA281BBE2288DDD10026E18A /* SLLAccountCoreData+CoreDataClass.m */; };
 		BA281BC12288DDD10026E18A /* SLLAccountCoreData+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = BA281BBF2288DDD10026E18A /* SLLAccountCoreData+CoreDataProperties.m */; };
+		BA28345A22921C7A00D21623 /* SLLProject.m in Sources */ = {isa = PBXBuildFile; fileRef = BA28345922921C7A00D21623 /* SLLProject.m */; };
+		BA28345D22921D2F00D21623 /* SLLProjectsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BA28345B22921D2F00D21623 /* SLLProjectsTableViewCell.m */; };
 		BA2AFF58227F9CD400C7B37E /* SLLChangesPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = BA2AFF57227F9CD400C7B37E /* SLLChangesPresenter.m */; };
 		BA2AFF5B227FA35B00C7B37E /* SLLRootCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = BA2AFF5A227FA35B00C7B37E /* SLLRootCoordinator.m */; };
 		BA2AFF5F22800F3E00C7B37E /* SLLChangesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BA2AFF5E22800F3E00C7B37E /* SLLChangesTableViewCell.m */; };
@@ -75,6 +77,10 @@
 		BA281BBE2288DDD10026E18A /* SLLAccountCoreData+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "SLLAccountCoreData+CoreDataClass.m"; sourceTree = "<group>"; };
 		BA281BBF2288DDD10026E18A /* SLLAccountCoreData+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "SLLAccountCoreData+CoreDataProperties.m"; sourceTree = "<group>"; };
 		BA281BC22288E7340026E18A /* SLLCoreDataProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLLCoreDataProtocol.h; sourceTree = "<group>"; };
+		BA28345822921C7900D21623 /* SLLProject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SLLProject.h; path = GerritApp/SLLProject.h; sourceTree = SOURCE_ROOT; };
+		BA28345922921C7A00D21623 /* SLLProject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SLLProject.m; path = GerritApp/SLLProject.m; sourceTree = SOURCE_ROOT; };
+		BA28345B22921D2F00D21623 /* SLLProjectsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLLProjectsTableViewCell.m; sourceTree = "<group>"; };
+		BA28345C22921D2F00D21623 /* SLLProjectsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLLProjectsTableViewCell.h; sourceTree = "<group>"; };
 		BA2AFF56227F9CD400C7B37E /* SLLChangesPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLLChangesPresenter.h; sourceTree = "<group>"; };
 		BA2AFF57227F9CD400C7B37E /* SLLChangesPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLLChangesPresenter.m; sourceTree = "<group>"; };
 		BA2AFF59227FA35B00C7B37E /* SLLRootCoordinator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLLRootCoordinator.h; sourceTree = "<group>"; };
@@ -174,6 +180,17 @@
 			name = CoreDataService;
 			sourceTree = "<group>";
 		};
+		BA28345E22922DB300D21623 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BA28345C22921D2F00D21623 /* SLLProjectsTableViewCell.h */,
+				BA28345B22921D2F00D21623 /* SLLProjectsTableViewCell.m */,
+				BA374192226E678B0081591A /* SLLProjectsViewController.h */,
+				BA374193226E678B0081591A /* SLLProjectsViewController.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		BA2AFF6022805C7400C7B37E /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -234,8 +251,7 @@
 		BA374187226E58C20081591A /* Projects */ = {
 			isa = PBXGroup;
 			children = (
-				BA374192226E678B0081591A /* SLLProjectsViewController.h */,
-				BA374193226E678B0081591A /* SLLProjectsViewController.m */,
+				BA28345E22922DB300D21623 /* View */,
 				BAA8FC7D228EE36A009EA4CA /* SLLProjectsPresenter.h */,
 				BAA8FC7E228EE36A009EA4CA /* SLLProjectsPresenter.m */,
 				BAA8FC7C228ECC14009EA4CA /* SLLProjectsPresenterProtocol.h */,
@@ -302,6 +318,8 @@
 				BA91F18C22849B120081B509 /* SLLAccount.h */,
 				BA91F18D22849B120081B509 /* SLLAccount.m */,
 				BA91F18F2287808F0081B509 /* SLLInternalData.h */,
+				BA28345822921C7900D21623 /* SLLProject.h */,
+				BA28345922921C7A00D21623 /* SLLProject.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -349,7 +367,7 @@
 				BA281BB82288CD450026E18A /* CoreDataService */,
 				BAF9467B223702D800D3F6A8 /* NetworkService */,
 			);
-			path = Service;
+			name = Service;
 			sourceTree = "<group>";
 		};
 		BAF9467B223702D800D3F6A8 /* NetworkService */ = {
@@ -372,7 +390,7 @@
 				BA374187226E58C20081591A /* Projects */,
 				BA374185226E582A0081591A /* Accounts */,
 			);
-			path = Modules;
+			name = Modules;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -480,6 +498,7 @@
 				BA2D99EA223807EE006960C6 /* SLLNetworkService.m in Sources */,
 				BA2AFF6622805EA800C7B37E /* CAGradientLayer+SLLGradients.m in Sources */,
 				BA901A5B2281CEDB0088BF22 /* SLLChangesRouter.m in Sources */,
+				BA28345D22921D2F00D21623 /* SLLProjectsTableViewCell.m in Sources */,
 				BA91F1842283382E0081B509 /* SLLAccountAssembly.m in Sources */,
 				BA37418C226E5EA20081591A /* SLLNetworkCreateURL.m in Sources */,
 				BA281BC02288DDD10026E18A /* SLLAccountCoreData+CoreDataClass.m in Sources */,
@@ -494,6 +513,7 @@
 				BA901A6C22824D240088BF22 /* SLLChangesDetailViewController.m in Sources */,
 				BA91F18B22834B620081B509 /* SLLChange.m in Sources */,
 				BA2AFF6322805DA000C7B37E /* UIColor+SLLColors.m in Sources */,
+				BA28345A22921C7A00D21623 /* SLLProject.m in Sources */,
 				BA2AFF58227F9CD400C7B37E /* SLLChangesPresenter.m in Sources */,
 				BAA8FC83228EE62D009EA4CA /* SLLProjectsInteractor.m in Sources */,
 				BA281BA72288C6B70026E18A /* GerritApp.xcdatamodeld in Sources */,

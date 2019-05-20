@@ -8,7 +8,7 @@
 //
 
 #import "SLLAccountCoreData+CoreDataClass.h"
-#import "../Modules/SLLAccount.h"
+#import "SLLAccount.h"
 
 
 @implementation SLLAccountCoreData

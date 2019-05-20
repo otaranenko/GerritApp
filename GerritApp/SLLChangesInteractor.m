@@ -7,7 +7,7 @@
 //
 
 #import "SLLChangesInteractor.h"
-#import "../Service/SLLNetworkCreateURL.h"
+#import "SLLNetworkCreateURL.h"
 #import "SLLChange.h"
 #import "SLLAccount.h"
 
@@ -81,7 +81,7 @@
     NSMutableArray *array = [NSMutableArray arrayWithArray:uniqueArray];
     [array removeObjectsInArray:arrayAccountIdCoreData];
     
-    [self.presenter presentDataForArrayAccount:dictionaryAccount];
+    [self.presenter presentDataForDictionaryAccount:dictionaryAccount];
     [self dataForAccountGerritForListID:[array copy]];
 }
 
