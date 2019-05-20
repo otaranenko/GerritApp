@@ -53,7 +53,6 @@
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         for (NSString *urlString in listUrls)
         {
-            NSLog(@"URL = %@", urlString);
             self.sessionConfiguration = [NSURLSessionConfiguration defaultSessionConfiguration];
             self.urlSession = [NSURLSession sessionWithConfiguration:self.sessionConfiguration delegate:self delegateQueue:nil];
             self.sessionDownloadTask = [self.urlSession downloadTaskWithURL:[NSURL URLWithString:urlString]];
@@ -92,7 +91,6 @@
     NSData *data = [self clearMagicSimbolsForRAWData:[NSData dataWithContentsOfURL:location]];
     NSError *errorSerialization;
     NSDictionary *jsonList = [NSJSONSerialization JSONObjectWithData:data  options: kNilOptions error: &errorSerialization];
-    NSLog(@"json list change IS LOAD");
     
     if (errorSerialization)
     {
