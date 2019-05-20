@@ -13,6 +13,8 @@
 		BA281BC12288DDD10026E18A /* SLLAccountCoreData+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = BA281BBF2288DDD10026E18A /* SLLAccountCoreData+CoreDataProperties.m */; };
 		BA28345A22921C7A00D21623 /* SLLProject.m in Sources */ = {isa = PBXBuildFile; fileRef = BA28345922921C7A00D21623 /* SLLProject.m */; };
 		BA28345D22921D2F00D21623 /* SLLProjectsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BA28345B22921D2F00D21623 /* SLLProjectsTableViewCell.m */; };
+		BA283463229242A100D21623 /* SLLAccountInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = BA283462229242A100D21623 /* SLLAccountInteractor.m */; };
+		BA283466229242DA00D21623 /* SLLAccountPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = BA283465229242DA00D21623 /* SLLAccountPresenter.m */; };
 		BA2AFF58227F9CD400C7B37E /* SLLChangesPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = BA2AFF57227F9CD400C7B37E /* SLLChangesPresenter.m */; };
 		BA2AFF5B227FA35B00C7B37E /* SLLRootCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = BA2AFF5A227FA35B00C7B37E /* SLLRootCoordinator.m */; };
 		BA2AFF5F22800F3E00C7B37E /* SLLChangesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BA2AFF5E22800F3E00C7B37E /* SLLChangesTableViewCell.m */; };
@@ -81,6 +83,13 @@
 		BA28345922921C7A00D21623 /* SLLProject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SLLProject.m; path = GerritApp/SLLProject.m; sourceTree = SOURCE_ROOT; };
 		BA28345B22921D2F00D21623 /* SLLProjectsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLLProjectsTableViewCell.m; sourceTree = "<group>"; };
 		BA28345C22921D2F00D21623 /* SLLProjectsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLLProjectsTableViewCell.h; sourceTree = "<group>"; };
+		BA28345F2292425600D21623 /* SLLAccountRouterProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLLAccountRouterProtocol.h; sourceTree = "<group>"; };
+		BA2834602292428500D21623 /* SLLAccountInteractorProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLLAccountInteractorProtocol.h; sourceTree = "<group>"; };
+		BA283461229242A100D21623 /* SLLAccountInteractor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLLAccountInteractor.h; sourceTree = "<group>"; };
+		BA283462229242A100D21623 /* SLLAccountInteractor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLLAccountInteractor.m; sourceTree = "<group>"; };
+		BA283464229242DA00D21623 /* SLLAccountPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLLAccountPresenter.h; sourceTree = "<group>"; };
+		BA283465229242DA00D21623 /* SLLAccountPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLLAccountPresenter.m; sourceTree = "<group>"; };
+		BA283467229242F600D21623 /* SLLAccountPresenterProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLLAccountPresenterProtocol.h; sourceTree = "<group>"; };
 		BA2AFF56227F9CD400C7B37E /* SLLChangesPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLLChangesPresenter.h; sourceTree = "<group>"; };
 		BA2AFF57227F9CD400C7B37E /* SLLChangesPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLLChangesPresenter.m; sourceTree = "<group>"; };
 		BA2AFF59227FA35B00C7B37E /* SLLRootCoordinator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLLRootCoordinator.h; sourceTree = "<group>"; };
@@ -240,8 +249,15 @@
 			children = (
 				BA355BBA2228247F00EB90C4 /* SLLAccountViewController.h */,
 				BA355BBB2228247F00EB90C4 /* SLLAccountViewController.m */,
+				BA283464229242DA00D21623 /* SLLAccountPresenter.h */,
+				BA283465229242DA00D21623 /* SLLAccountPresenter.m */,
+				BA283467229242F600D21623 /* SLLAccountPresenterProtocol.h */,
 				BA901A5F2282269C0088BF22 /* SLLAccountRouter.h */,
 				BA901A602282269C0088BF22 /* SLLAccountRouter.m */,
+				BA28345F2292425600D21623 /* SLLAccountRouterProtocol.h */,
+				BA283461229242A100D21623 /* SLLAccountInteractor.h */,
+				BA283462229242A100D21623 /* SLLAccountInteractor.m */,
+				BA2834602292428500D21623 /* SLLAccountInteractorProtocol.h */,
 				BA91F1822283382E0081B509 /* SLLAccountAssembly.h */,
 				BA91F1832283382E0081B509 /* SLLAccountAssembly.m */,
 			);
@@ -495,7 +511,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA283466229242DA00D21623 /* SLLAccountPresenter.m in Sources */,
 				BA2D99EA223807EE006960C6 /* SLLNetworkService.m in Sources */,
+				BA283463229242A100D21623 /* SLLAccountInteractor.m in Sources */,
 				BA2AFF6622805EA800C7B37E /* CAGradientLayer+SLLGradients.m in Sources */,
 				BA901A5B2281CEDB0088BF22 /* SLLChangesRouter.m in Sources */,
 				BA28345D22921D2F00D21623 /* SLLProjectsTableViewCell.m in Sources */,
@@ -668,7 +686,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 37S8XGT8LR;
 				INFOPLIST_FILE = GerritApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -691,7 +709,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 37S8XGT8LR;
 				INFOPLIST_FILE = GerritApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

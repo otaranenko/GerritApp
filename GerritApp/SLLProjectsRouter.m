@@ -7,7 +7,7 @@
 //
 
 #import "SLLProjectsRouter.h"
-
+#import <SafariServices/SFSafariViewController.h>
 
 
 
@@ -16,9 +16,11 @@
 
 #pragma mark -  SLLProjectsRouterProtocol
 
-- (void)presentViewController:(UIViewController *)viewController
+- (void)presentBrowserForLoadProject:(SLLProject *)projectData forView:(UIViewController *)view
 {
-    NSLog(@"Test  invocke  presentViewController");
+     SFSafariViewController *safariController = [[SFSafariViewController alloc] initWithURL:[NSURL URLWithString:projectData.webLinkURL]];
+    [view presentViewController:safariController animated:YES completion:nil];
+    
 }
 
 @end

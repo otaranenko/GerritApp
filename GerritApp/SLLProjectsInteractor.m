@@ -27,7 +27,7 @@
         [dictionaryAccount setObject:project forKey:[rawData allKeys][i]];
         i++;
     }
-    [self.presenter presentDataForDictionaryAccount:[dictionaryAccount copy]];
+    [self.presenter presentDataForDictionaryProject:[dictionaryAccount copy]];
 }
 
 - (void)finishLoadingParallelData:(NSDictionary<NSString *,id> *)rawData

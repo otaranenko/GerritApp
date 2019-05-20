@@ -21,5 +21,6 @@
 @protocol SLLProjectsPresenterInputProtocol <NSObject>
 
 - (void)getDataForProjectsList;
+- (void)showBrowserProject:(SLLProject *) data forView:(UIViewController *)view;
 
 @end

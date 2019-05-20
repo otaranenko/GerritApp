@@ -18,6 +18,6 @@
 
 @protocol SLLProjectsIntercatorOutputProtocol <NSObject>
 
-- (void)presentDataForDictionaryAccount:(NSDictionary<NSString *, SLLProject *> *)data;
+- (void)presentDataForDictionaryProject:(NSDictionary<NSString *, SLLProject *> *)data;
 
 @end

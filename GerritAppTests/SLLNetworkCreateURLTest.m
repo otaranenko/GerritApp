@@ -7,11 +7,13 @@
 //
 
 #import <XCTest/XCTest.h>
-#import "SLLNetworkCreateURL.h"
+#import "../GerritApp/SLLNetworkCreateURL.h"
+
 
 @interface SLLNetworkCreateURLTest : XCTestCase
 
 @end
+
 
 @implementation SLLNetworkCreateURLTest
 
