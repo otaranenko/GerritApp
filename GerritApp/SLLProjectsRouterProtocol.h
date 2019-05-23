@@ -11,6 +11,6 @@
 
 @protocol SLLProjectsRouterProtocol <NSObject>
 
-- (void)presentBrowserForLoadProject:(SLLProject *)projectData forView:(UIViewController *)view;
+- (void)presentBrowserForLoadProject:(SLLProject *)projectData;
 
 @end

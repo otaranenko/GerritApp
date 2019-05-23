@@ -81,6 +81,11 @@ static  const NSUInteger SLLsystemFontOfSize = 17;
     [self defaultValueData];
 }
 
+/**
+ Шаблон создания объектов типа LabeL
+ 
+ @return возращает созданный и настроенный UILabel
+ */
 - (UILabel *)createTemplateLabel
 {
     UILabel *label = [[UILabel alloc] init];

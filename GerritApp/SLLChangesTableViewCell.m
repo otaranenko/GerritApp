@@ -75,6 +75,12 @@ static const CGFloat SLLmarginsBorder = 5.0f;
     return self;
 }
 
+
+/**
+ Шаблон создания объектов типа LabeL
+
+ @return возращает созданный и настроенный UILabel
+ */
 - (UILabel *)createTemplateLabel
 {
     UILabel *label = [[UILabel alloc] init];

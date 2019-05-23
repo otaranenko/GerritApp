@@ -9,10 +9,15 @@
 #import <Foundation/Foundation.h>
 #import "SLLProjectsRouterProtocol.h"
 
+@class SFSafariViewController;
+
+
 NS_ASSUME_NONNULL_BEGIN
 
 
 @interface SLLProjectsRouter : NSObject <SLLProjectsRouterProtocol>
+
+@property (nonatomic, weak, nullable) UIViewController *view;
 
 @end
 

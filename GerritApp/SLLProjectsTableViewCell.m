@@ -25,7 +25,6 @@ static const CGFloat SLLmarginsBorder = 5.0f;
 @end
 
 
-
 @implementation SLLProjectsTableViewCell
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
@@ -43,28 +42,34 @@ static const CGFloat SLLmarginsBorder = 5.0f;
         [_frontView.layer addSublayer:_frontLayer];
         
         // Название проекта
-        _nameProjectLabel = [[UILabel alloc] init];
+        _nameProjectLabel = [self createTemplateLabel];
         _nameProjectLabel.font = [UIFont systemFontOfSize:15 weight:UIFontWeightBold];
-        _nameProjectLabel.textColor = [UIColor whiteColor];
-        [_frontView addSubview:_nameProjectLabel];
         
         // Состояние проекта
-        _idStateLabel = [[UILabel alloc] init];
-        _idStateLabel.font = [UIFont systemFontOfSize:13 weight:UIFontWeightRegular];
-        _idStateLabel.textColor = [UIColor whiteColor];
-        [_frontView addSubview:_idStateLabel];
+        _idStateLabel = [self createTemplateLabel];
         
         // Ссылка на Web-репозиторий для просмотра
-        _webLinkURL = [[UILabel alloc] init];
-        _webLinkURL.font = [UIFont systemFontOfSize:13 weight:UIFontWeightThin];
-        _webLinkURL.textColor = [UIColor whiteColor];
+        _webLinkURL = [self createTemplateLabel];
         _webLinkURL.numberOfLines = 2;
-        [_frontView addSubview:_webLinkURL];
+
         [self defaultValueDataForCell];
     }
     return self;
 }
 
+/**
+ Шаблон создания объектов типа LabeL
+ 
+ @return возращает созданный и настроенный UILabel
+ */
+- (UILabel *)createTemplateLabel
+{
+    UILabel *label = [[UILabel alloc] init];
+    label.font = [UIFont systemFontOfSize:13 weight:UIFontWeightRegular];
+    label.textColor = [UIColor whiteColor];
+    [self.frontView addSubview:label];
+    return label;
+}
 
 - (void) defaultValueDataForCell
 {

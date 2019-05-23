@@ -31,6 +31,11 @@
 
 @implementation SLLAccountAssembly
 
+/**
+ Собираем модуль
+ 
+ @return Возращает указатель на \"корневой\" ViewController этого модуля
+ */
 - (UIViewController *)assemblyModuleAccount
 {
     self.presenter = [SLLAccountPresenter new];

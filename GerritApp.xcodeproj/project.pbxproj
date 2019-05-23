@@ -270,10 +270,7 @@
 		BA374185226E582A0081591A /* Accounts */ = {
 			isa = PBXGroup;
 			children = (
-				BA355BBA2228247F00EB90C4 /* SLLAccountViewController.h */,
-				BA355BBB2228247F00EB90C4 /* SLLAccountViewController.m */,
-				BA3D8E3922934DEF005D1B2A /* SLLAccountAuthenticationView.h */,
-				BA3D8E3A22934DEF005D1B2A /* SLLAccountAuthenticationView.m */,
+				BABD522622976A18004DD6CD /* View */,
 				BA283464229242DA00D21623 /* SLLAccountPresenter.h */,
 				BA283465229242DA00D21623 /* SLLAccountPresenter.m */,
 				BA283467229242F600D21623 /* SLLAccountPresenterProtocol.h */,
@@ -381,6 +378,17 @@
 				BAC354E5228C6C1600644FB7 /* Service */,
 			);
 			path = GerritAppTests;
+			sourceTree = "<group>";
+		};
+		BABD522622976A18004DD6CD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BA355BBA2228247F00EB90C4 /* SLLAccountViewController.h */,
+				BA355BBB2228247F00EB90C4 /* SLLAccountViewController.m */,
+				BA3D8E3922934DEF005D1B2A /* SLLAccountAuthenticationView.h */,
+				BA3D8E3A22934DEF005D1B2A /* SLLAccountAuthenticationView.m */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 		BAC354E5228C6C1600644FB7 /* Service */ = {
