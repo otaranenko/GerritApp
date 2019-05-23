@@ -30,10 +30,11 @@
 
 @implementation SLLChangesDetailViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor lightGrayColor];
-    self.navigationItem.title = @"В разработке детали";
+    self.navigationItem.title = @"Детали в разработке!";
     [self buildUI];
 }
 
@@ -86,5 +87,6 @@
     self.topicLabel.textColor = [UIColor whiteColor];
     [self.centerView addSubview:self.topicLabel];
 }
+
 
 @end

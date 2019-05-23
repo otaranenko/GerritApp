@@ -7,21 +7,17 @@
 //
 
 #import "SLLChangesRouter.h"
-#import "SLLChangesDetailViewController.h"
-
-
-@interface SLLChangesRouter ()
-
-@end
-
+#import <UIKit/UIKit.h>
 
 @implementation SLLChangesRouter
 
-- (void)presentDetailViewController:(UIViewController *)viewController
+
+#pragma mark -  SLLChangesRouterProtocol
+
+- (void)presentDetailViewController
 {
-    SLLChangesDetailViewController *detailViewController = [SLLChangesDetailViewController new];
-    detailViewController.modalPresentationStyle = UIModalPresentationCustom;
-    [viewController.navigationController pushViewController:detailViewController animated:YES ];
+    self.viewDetail.modalPresentationStyle = UIModalPresentationCustom;
+    [self.view.navigationController pushViewController:self.viewDetail animated:YES];
 }
 
 

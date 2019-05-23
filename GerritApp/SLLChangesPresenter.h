@@ -13,6 +13,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+
 @interface SLLChangesPresenter : NSObject <SLLChangesPresenterInputProtocol, SLLChangesIntercatorOutputProtocol>
 
 @property (nonatomic, weak, nullable) id<SLLChangesPresenterOutputProtocol> view;

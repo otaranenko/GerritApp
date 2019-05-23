@@ -14,6 +14,7 @@
 
 @implementation SLLChangesInteractor
 
+
 #pragma mark -  SLLChangesItercatorInputProtocol
 
 - (void)dataForChangesForID

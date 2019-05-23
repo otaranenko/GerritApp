@@ -9,14 +9,14 @@
 #import <Foundation/Foundation.h>
 #import "SLLChangesRouterProtocol.h"
 
-@class UIViewController;
 
 NS_ASSUME_NONNULL_BEGIN
 
 
 @interface SLLChangesRouter : NSObject <SLLChangesRouterProtocol>
 
-- (void)presentDetailViewController:(UIViewController *)viewController;
+@property (nonatomic, weak, nullable) UIViewController *view;
+@property (nonatomic, weak, nullable) UIViewController *viewDetail;
 
 @end
 
