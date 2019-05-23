@@ -9,15 +9,7 @@
 #import "SLLAccount.h"
 #import "SLLAccountCoreData+CoreDataClass.h"
 
-
-@interface SLLAccount ()
-
-@property (nonatomic, strong) NSNumber *account_id;
-@property (nonatomic, strong) NSString *email;
-@property (nonatomic, strong) NSString *name;
-@property (nonatomic, strong) NSString *avatarURL;
-
-@end
+static NSUInteger SLLImageURLWithDimension = 32;
 
 
 @implementation SLLAccount
@@ -33,7 +25,7 @@
         
         for (id key in [dictionary objectForKey:@"avatars"])
         {
-            if ([[key objectForKey:@"height"]   isEqual: @(32)])
+            if ([[key objectForKey:@"height"]   isEqual: @(SLLImageURLWithDimension)])
             {
                 _avatarURL = [key objectForKey:@"url"];
                 break;

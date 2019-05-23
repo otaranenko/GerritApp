@@ -34,6 +34,8 @@
 		BA3D8E3522934984005D1B2A /* GoogleSignIn.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BA3D8E3422934984005D1B2A /* GoogleSignIn.bundle */; };
 		BA3D8E37229349C2005D1B2A /* OCMock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA3D8E36229349C2005D1B2A /* OCMock.framework */; };
 		BA3D8E3822934A8D005D1B2A /* OCMock.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA3D8E36229349C2005D1B2A /* OCMock.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BA3D8E3B22934DEF005D1B2A /* SLLAccountAuthenticationView.m in Sources */ = {isa = PBXBuildFile; fileRef = BA3D8E3A22934DEF005D1B2A /* SLLAccountAuthenticationView.m */; };
+		BA3D8E3F22956D38005D1B2A /* SLLAuthenticationGoogle.m in Sources */ = {isa = PBXBuildFile; fileRef = BA3D8E3E22956D38005D1B2A /* SLLAuthenticationGoogle.m */; };
 		BA901A5B2281CEDB0088BF22 /* SLLChangesRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = BA901A5A2281CEDB0088BF22 /* SLLChangesRouter.m */; };
 		BA901A5E228226810088BF22 /* SLLProjectsRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = BA901A5D228226810088BF22 /* SLLProjectsRouter.m */; };
 		BA901A612282269C0088BF22 /* SLLAccountRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = BA901A602282269C0088BF22 /* SLLAccountRouter.m */; };
@@ -135,6 +137,11 @@
 		BA3D8E2922934673005D1B2A /* GoogleSignIn.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleSignIn.framework; sourceTree = "<group>"; };
 		BA3D8E3422934984005D1B2A /* GoogleSignIn.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GoogleSignIn.bundle; path = lib/GoogleSignIn.bundle; sourceTree = "<group>"; };
 		BA3D8E36229349C2005D1B2A /* OCMock.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCMock.framework; path = lib/OCMock.framework; sourceTree = "<group>"; };
+		BA3D8E3922934DEF005D1B2A /* SLLAccountAuthenticationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLLAccountAuthenticationView.h; sourceTree = "<group>"; };
+		BA3D8E3A22934DEF005D1B2A /* SLLAccountAuthenticationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLLAccountAuthenticationView.m; sourceTree = "<group>"; };
+		BA3D8E3D22956D38005D1B2A /* SLLAuthenticationGoogle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLLAuthenticationGoogle.h; sourceTree = "<group>"; };
+		BA3D8E3E22956D38005D1B2A /* SLLAuthenticationGoogle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLLAuthenticationGoogle.m; sourceTree = "<group>"; };
+		BA3D8E4022956F98005D1B2A /* SLLAuthenticationServiceProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLLAuthenticationServiceProtocol.h; sourceTree = "<group>"; };
 		BA901A592281CEDB0088BF22 /* SLLChangesRouter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLLChangesRouter.h; sourceTree = "<group>"; };
 		BA901A5A2281CEDB0088BF22 /* SLLChangesRouter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLLChangesRouter.m; sourceTree = "<group>"; };
 		BA901A5C228226810088BF22 /* SLLProjectsRouter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLLProjectsRouter.h; sourceTree = "<group>"; };
@@ -265,6 +272,8 @@
 			children = (
 				BA355BBA2228247F00EB90C4 /* SLLAccountViewController.h */,
 				BA355BBB2228247F00EB90C4 /* SLLAccountViewController.m */,
+				BA3D8E3922934DEF005D1B2A /* SLLAccountAuthenticationView.h */,
+				BA3D8E3A22934DEF005D1B2A /* SLLAccountAuthenticationView.m */,
 				BA283464229242DA00D21623 /* SLLAccountPresenter.h */,
 				BA283465229242DA00D21623 /* SLLAccountPresenter.m */,
 				BA283467229242F600D21623 /* SLLAccountPresenterProtocol.h */,
@@ -316,6 +325,16 @@
 				BA901A68228244E10088BF22 /* SLLChangesAssembly.m */,
 			);
 			name = Changes;
+			sourceTree = "<group>";
+		};
+		BA3D8E3C22956CF3005D1B2A /* AuthenticationService */ = {
+			isa = PBXGroup;
+			children = (
+				BA3D8E3D22956D38005D1B2A /* SLLAuthenticationGoogle.h */,
+				BA3D8E3E22956D38005D1B2A /* SLLAuthenticationGoogle.m */,
+				BA3D8E4022956F98005D1B2A /* SLLAuthenticationServiceProtocol.h */,
+			);
+			name = AuthenticationService;
 			sourceTree = "<group>";
 		};
 		BA91F18622833FF70081B509 /* View */ = {
@@ -398,6 +417,7 @@
 		BAF9467A2236FCCE00D3F6A8 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				BA3D8E3C22956CF3005D1B2A /* AuthenticationService */,
 				BA281BB82288CD450026E18A /* CoreDataService */,
 				BAF9467B223702D800D3F6A8 /* NetworkService */,
 			);
@@ -537,10 +557,12 @@
 				BA2AFF6622805EA800C7B37E /* CAGradientLayer+SLLGradients.m in Sources */,
 				BA901A5B2281CEDB0088BF22 /* SLLChangesRouter.m in Sources */,
 				BA28345D22921D2F00D21623 /* SLLProjectsTableViewCell.m in Sources */,
+				BA3D8E3F22956D38005D1B2A /* SLLAuthenticationGoogle.m in Sources */,
 				BA91F1842283382E0081B509 /* SLLAccountAssembly.m in Sources */,
 				BA37418C226E5EA20081591A /* SLLNetworkCreateURL.m in Sources */,
 				BA281BC02288DDD10026E18A /* SLLAccountCoreData+CoreDataClass.m in Sources */,
 				BA2AFF5F22800F3E00C7B37E /* SLLChangesTableViewCell.m in Sources */,
+				BA3D8E3B22934DEF005D1B2A /* SLLAccountAuthenticationView.m in Sources */,
 				BA2AFF5B227FA35B00C7B37E /* SLLRootCoordinator.m in Sources */,
 				BA901A612282269C0088BF22 /* SLLAccountRouter.m in Sources */,
 				BA355BBC2228247F00EB90C4 /* SLLAccountViewController.m in Sources */,

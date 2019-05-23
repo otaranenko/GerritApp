@@ -12,8 +12,11 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+
 @interface SLLAccountRouter : NSObject <SLLAccountRouterProtocol>
 
+@property (nonatomic, weak, nullable) UIViewController *view;
+@property (nonatomic, weak, nullable) UIViewController *viewAuthentication;
 
 @end
 

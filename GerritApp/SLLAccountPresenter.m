@@ -10,17 +10,47 @@
 
 @implementation SLLAccountPresenter
 
-#pragma mark -  <#name#>
 
-- (void)getDataForProjectsList {
-    
+#pragma mark - SLLAccountPresenterInputProtocol
+
+- (void)getDataForProjectsList
+{
+    [self.interactor dataForProjects];
+}
+
+- (void)stateAuthentication
+{
+    [self.interactor checkAuth];
+}
+
+- (void)dismissView
+{
+    [self.router dismissViewControllerAuthentication];
+}
+
+- (void)presentView
+{
+     [self.router presentViewControllerAuthentication];
+}
+
+- (void)sigOutAccount
+{
+    [self.interactor sigOutAccount];
 }
 
 
-#pragma mark -  <#name#>
+#pragma mark -  SLLAccountIntercatorOutputProtocol
 
-- (void)presentDataForDictionarySelfAccount:(NSDictionary<NSString *,id<SLLInternalData>> *)data {
-    
+- (void)presentStatusAuthentication:(BOOL)status
+{
+    [self.view setStatusAuthenticationStatus:status];
 }
+
+- (void)presentDataSelfAccount:(SLLAccount *)data {
+    [self.view setDataAccount:data];
+}
+
+
+
 
 @end

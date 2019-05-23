@@ -7,31 +7,95 @@
 //
 
 #import "SLLAccountInteractor.h"
+#import "SLLNetworkCreateURL.h"
 
-//https://accounts.google.com/o/oauth2/v2/auth?client_id=538366707668-tsm1h69748m691t02laoqkeit0uratpk.apps.googleusercontent.com&response_type=code&scope=https://www.googleapis.com/auth/gmail.send&redirect_uri=http://localhost&access_type=offline
+
+@interface SLLAccountInteractor ()
+
+@property (nonatomic, strong)SLLAccount *accountSelf;
+
+@end
+
 
 @implementation SLLAccountInteractor
 
+- (void) loadAccountIDForSelf:(SLLAccount *)accountSelf
+{
+    NSString *requestString = [NSString stringWithFormat:@"%@",accountSelf.email];
+    NSArray <NSString *> *url = @[[SLLNetworkCreateURL createURLFromCustomString:requestString]];
+    [self.networkService startDownloadData:url];
+}
 
 #pragma mark -  SLLNetworkOutputProtocol
 
-- (void)finishLoadingData:(NSDictionary<NSString *,NSString *> *)rawData {
-    
+- (void)finishLoadingData:(NSDictionary<NSString *,NSString *> *)rawData
+{
 }
 
-- (void)finishLoadingParallelData:(NSDictionary<NSString *,id> *)rawData {
+- (void)finishLoadingParallelData:(NSDictionary<NSString *,id> *)rawData
+{
+    NSLog(@"%@", rawData);
     
+    SLLAccount *account = [[SLLAccount alloc] initWithDictionary:rawData];
+    self.accountSelf.account_id = account.account_id;
+    // account.avatarImage = rawImage;
+    [self.presenter presentDataSelfAccount:self.accountSelf];
+    //[self.presenter presentDataSelfAccount:account];
 }
 
-- (void)finishLoadingSerialData:(NSData *)rawImage forData:(id)data {
-    
+- (void)finishLoadingSerialData:(NSData *)rawImage forData:(id)data
+{
+    if (![data isKindOfClass:[SLLAccount class]])
+    {
+        return;
+    }
+    SLLAccount *account = data;
+    account.avatarImage = rawImage;
+    [self.presenter presentDataSelfAccount:account];
 }
 
 
 #pragma mark -  SLLAccountItercatorInputProtocol
 
-- (void)dataForProjects {
+- (void)dataForProjects
+{
+    NSArray <NSString *> *url = @[[SLLNetworkCreateURL createURLFromCustomString:@"?q=name:John+email:example.com"]];
+    [self.networkService startDownloadData:url];
     
+//    "_account_id": 1077962,
+//    "name": "LocaL LocaL",
+//    "email": "soullocal@gmail.com",
+}
+
+- (void)checkAuth
+{
+    [self.authenticationService checkAuthenticationService];
+}
+
+- (void)sigOutAccount {
+    [self.authenticationService sigOutAuthenticationService];
+}
+
+
+
+
+- (void)dataAuthenticationForUser:(SLLAccount *)accountSelf
+{
+    if (accountSelf.avatarURL)
+    {
+        [self.networkService startDownloadImage:accountSelf.avatarURL forTransferData:accountSelf];
+    }
+    self.accountSelf = accountSelf;
+    [self loadAccountIDForSelf:accountSelf];
+}
+
+- (void)isAuthenticationService:(BOOL)isAuth
+{
+    if (!isAuth)
+    {
+        self.accountSelf = nil;
+    }
+    [self.presenter presentStatusAuthentication:isAuth];
 }
 
 @end
