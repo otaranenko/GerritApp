@@ -46,29 +46,18 @@ static const CGFloat SLLmarginsBorder = 5.0f;
         [_frontView.layer addSublayer:_frontLayer];
         
         // Номер изменения
-        _numberChangesLabel = [[UILabel alloc] init];
-        _numberChangesLabel.font = [UIFont systemFontOfSize:13 weight:UIFontWeightRegular];
-        _numberChangesLabel.textColor = [UIColor whiteColor];
-        [_frontView addSubview:_numberChangesLabel];
+        _numberChangesLabel = [self createTemplateLabel];
         
         // Название репозитория
-        _repoChangesLabel = [[UILabel alloc] init];
-        _repoChangesLabel.font = [UIFont systemFontOfSize:13 weight:UIFontWeightRegular];
-        _repoChangesLabel.textColor = [UIColor whiteColor];
-        [_frontView addSubview:_repoChangesLabel];
+        _repoChangesLabel = [self createTemplateLabel];
         
         // Дата и время обновления изменения
-        _dateChangesLabel = [[UILabel alloc] init];
-        _dateChangesLabel.font = [UIFont systemFontOfSize:13 weight:UIFontWeightRegular];
-        _dateChangesLabel.textColor = [UIColor whiteColor];
-        [_frontView addSubview:_dateChangesLabel];
+        _dateChangesLabel = [self createTemplateLabel];
         
         // Описание изменения
-        _descriptionChangesLabel = [[UILabel alloc] init];
+        _descriptionChangesLabel = [self createTemplateLabel];
         _descriptionChangesLabel.font = [UIFont systemFontOfSize:15 weight:UIFontWeightBold];
-        _descriptionChangesLabel.textColor = [UIColor whiteColor];
         _descriptionChangesLabel.numberOfLines = 2;
-        [_frontView addSubview:_descriptionChangesLabel];
         
         // Аватарка пользователя
         _avatarImageView = [[UIImageView alloc] init];
@@ -80,13 +69,19 @@ static const CGFloat SLLmarginsBorder = 5.0f;
         [_frontView addSubview:_avatarImageView];
         
         // Имя пользователя
-        _authorLabel = [[UILabel alloc] init];
-        _authorLabel.font = [UIFont systemFontOfSize:13 weight:UIFontWeightRegular];
-        _authorLabel.textColor = [UIColor whiteColor];
-        [_frontView addSubview:_authorLabel];
+        _authorLabel = [self createTemplateLabel];
         [self defaultValueDataForCell];
     }
     return self;
+}
+
+- (UILabel *)createTemplateLabel
+{
+    UILabel *label = [[UILabel alloc] init];
+    label.font = [UIFont systemFontOfSize:13 weight:UIFontWeightRegular];
+    label.textColor = [UIColor whiteColor];
+    [_frontView addSubview:label];
+    return label;
 }
 
 - (SLLChangesTableViewCell *)setCell:(SLLChangesTableViewCell *)cell ForData:(SLLChange *)changeData
@@ -161,7 +156,6 @@ static const CGFloat SLLmarginsBorder = 5.0f;
     self.frontLayer.frame = self.frontView.frame = self.contentView.bounds;
     [self updateConstraints];
 }
-
 
 - (void)prepareForReuse
 {

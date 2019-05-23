@@ -10,6 +10,7 @@
 #import "SLLChangesRouter.h"
 #import "SLLChangesPresenter.h"
 #import "SLLChangeViewController.h"
+#import "SLLChangesDetailViewController.h"
 #import "SLLChangesInteractor.h"
 #import "SLLNetworkService.h"
 #import "SLLCoreDataService.h"
@@ -19,6 +20,7 @@
 
 @property (nonatomic, strong) SLLChangesPresenter *presenter;
 @property (nonatomic, strong) SLLChangeViewController *viewController;
+@property (nonatomic, strong) SLLChangesDetailViewController *detailViewController;
 @property (nonatomic, strong) SLLChangesInteractor *interactor;
 @property (nonatomic, strong) SLLChangesRouter *route;
 @property (nonatomic, strong) SLLNetworkService *serviceNetwork;
@@ -39,15 +41,21 @@
     self.presenter = [SLLChangesPresenter new];
     self.route = [SLLChangesRouter new];
     self.viewController = [SLLChangeViewController new];
+    self.detailViewController = [SLLChangesDetailViewController new];
     self.interactor = [SLLChangesInteractor new];
     self.serviceNetwork = [SLLNetworkService new];
     self.serviceCoreData = [SLLCoreDataService new];
     
     self.viewController.presenter = self.presenter;
     
+    self.detailViewController.presenter = self.presenter;
+    
     self.presenter.interactor = self.interactor;
     self.presenter.view = self.viewController;
     self.presenter.router = self.route;
+    
+    self.route.view = self.viewController;
+    self.route.viewDetail = self.detailViewController;
     
     self.interactor.coreDataService = self.serviceCoreData;
     self.interactor.networkService = self.serviceNetwork;

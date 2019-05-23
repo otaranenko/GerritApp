@@ -10,6 +10,7 @@
 #import "SLLChangesTableViewCell.h"
 #import "SLLChange.h"
 
+
 @interface SLLChangeViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) UITableView *changesTableView;
@@ -157,7 +158,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self.presenter showDetailViewControllerFor:self];
+    [self.presenter showDetailViewController];
 }
 
 - (void)reloadTableView

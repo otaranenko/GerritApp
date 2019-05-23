@@ -8,7 +8,6 @@
 
 #import "SLLChange.h"
 #import "SLLAccount.h"
-@class UIViewController;
 
 
 @protocol SLLChangesPresenterOutputProtocol <NSObject>
@@ -24,6 +23,6 @@
 - (void)getDataForChangesisOpen;
 - (void)getDataForChangesisMerged;
 - (void)getDataForChangesisAbandoned;
-- (void)showDetailViewControllerFor:(UIViewController *)viewController;
+- (void)showDetailViewController;
 
 @end

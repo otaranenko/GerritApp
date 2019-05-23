@@ -46,18 +46,13 @@
     [self.interactor dataForChangesisOpen];
 }
 
-- (void)showDetailViewControllerFor:(id)viewController
+- (void)showDetailViewController
 {
-    [self.router presentDetailViewController:viewController];
+    [self.router presentDetailViewController];
 }
 
 
 #pragma mark -  SLLItercatorOutupProtocol
-
-- (void)getChangeGerritForPresenter
-{
-    
-}
 
 - (void)presentDataForChange:(NSArray<SLLChange *> *)data
 {

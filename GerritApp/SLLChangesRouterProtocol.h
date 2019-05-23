@@ -8,8 +8,9 @@
 
 @class UIViewController;
 
+
 @protocol SLLChangesRouterProtocol <NSObject>
 
-- (void)presentDetailViewController:(UIViewController *)viewController;
+- (void)presentDetailViewController;
 
 @end
