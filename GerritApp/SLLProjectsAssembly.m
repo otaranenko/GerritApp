@@ -13,7 +13,6 @@
 #import "SLLProjectsViewController.h"
 #import "SLLProjectsInteractor.h"
 #import "SLLNetworkService.h"
-#import "SLLCoreDataService.h"
 
 
 @interface SLLProjectsAssembly ()
@@ -23,7 +22,6 @@
 @property (nonatomic, strong) SLLProjectsInteractor *interactor;
 @property (nonatomic, strong) SLLProjectsRouter *route;
 @property (nonatomic, strong) SLLNetworkService *serviceNetwork;
-@property (nonatomic, strong) SLLCoreDataService *serviceCoreData;
 
 @end
 
@@ -42,7 +40,6 @@
     self.viewController = [SLLProjectsViewController new];
     self.interactor = [SLLProjectsInteractor new];
     self.serviceNetwork = [SLLNetworkService new];
-    self.serviceCoreData = [SLLCoreDataService new];
     
     self.viewController.presenter = self.presenter;
     
@@ -50,13 +47,10 @@
     self.presenter.view = self.viewController;
     self.presenter.router = self.route;
     
-    self.interactor.coreDataService = self.serviceCoreData;
     self.interactor.networkService = self.serviceNetwork;
     self.interactor.presenter = self.presenter;
     
     self.serviceNetwork.interactor = self.interactor;
-    
-    self.serviceCoreData.interactor = self.interactor;
     
     return self.viewController;
 }

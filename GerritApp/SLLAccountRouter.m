@@ -7,8 +7,7 @@
 //
 
 #import "SLLAccountRouter.h"
-
-
+#import "SLLAccountAuthenticationView.h"
 
 
 @implementation SLLAccountRouter
@@ -16,8 +15,15 @@
 
 #pragma mark -  SLLAccountRouterProtocol
 
-- (void)presentViewController:(UIViewController *)viewController {
-    
+- (void)presentViewControllerAuthentication
+{
+    self.viewAuthentication.modalPresentationStyle = UIModalPresentationCustom;
+    [self.view.navigationController pushViewController:self.viewAuthentication animated:YES];
+}
+
+- (void)dismissViewControllerAuthentication
+{
+    [self.view.navigationController popToRootViewControllerAnimated:YES];
 }
 
 @end

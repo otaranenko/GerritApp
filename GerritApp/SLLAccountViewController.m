@@ -7,12 +7,23 @@
 //
 
 #import "SLLAccountViewController.h"
-#import <GoogleSignIn/GoogleSignIn.h>
+
+static  const NSUInteger SLLsizeAvatarForView = 100;
+static  const NSUInteger SLLmarginForView = 30;
+static  const NSUInteger SLLsystemFontOfSize = 17;
 
 
-@interface SLLAccountViewController () <GIDSignInDelegate, GIDSignInUIDelegate>
+@interface SLLAccountViewController () 
 
-@property (nonatomic, strong) NSString *SLLGerritURLString;
+@property (nonatomic, strong) UIView *frontView;
+@property (nonatomic, strong) UIImageView *avatarImageView;
+@property (nonatomic, strong) UILabel *authorLabel;
+@property (nonatomic, strong) UILabel *authorEmailLabel;
+@property (nonatomic, strong) UILabel *idAccountLabel;
+
+@property (nonatomic, strong) UILabel *titleAuthorLabel;
+@property (nonatomic, strong) UILabel *titleAuthorEmailLabel;
+@property (nonatomic, strong) UILabel *titleIdAccountLabel;
 
 @end
 
@@ -22,117 +33,159 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor lightGrayColor];
-        self.navigationItem.title = @"Настройки аккаунта";
-    GIDSignInButton *signInButton = [GIDSignInButton new];
-    signInButton.frame = CGRectMake(100, 100, 100, 200);
-    [self.view addSubview:signInButton];
-    [self createAuth];
-  //  [self reportAuthStatus];
-    
-}
-- (void)viewWillAppear:(BOOL)animated {
-   
-    [self reportAuthStatus];
-    [super viewWillAppear:animated];
+    self.view.backgroundColor = [UIColor whiteColor];
+    self.navigationItem.title = @"Информация";
+
+    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"noun_exit"] style:UIBarButtonItemStyleDone target:self action:@selector(sigOutAccount)];
+    rightButton.tintColor = [UIColor darkGrayColor];
+    self.navigationItem.rightBarButtonItem = rightButton;
+    [self buildUI];
+    [self updateConstraints];
+    [self.presenter stateAuthentication];
 }
 
-- (void) createAuth
+- (void)buildUI
 {
-    GIDSignIn *signIn = [GIDSignIn sharedInstance];
-    signIn.shouldFetchBasicProfile = YES;
-    signIn.delegate = self;
-    signIn.uiDelegate = self;
-    signIn.clientID = @"314133874140-ptcg59nt6loq7655s7jl7agheu9pm0po.apps.googleusercontent.com";
-  //  [signIn signInSilently ];
- //   [GIDSignIn sharedInstance].signInSilently;
+    self.frontView = [[UIView alloc] init];
+    self.frontView.layer.cornerRadius = 20;
+    self.frontView.layer.masksToBounds = YES;
+    self.frontView.backgroundColor = [UIColor grayColor];
+    [self.view addSubview:self.frontView];
+    
+    // Аватарка пользователя
+    self.avatarImageView = [[UIImageView alloc] init];
+    self.avatarImageView.contentMode = UIViewContentModeScaleAspectFill;
+    self.avatarImageView.backgroundColor = [UIColor grayColor];
+    self.avatarImageView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+        self.avatarImageView.layer.borderWidth = 1.0;
+    self.avatarImageView.layer.cornerRadius = SLLsizeAvatarForView / 2;
+    self.avatarImageView.layer.masksToBounds = YES;
+    self.avatarImageView.clipsToBounds = YES;
+    [self.frontView addSubview:self.avatarImageView ];
+    
+    // Имя пользователя
+    self.titleAuthorLabel = [self createTemplateLabel];
+    self.titleAuthorLabel.text = @"Имя: ";
+    self.authorLabel = [self createTemplateLabel];
+    
+    // Email пользователя
+    self.titleAuthorEmailLabel = [self createTemplateLabel];
+    self.titleAuthorEmailLabel.text = @"Email: ";
+    self.authorEmailLabel = [self createTemplateLabel];
+    
+    // ID пользователя
+    self.titleIdAccountLabel = [self createTemplateLabel];
+    self.titleIdAccountLabel.text = @"ID: ";
+    self.idAccountLabel = [self createTemplateLabel];
+    
+    [self defaultValueData];
+}
+
+- (UILabel *)createTemplateLabel
+{
+    UILabel *label = [[UILabel alloc] init];
+    label.font = [UIFont systemFontOfSize:SLLsystemFontOfSize weight:UIFontWeightRegular];
+    label.textColor = [UIColor whiteColor];
+    label.numberOfLines = 1;
+    [self.frontView addSubview:label];
+    return label;
+}
+
+- (void)defaultValueData
+{
+    self.avatarImageView.image = [UIImage imageNamed:@"noun_avatar"];
+    self.authorLabel.text = @"Unknown Unknown";
+    self.authorEmailLabel.text = @"---@---";
+    self.idAccountLabel.text = @"----";
+}
+
+- (void)updateConstraints
+{
+    self.frontView.translatesAutoresizingMaskIntoConstraints = NO;
+    self.avatarImageView.translatesAutoresizingMaskIntoConstraints = NO;
+    self.authorLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    self.authorEmailLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    self.idAccountLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    self.titleAuthorLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    self.titleAuthorEmailLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    self.titleIdAccountLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    CGFloat moveTopCoordinate = self.navigationController.navigationBar.frame.origin.y  + self.navigationController.navigationBar.frame.size.height;
+    CGFloat scaleForRotation = self.navigationController.navigationBar.frame.size.width *0.3  ;
+    
+    [NSLayoutConstraint activateConstraints:
+     @[
+       [self.frontView.topAnchor constraintEqualToAnchor: self.view.topAnchor constant:moveTopCoordinate],
+       [self.frontView.leftAnchor constraintEqualToAnchor: self.view.leftAnchor],
+       [self.frontView.rightAnchor constraintEqualToAnchor: self.view.rightAnchor],
+       [self.frontView.bottomAnchor constraintEqualToAnchor: self.view.bottomAnchor],
+       
+       [self.avatarImageView.topAnchor constraintEqualToAnchor: self.frontView.topAnchor constant:SLLmarginForView],
+       [self.avatarImageView.centerXAnchor constraintEqualToAnchor: self.frontView.centerXAnchor ],
+       [self.avatarImageView.widthAnchor constraintEqualToConstant:SLLsizeAvatarForView],
+       [self.avatarImageView.heightAnchor constraintEqualToConstant:SLLsizeAvatarForView],
+       
+       [self.titleAuthorLabel.topAnchor constraintEqualToAnchor: self.avatarImageView.bottomAnchor ],
+       [self.titleAuthorLabel.leftAnchor constraintEqualToAnchor: self.frontView.leftAnchor constant:SLLmarginForView],
+       [self.titleAuthorLabel.rightAnchor constraintEqualToAnchor: self.authorEmailLabel.leftAnchor],
+       [self.titleAuthorLabel.heightAnchor constraintEqualToConstant:SLLsizeAvatarForView/3],
+       [self.titleAuthorLabel.widthAnchor constraintEqualToConstant:scaleForRotation],
+       [self.titleAuthorLabel.bottomAnchor constraintEqualToAnchor: self.authorLabel.bottomAnchor],
+       [self.authorLabel.topAnchor constraintEqualToAnchor: self.avatarImageView.bottomAnchor ],
+       [self.authorLabel.leftAnchor constraintEqualToAnchor: self.titleAuthorLabel.rightAnchor],
+       [self.authorLabel.rightAnchor constraintEqualToAnchor: self.frontView.rightAnchor],
+       [self.authorLabel.heightAnchor constraintEqualToConstant:SLLsizeAvatarForView/3],
+       [self.authorLabel.bottomAnchor constraintEqualToAnchor: self.authorEmailLabel.topAnchor ],
+       
+       [self.titleAuthorEmailLabel.leftAnchor constraintEqualToAnchor: self.frontView.leftAnchor constant:SLLmarginForView],
+       [self.titleAuthorEmailLabel.rightAnchor constraintEqualToAnchor: self.authorEmailLabel.leftAnchor],
+       [self.titleAuthorEmailLabel.heightAnchor constraintEqualToConstant:SLLsizeAvatarForView/3],
+       [self.titleAuthorEmailLabel.bottomAnchor constraintEqualToAnchor: self.authorEmailLabel.bottomAnchor],
+       [self.authorEmailLabel.leftAnchor constraintEqualToAnchor: self.titleAuthorEmailLabel.rightAnchor],
+       [self.authorEmailLabel.rightAnchor constraintEqualToAnchor: self.frontView.rightAnchor],
+       [self.authorEmailLabel.heightAnchor constraintEqualToConstant:SLLsizeAvatarForView/3],
+       [self.authorEmailLabel.bottomAnchor constraintEqualToAnchor: self.idAccountLabel.topAnchor],
+
+       [self.titleIdAccountLabel.leftAnchor constraintEqualToAnchor: self.frontView.leftAnchor constant:SLLmarginForView],
+       [self.titleIdAccountLabel.rightAnchor constraintEqualToAnchor: self.authorEmailLabel.leftAnchor],
+       [self.titleIdAccountLabel.heightAnchor constraintEqualToConstant:SLLsizeAvatarForView/3],
+       [self.titleIdAccountLabel.bottomAnchor constraintEqualToAnchor: self.idAccountLabel.bottomAnchor],
+       [self.idAccountLabel.leftAnchor constraintEqualToAnchor: self.titleIdAccountLabel.rightAnchor],
+       [self.idAccountLabel.rightAnchor constraintEqualToAnchor: self.frontView.rightAnchor],
+       [self.idAccountLabel.heightAnchor constraintEqualToConstant:SLLsizeAvatarForView/3],
+       ]];
+    
+    [super updateViewConstraints];
+}
+
+- (void)sigOutAccount
+{
+    [self.presenter sigOutAccount];
 }
 
 
 #pragma mark -  SLLAccountPresenterOutputProtocol
 
-- (void)setTableViewForCellDataAccount:(NSDictionary<NSString *,id<SLLInternalData>> *)data
+- (void)setDataAccount:(SLLAccount *)data
 {
-    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.authorLabel.text = data.name;
+        self.authorEmailLabel.text = data.email;
+        self.idAccountLabel.text = data.account_id.stringValue;
+        self.avatarImageView.image = [UIImage imageWithData:data.avatarImage];
+    });
 }
 
-
-#pragma mark -  GIDSignInDelegate
-
-- (void)signIn:(GIDSignIn *)signIn didSignInForUser:(GIDGoogleUser *)user withError:(NSError *)error
+- (void)setStatusAuthenticationStatus:(BOOL)status
 {
-    if (error)
+    if (!status)
     {
-        NSLog(@"SSSSSSSSS");
-      //  _signInAuthStatus.text = [NSString stringWithFormat:@"Status: Authentication error: %@", error];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self defaultValueData];
+            [self.presenter presentView];
+        });
         return;
     }
-    [self reportAuthStatus];
-//    [self updateButtons];
+    [self.presenter dismissView];
 }
-
-
-- (void)reportAuthStatus
-{
-    GIDGoogleUser *googleUser = [[GIDSignIn sharedInstance] currentUser];
-    if (googleUser.authentication)
-    {
-        NSLog(@"Authenticated");
-//        _signInAuthStatus.text = @"Status: Authenticated";
-    }
-    else
-    {
-         NSLog(@"Not Authenticated");
-        // To authenticate, use Google+ sign-in button.
-       // _signInAuthStatus.text = @"Status: Not authenticated";
-    }
-    
-    [self refreshUserInfo];
-}
-
-
-- (void)refreshUserInfo {
-    if ([GIDSignIn sharedInstance].currentUser.authentication == nil) {
-       // kPlaceholderUserName;
-//        self.userName.text = kPlaceholderUserName;
-//        self.userEmailAddress.text = kPlaceholderEmailAddress;
-//        self.userAvatar.image = [UIImage imageNamed:kPlaceholderAvatarImageName];
-        return;
-    }
-  //   [GIDSignIn sharedInstance].currentUser.profile.email;
- //   [GIDSignIn sharedInstance].currentUser.profile.name;
-    
- //   [GIDSignIn sharedInstance].currentUser.profile.hasImage;
-//    self.userEmailAddress.text = [GIDSignIn sharedInstance].currentUser.profile.email;
-//    self.userName.text = [GIDSignIn sharedInstance].currentUser.profile.name;
-//
-    if (![GIDSignIn sharedInstance].currentUser.profile.hasImage) {
-        // There is no Profile Image to be loaded.
-        return;
-    }
-    // Load avatar image asynchronously, in background
-    dispatch_queue_t backgroundQueue =
-    dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-//    __weak SignInViewController *weakSelf = self;
-    
-//    dispatch_async(backgroundQueue, ^{
-//        NSUInteger dimension = round(self.userAvatar.frame.size.width * [[UIScreen mainScreen] scale]);
-//        NSURL *imageURL =
-//        [[GIDSignIn sharedInstance].currentUser.profile imageURLWithDimension:dimension];
-//        NSData *avatarData = [NSData dataWithContentsOfURL:imageURL];
-//
-//        if (avatarData) {
-//            // Update UI from the main thread when available
-//            dispatch_async(dispatch_get_main_queue(), ^{
-//                SignInViewController *strongSelf = weakSelf;
-//                if (strongSelf) {
-//                    strongSelf.userAvatar.image = [UIImage imageWithData:avatarData];
-//                }
-//            });
-//        }
-//    });
-}
-
-
-
 @end

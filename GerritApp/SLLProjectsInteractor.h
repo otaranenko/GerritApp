@@ -14,10 +14,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 
-@interface SLLProjectsInteractor : NSObject <SLLNetworkOutputProtocol, SLLProjectsItercatorInputProtocol, SLLCoreDataOutputProtocol>
+@interface SLLProjectsInteractor : NSObject <SLLNetworkOutputProtocol, SLLProjectsItercatorInputProtocol>
 
 @property (nonatomic, weak, nullable) id<SLLNetworkInputProtocol> networkService;
-@property (nonatomic, weak, nullable) id<SLLCoreDataInputProtocol> coreDataService;
 @property (nonatomic, weak, nullable) id<SLLProjectsIntercatorOutputProtocol> presenter;
 
 @end

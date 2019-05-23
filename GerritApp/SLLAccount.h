@@ -14,10 +14,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface SLLAccount : NSObject <SLLInternalData>
 
-@property (nonatomic, readonly) NSNumber *account_id;
-@property (nonatomic, readonly) NSString *email;
-@property (nonatomic, readonly) NSString *name;
-@property (nonatomic, readonly) NSString *avatarURL;
+@property (nonatomic, strong) NSNumber *account_id;
+@property (nonatomic, strong) NSString *email;
+@property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSString *avatarURL;
 @property (nonatomic, strong) NSData *avatarImage;
 
 @end

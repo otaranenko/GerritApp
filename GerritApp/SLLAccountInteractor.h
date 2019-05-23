@@ -7,17 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SLLCoreDataProtocol.h"
+#import "SLLAuthenticationServiceProtocol.h"
 #import "SLLNetworkProtocol.h"
 #import "SLLAccountInteractorProtocol.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 
-@interface SLLAccountInteractor : NSObject <SLLNetworkOutputProtocol, SLLAccountIntercatorInputProtocol, SLLCoreDataOutputProtocol>
+@interface SLLAccountInteractor : NSObject <SLLNetworkOutputProtocol, SLLAccountIntercatorInputProtocol, SLLAuthenticationServiceOutputProtocol>
 
 @property (nonatomic, weak, nullable) id<SLLNetworkInputProtocol> networkService;
-@property (nonatomic, weak, nullable) id<SLLCoreDataInputProtocol> coreDataService;
+@property (nonatomic, weak, nullable) id<SLLAuthenticationServiceInputProtocol> authenticationService;
 @property (nonatomic, weak, nullable) id<SLLAccountIntercatorOutputProtocol> presenter;
 
 @end

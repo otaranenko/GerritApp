@@ -11,6 +11,7 @@
 
 @protocol SLLAccountRouterProtocol <NSObject>
 
-- (void)presentViewController:(UIViewController *)viewController;
+- (void)presentViewControllerAuthentication;
+- (void)dismissViewControllerAuthentication;
 
 @end

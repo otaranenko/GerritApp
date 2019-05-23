@@ -23,11 +23,11 @@
 @property (nonatomic, strong) SLLChangesRouter *route;
 @property (nonatomic, strong) SLLNetworkService *serviceNetwork;
 @property (nonatomic, strong) SLLCoreDataService *serviceCoreData;
+
 @end
 
 
 @implementation SLLChangesAssembly
-
 
 /**
  Собираем модуль
