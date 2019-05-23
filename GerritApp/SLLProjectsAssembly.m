@@ -47,6 +47,8 @@
     self.presenter.view = self.viewController;
     self.presenter.router = self.route;
     
+    self.route.view = self.viewController;
+    
     self.interactor.networkService = self.serviceNetwork;
     self.interactor.presenter = self.presenter;
     

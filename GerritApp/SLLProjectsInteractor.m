@@ -32,12 +32,12 @@
 
 - (void)finishLoadingParallelData:(NSDictionary<NSString *,id> *)rawData
 {
-    //TO DO
+    //TODO
 }
 
 - (void)finishLoadingSerialData:(NSData *)rawImage forData:(id)data
 {
-    //TO DO
+    //TODO
 }
 
 

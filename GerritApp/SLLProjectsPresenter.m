@@ -20,7 +20,7 @@
 
 - (void)showBrowserProject:(SLLProject *) data forView:(UIViewController *)view;
 {
-    [self.router presentBrowserForLoadProject:data forView:view];
+    [self.router presentBrowserForLoadProject:data];
 }
 
 

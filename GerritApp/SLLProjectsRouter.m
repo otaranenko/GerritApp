@@ -10,16 +10,16 @@
 #import <SafariServices/SFSafariViewController.h>
 
 
-
 @implementation SLLProjectsRouter
 
 
 #pragma mark -  SLLProjectsRouterProtocol
 
-- (void)presentBrowserForLoadProject:(SLLProject *)projectData forView:(UIViewController *)view
+- (void)presentBrowserForLoadProject:(SLLProject *)projectData
 {
-     SFSafariViewController *safariController = [[SFSafariViewController alloc] initWithURL:[NSURL URLWithString:projectData.webLinkURL]];
-    [view presentViewController:safariController animated:YES completion:nil];
+    //NOT method/property set URL!!!
+    SFSafariViewController *safariController = [[SFSafariViewController alloc] initWithURL:[NSURL URLWithString:projectData.webLinkURL]];
+    [self.view presentViewController:safariController animated:YES completion:nil];
     
 }
 
