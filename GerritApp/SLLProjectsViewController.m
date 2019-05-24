@@ -7,7 +7,9 @@
 //
 
 #import "SLLProjectsViewController.h"
-#include "SLLProjectsTableViewCell.h"
+#import "SLLProjectsTableViewCell.h"
+#import "UIRefreshControl+SLLDesign.m"
+#import "SLLActivityIndicator.h"
 
 
 @interface SLLProjectsViewController () <UITableViewDataSource, UITableViewDelegate>
@@ -15,6 +17,7 @@
 @property (nonatomic, strong) UITableView *projectsTableView;
 @property (nonatomic, strong) NSString *identifierCell;
 @property (nonatomic, strong) NSDictionary<NSString *, SLLProject *> *dataForCell;
+@property (nonatomic, strong) SLLActivityIndicator *spinner;
 
 @end
 
@@ -27,7 +30,6 @@
     self.view.backgroundColor = [UIColor lightGrayColor];
     self.navigationItem.title = @"Проекты";
     [self buildUI];
-    [self setupRefreshControl];
     [self updateViewConstraints];
     [self actionRefreshParties];
 }
@@ -55,19 +57,18 @@
     
     [self.projectsTableView registerClass:[SLLProjectsTableViewCell class] forCellReuseIdentifier:self.identifierCell];
     [self.view addSubview:self.projectsTableView];
+    
+    // Устанавливаем Preload для  Pull-to-refresh
+    self.projectsTableView.refreshControl = [UIRefreshControl sll_createRefreshControl:@selector(actionRefreshParties)];
 
-}
-
-- (void)setupRefreshControl
-{
-    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
-    refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"Обновление"];
-    [refreshControl addTarget:self action:@selector(actionRefreshParties) forControlEvents:UIControlEventValueChanged];
-    self.projectsTableView.refreshControl = refreshControl;
+    // Устанавливаем Preload
+    self.spinner = [SLLActivityIndicator createActivityIndicatorForSubview:self.projectsTableView];
+    [self.spinner startAnimating];
 }
 
 - (void)updateViewConstraints
 {
+    self.spinner.translatesAutoresizingMaskIntoConstraints = NO;
     self.projectsTableView.translatesAutoresizingMaskIntoConstraints = NO;
     [NSLayoutConstraint activateConstraints:
      @[
@@ -75,6 +76,9 @@
        [self.projectsTableView.leftAnchor constraintEqualToAnchor: self.view.leftAnchor ],
        [self.projectsTableView.rightAnchor constraintEqualToAnchor: self.view.rightAnchor ],
        [self.projectsTableView.bottomAnchor constraintEqualToAnchor: self.view.bottomAnchor],
+       
+       [self.spinner.centerXAnchor constraintEqualToAnchor: self.view.centerXAnchor],
+       [self.spinner.centerYAnchor constraintEqualToAnchor: self.view.centerYAnchor],
        ]];
     [super updateViewConstraints];
 }
@@ -145,6 +149,7 @@
 - (void)setTableViewForCellDataAccount:(NSDictionary<NSString *,SLLProject *> *)data
 {
     dispatch_async(dispatch_get_main_queue(), ^{
+        [self.spinner stopAnimating];
         self.dataForCell = data;
         [self reloadTableView];
     });

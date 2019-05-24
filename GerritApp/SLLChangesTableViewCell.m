@@ -8,10 +8,12 @@
 
 #import "SLLChangesTableViewCell.h"
 #import "CAGradientLayer+SLLGradients.h"
+#import "UILabel+SLLDesign.h"
 #import "SLLChange.h"
 #import "SLLAccount.h"
 
-static const CGFloat SLLmarginsBorder = 5.0f;
+static const CGFloat SLLMarginsBorder = 5.0f;
+static const CGFloat SLLHeightForConstraint = 20.0f;
 
 
 @interface SLLChangesTableViewCell ()
@@ -46,16 +48,16 @@ static const CGFloat SLLmarginsBorder = 5.0f;
         [_frontView.layer addSublayer:_frontLayer];
         
         // Номер изменения
-        _numberChangesLabel = [self createTemplateLabel];
+        _numberChangesLabel = [UILabel sll_createLabelForView:_frontView];
         
         // Название репозитория
-        _repoChangesLabel = [self createTemplateLabel];
+        _repoChangesLabel = [UILabel sll_createLabelForView:_frontView];
         
         // Дата и время обновления изменения
-        _dateChangesLabel = [self createTemplateLabel];
+        _dateChangesLabel = [UILabel sll_createLabelForView:_frontView];
         
         // Описание изменения
-        _descriptionChangesLabel = [self createTemplateLabel];
+        _descriptionChangesLabel = [UILabel sll_createLabelForView:_frontView];
         _descriptionChangesLabel.font = [UIFont systemFontOfSize:15 weight:UIFontWeightBold];
         _descriptionChangesLabel.numberOfLines = 2;
         
@@ -69,29 +71,13 @@ static const CGFloat SLLmarginsBorder = 5.0f;
         [_frontView addSubview:_avatarImageView];
         
         // Имя пользователя
-        _authorLabel = [self createTemplateLabel];
+        _authorLabel = [UILabel sll_createLabelForView:_frontView];
         [self defaultValueDataForCell];
     }
     return self;
 }
 
-
-/**
- Шаблон создания объектов типа LabeL
-
- @return возращает созданный и настроенный UILabel
- */
-- (UILabel *)createTemplateLabel
-{
-    UILabel *label = [[UILabel alloc] init];
-    label.font = [UIFont systemFontOfSize:13 weight:UIFontWeightRegular];
-    label.textColor = [UIColor whiteColor];
-    [_frontView addSubview:label];
-    return label;
-}
-
-- (SLLChangesTableViewCell *)setCell:(SLLChangesTableViewCell *)cell ForData:(SLLChange *)changeData
-                           withOwner:(SLLAccount *)account
+- (SLLChangesTableViewCell *)setCell:(SLLChangesTableViewCell *)cell ForData:(SLLChange *)changeData withOwner:(SLLAccount *)account
 {
     cell.numberChangesLabel.text = [changeData.changeNumber stringValue];
     cell.repoChangesLabel.text = changeData.changeProject;
@@ -128,28 +114,28 @@ static const CGFloat SLLmarginsBorder = 5.0f;
        [self.frontView.rightAnchor constraintEqualToAnchor: self.contentView.rightAnchor],
        [self.frontView.bottomAnchor constraintEqualToAnchor: self.contentView.bottomAnchor],
        
-       [self.numberChangesLabel.topAnchor constraintEqualToAnchor: self.frontView.topAnchor constant:SLLmarginsBorder],
-       [self.numberChangesLabel.leftAnchor constraintEqualToAnchor: self.frontView.leftAnchor constant:SLLmarginsBorder],
+       [self.numberChangesLabel.topAnchor constraintEqualToAnchor: self.frontView.topAnchor constant:SLLMarginsBorder],
+       [self.numberChangesLabel.leftAnchor constraintEqualToAnchor: self.frontView.leftAnchor constant:SLLMarginsBorder],
        [self.numberChangesLabel.rightAnchor constraintEqualToAnchor: self.frontView.rightAnchor ],
        [self.numberChangesLabel.bottomAnchor constraintEqualToAnchor: self.descriptionChangesLabel.topAnchor],
-       [self.numberChangesLabel.heightAnchor constraintEqualToConstant:20.0],
+       [self.numberChangesLabel.heightAnchor constraintEqualToConstant:SLLHeightForConstraint],
        
-       [self.repoChangesLabel.topAnchor constraintEqualToAnchor: self.frontView.topAnchor constant:SLLmarginsBorder],
-       [self.repoChangesLabel.rightAnchor constraintEqualToAnchor: self.frontView.rightAnchor constant:-SLLmarginsBorder],
+       [self.repoChangesLabel.topAnchor constraintEqualToAnchor: self.frontView.topAnchor constant:SLLMarginsBorder],
+       [self.repoChangesLabel.rightAnchor constraintEqualToAnchor: self.frontView.rightAnchor constant:-SLLMarginsBorder],
        
-       [self.descriptionChangesLabel.leftAnchor constraintEqualToAnchor: self.frontView.leftAnchor constant:SLLmarginsBorder],
+       [self.descriptionChangesLabel.leftAnchor constraintEqualToAnchor: self.frontView.leftAnchor constant:SLLMarginsBorder],
        [self.descriptionChangesLabel.rightAnchor constraintEqualToAnchor: self.frontView.rightAnchor ],
-       [self.descriptionChangesLabel.heightAnchor constraintGreaterThanOrEqualToConstant:20.0],
+       [self.descriptionChangesLabel.heightAnchor constraintGreaterThanOrEqualToConstant:SLLHeightForConstraint],
        
-       [self.avatarImageView.leftAnchor constraintEqualToAnchor: self.frontView.leftAnchor constant:SLLmarginsBorder],
+       [self.avatarImageView.leftAnchor constraintEqualToAnchor: self.frontView.leftAnchor constant:SLLMarginsBorder],
        [self.avatarImageView.widthAnchor constraintEqualToConstant:22.0],
        [self.avatarImageView.heightAnchor constraintEqualToConstant:22.0],
-       [self.avatarImageView.bottomAnchor constraintEqualToAnchor: self.frontView.bottomAnchor constant:-SLLmarginsBorder],
+       [self.avatarImageView.bottomAnchor constraintEqualToAnchor: self.frontView.bottomAnchor constant:-SLLMarginsBorder],
        
-       [self.authorLabel.leftAnchor constraintEqualToAnchor: self.avatarImageView.rightAnchor constant:SLLmarginsBorder],
+       [self.authorLabel.leftAnchor constraintEqualToAnchor: self.avatarImageView.rightAnchor constant:SLLMarginsBorder],
        [self.authorLabel.bottomAnchor constraintEqualToAnchor: self.frontView.bottomAnchor constant:-7.0],
        
-       [self.dateChangesLabel.rightAnchor constraintEqualToAnchor: self.frontView.rightAnchor constant:-SLLmarginsBorder],
+       [self.dateChangesLabel.rightAnchor constraintEqualToAnchor: self.frontView.rightAnchor constant:-SLLMarginsBorder],
        [self.dateChangesLabel.bottomAnchor constraintEqualToAnchor: self.frontView.bottomAnchor constant:-7.0],
        ]];
     

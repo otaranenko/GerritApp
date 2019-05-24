@@ -18,7 +18,6 @@
 		BA2AFF58227F9CD400C7B37E /* SLLChangesPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = BA2AFF57227F9CD400C7B37E /* SLLChangesPresenter.m */; };
 		BA2AFF5B227FA35B00C7B37E /* SLLRootCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = BA2AFF5A227FA35B00C7B37E /* SLLRootCoordinator.m */; };
 		BA2AFF5F22800F3E00C7B37E /* SLLChangesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BA2AFF5E22800F3E00C7B37E /* SLLChangesTableViewCell.m */; };
-		BA2AFF6322805DA000C7B37E /* UIColor+SLLColors.m in Sources */ = {isa = PBXBuildFile; fileRef = BA2AFF6222805DA000C7B37E /* UIColor+SLLColors.m */; };
 		BA2AFF6622805EA800C7B37E /* CAGradientLayer+SLLGradients.m in Sources */ = {isa = PBXBuildFile; fileRef = BA2AFF6522805EA800C7B37E /* CAGradientLayer+SLLGradients.m */; };
 		BA2D99EA223807EE006960C6 /* SLLNetworkService.m in Sources */ = {isa = PBXBuildFile; fileRef = BA2D99E9223807EE006960C6 /* SLLNetworkService.m */; };
 		BA355BB92228247F00EB90C4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BA355BB82228247F00EB90C4 /* AppDelegate.m */; };
@@ -48,6 +47,9 @@
 		BA91F18E22849B120081B509 /* SLLAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = BA91F18D22849B120081B509 /* SLLAccount.m */; };
 		BAA8FC7F228EE36A009EA4CA /* SLLProjectsPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = BAA8FC7E228EE36A009EA4CA /* SLLProjectsPresenter.m */; };
 		BAA8FC83228EE62D009EA4CA /* SLLProjectsInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = BAA8FC82228EE62D009EA4CA /* SLLProjectsInteractor.m */; };
+		BABD52292297E1C1004DD6CD /* UIRefreshControl+SLLDesign.m in Sources */ = {isa = PBXBuildFile; fileRef = BABD52282297E1C1004DD6CD /* UIRefreshControl+SLLDesign.m */; };
+		BABD52302297FAFE004DD6CD /* SLLActivityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = BABD522F2297FAFE004DD6CD /* SLLActivityIndicator.m */; };
+		BABD523322982256004DD6CD /* UILabel+SLLDesign.m in Sources */ = {isa = PBXBuildFile; fileRef = BABD523222982256004DD6CD /* UILabel+SLLDesign.m */; };
 		BAC354E4228C6ABA00644FB7 /* SLLNetworkCreateURLTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BAC354E3228C6ABA00644FB7 /* SLLNetworkCreateURLTest.m */; };
 		BAC354E7228CA79300644FB7 /* SLLNetworkServiceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BAC354E6228CA79300644FB7 /* SLLNetworkServiceTest.m */; };
 /* End PBXBuildFile section */
@@ -111,8 +113,6 @@
 		BA2AFF5C227FAEE100C7B37E /* SLLChangesPresenterProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLLChangesPresenterProtocol.h; sourceTree = "<group>"; };
 		BA2AFF5D22800F3E00C7B37E /* SLLChangesTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLLChangesTableViewCell.h; sourceTree = "<group>"; };
 		BA2AFF5E22800F3E00C7B37E /* SLLChangesTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLLChangesTableViewCell.m; sourceTree = "<group>"; };
-		BA2AFF6122805DA000C7B37E /* UIColor+SLLColors.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+SLLColors.h"; sourceTree = "<group>"; };
-		BA2AFF6222805DA000C7B37E /* UIColor+SLLColors.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+SLLColors.m"; sourceTree = "<group>"; };
 		BA2AFF6422805EA800C7B37E /* CAGradientLayer+SLLGradients.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CAGradientLayer+SLLGradients.h"; sourceTree = "<group>"; };
 		BA2AFF6522805EA800C7B37E /* CAGradientLayer+SLLGradients.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "CAGradientLayer+SLLGradients.m"; sourceTree = "<group>"; };
 		BA2CF33322316E9F001EE0C7 /* SLLNetworkProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLLNetworkProtocol.h; sourceTree = "<group>"; };
@@ -173,6 +173,12 @@
 		BAA8FC81228EE62D009EA4CA /* SLLProjectsInteractor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLLProjectsInteractor.h; sourceTree = "<group>"; };
 		BAA8FC82228EE62D009EA4CA /* SLLProjectsInteractor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLLProjectsInteractor.m; sourceTree = "<group>"; };
 		BABC2409227395DA006128BD /* GerritAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GerritAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BABD52272297E1C1004DD6CD /* UIRefreshControl+SLLDesign.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIRefreshControl+SLLDesign.h"; sourceTree = "<group>"; };
+		BABD52282297E1C1004DD6CD /* UIRefreshControl+SLLDesign.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIRefreshControl+SLLDesign.m"; sourceTree = "<group>"; };
+		BABD522E2297FAFE004DD6CD /* SLLActivityIndicator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLLActivityIndicator.h; sourceTree = "<group>"; };
+		BABD522F2297FAFE004DD6CD /* SLLActivityIndicator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLLActivityIndicator.m; sourceTree = "<group>"; };
+		BABD523122982256004DD6CD /* UILabel+SLLDesign.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UILabel+SLLDesign.h"; sourceTree = "<group>"; };
+		BABD523222982256004DD6CD /* UILabel+SLLDesign.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UILabel+SLLDesign.m"; sourceTree = "<group>"; };
 		BAC354E3228C6ABA00644FB7 /* SLLNetworkCreateURLTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLLNetworkCreateURLTest.m; sourceTree = "<group>"; };
 		BAC354E6228CA79300644FB7 /* SLLNetworkServiceTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLLNetworkServiceTest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -215,10 +221,10 @@
 		BA28345E22922DB300D21623 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				BA28345C22921D2F00D21623 /* SLLProjectsTableViewCell.h */,
-				BA28345B22921D2F00D21623 /* SLLProjectsTableViewCell.m */,
 				BA374192226E678B0081591A /* SLLProjectsViewController.h */,
 				BA374193226E678B0081591A /* SLLProjectsViewController.m */,
+				BA28345C22921D2F00D21623 /* SLLProjectsTableViewCell.h */,
+				BA28345B22921D2F00D21623 /* SLLProjectsTableViewCell.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -227,6 +233,7 @@
 			isa = PBXGroup;
 			children = (
 				BA91F18822834B1A0081B509 /* Model */,
+				BABD522D2297FAC5004DD6CD /* CustomUI */,
 				BA91F18722834AE80081B509 /* Categories */,
 			);
 			name = Common;
@@ -350,10 +357,12 @@
 		BA91F18722834AE80081B509 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				BA2AFF6122805DA000C7B37E /* UIColor+SLLColors.h */,
-				BA2AFF6222805DA000C7B37E /* UIColor+SLLColors.m */,
 				BA2AFF6422805EA800C7B37E /* CAGradientLayer+SLLGradients.h */,
 				BA2AFF6522805EA800C7B37E /* CAGradientLayer+SLLGradients.m */,
+				BABD52272297E1C1004DD6CD /* UIRefreshControl+SLLDesign.h */,
+				BABD52282297E1C1004DD6CD /* UIRefreshControl+SLLDesign.m */,
+				BABD523122982256004DD6CD /* UILabel+SLLDesign.h */,
+				BABD523222982256004DD6CD /* UILabel+SLLDesign.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -389,6 +398,15 @@
 				BA3D8E3A22934DEF005D1B2A /* SLLAccountAuthenticationView.m */,
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		BABD522D2297FAC5004DD6CD /* CustomUI */ = {
+			isa = PBXGroup;
+			children = (
+				BABD522E2297FAFE004DD6CD /* SLLActivityIndicator.h */,
+				BABD522F2297FAFE004DD6CD /* SLLActivityIndicator.m */,
+			);
+			name = CustomUI;
 			sourceTree = "<group>";
 		};
 		BAC354E5228C6C1600644FB7 /* Service */ = {
@@ -580,13 +598,15 @@
 				BA901A69228244E10088BF22 /* SLLChangesAssembly.m in Sources */,
 				BA901A6C22824D240088BF22 /* SLLChangesDetailViewController.m in Sources */,
 				BA91F18B22834B620081B509 /* SLLChange.m in Sources */,
-				BA2AFF6322805DA000C7B37E /* UIColor+SLLColors.m in Sources */,
 				BA28345A22921C7A00D21623 /* SLLProject.m in Sources */,
+				BABD52302297FAFE004DD6CD /* SLLActivityIndicator.m in Sources */,
 				BA2AFF58227F9CD400C7B37E /* SLLChangesPresenter.m in Sources */,
 				BAA8FC83228EE62D009EA4CA /* SLLProjectsInteractor.m in Sources */,
 				BA281BA72288C6B70026E18A /* GerritApp.xcdatamodeld in Sources */,
 				BA281BBB2288CE390026E18A /* SLLCoreDataService.m in Sources */,
 				BA374191226E67760081591A /* SLLChangeViewController.m in Sources */,
+				BABD523322982256004DD6CD /* UILabel+SLLDesign.m in Sources */,
+				BABD52292297E1C1004DD6CD /* UIRefreshControl+SLLDesign.m in Sources */,
 				BA91F181228336EE0081B509 /* SLLProjectsAssembly.m in Sources */,
 				BA281BC12288DDD10026E18A /* SLLAccountCoreData+CoreDataProperties.m in Sources */,
 				BA355BB92228247F00EB90C4 /* AppDelegate.m in Sources */,
@@ -736,7 +756,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 37S8XGT8LR;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -765,7 +785,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 37S8XGT8LR;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",

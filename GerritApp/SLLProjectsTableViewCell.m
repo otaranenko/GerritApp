@@ -8,6 +8,7 @@
 
 #import "SLLProjectsTableViewCell.h"
 #import "CAGradientLayer+SLLGradients.h"
+#import "UILabel+SLLDesign.h"
 #import "SLLProject.h"
 
 static const CGFloat SLLmarginsBorder = 5.0f;
@@ -42,33 +43,19 @@ static const CGFloat SLLmarginsBorder = 5.0f;
         [_frontView.layer addSublayer:_frontLayer];
         
         // Название проекта
-        _nameProjectLabel = [self createTemplateLabel];
+        _nameProjectLabel = [UILabel sll_createLabelForView:self.frontView];
         _nameProjectLabel.font = [UIFont systemFontOfSize:15 weight:UIFontWeightBold];
         
         // Состояние проекта
-        _idStateLabel = [self createTemplateLabel];
+        _idStateLabel = [UILabel sll_createLabelForView:self.frontView];
         
         // Ссылка на Web-репозиторий для просмотра
-        _webLinkURL = [self createTemplateLabel];
+        _webLinkURL = [UILabel sll_createLabelForView:self.frontView];
         _webLinkURL.numberOfLines = 2;
 
         [self defaultValueDataForCell];
     }
     return self;
-}
-
-/**
- Шаблон создания объектов типа LabeL
- 
- @return возращает созданный и настроенный UILabel
- */
-- (UILabel *)createTemplateLabel
-{
-    UILabel *label = [[UILabel alloc] init];
-    label.font = [UIFont systemFontOfSize:13 weight:UIFontWeightRegular];
-    label.textColor = [UIColor whiteColor];
-    [self.frontView addSubview:label];
-    return label;
 }
 
 - (void) defaultValueDataForCell
@@ -95,7 +82,7 @@ static const CGFloat SLLmarginsBorder = 5.0f;
             cell.idStateLabel.textColor = [UIColor darkGrayColor];
             break;
         default:
-            cell.idStateLabel.text = @"---";
+            cell.idStateLabel.text = @"Unknown";
             break;
     }
     cell.webLinkURL.text = projectsData.webLinkURL;

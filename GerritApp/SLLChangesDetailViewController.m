@@ -7,6 +7,7 @@
 //
 
 #import "SLLChangesDetailViewController.h"
+#import "UILabel+SLLDesign.h"
 
 @interface SLLChangesDetailViewController ()
 
@@ -46,46 +47,25 @@
     [self.view addSubview:self.centerView];
     
     // Дата и время обновления изменения
-    self.numberLabel = [[UILabel alloc] init];
-    self.numberLabel.font = [UIFont systemFontOfSize:13 weight:UIFontWeightRegular];
-    self.numberLabel.textColor = [UIColor whiteColor];
-    [self.centerView addSubview:self.numberLabel];
+    self.numberLabel = [UILabel sll_createLabelForView:self.centerView];
     
     // Дата и время обновления изменения
-    self.dateUpdateLabel = [[UILabel alloc] init];
-    self.dateUpdateLabel.font = [UIFont systemFontOfSize:13 weight:UIFontWeightRegular];
-    self.dateUpdateLabel.textColor = [UIColor whiteColor];
-    [self.centerView addSubview:self.dateUpdateLabel];
+    self.dateUpdateLabel = [UILabel sll_createLabelForView:self.centerView];
     
     // Дата и время обновления изменения
-    self.dateCreateLabel = [[UILabel alloc] init];
-    self.dateCreateLabel.font = [UIFont systemFontOfSize:13 weight:UIFontWeightRegular];
-    self.dateCreateLabel.textColor = [UIColor whiteColor];
-    [self.centerView addSubview:self.dateCreateLabel];
+    self.dateCreateLabel = [UILabel sll_createLabelForView:self.centerView];
     
     // Дата и время обновления изменения
-    self.repoLabel = [[UILabel alloc] init];
-    self.repoLabel.font = [UIFont systemFontOfSize:13 weight:UIFontWeightRegular];
-    self.repoLabel.textColor = [UIColor whiteColor];
-    [self.centerView addSubview:self.repoLabel];
+    self.repoLabel = [UILabel sll_createLabelForView:self.centerView];
     
     // Дата и время обновления изменения
-    self.descriptionLabel = [[UILabel alloc] init];
-    self.descriptionLabel.font = [UIFont systemFontOfSize:13 weight:UIFontWeightRegular];
-    self.descriptionLabel.textColor = [UIColor whiteColor];
-    [self.centerView addSubview:self.descriptionLabel];
+    self.descriptionLabel = [UILabel sll_createLabelForView:self.centerView];
     
     // Дата и время обновления изменения
-    self.branchLabel = [[UILabel alloc] init];
-    self.branchLabel.font = [UIFont systemFontOfSize:13 weight:UIFontWeightRegular];
-    self.branchLabel.textColor = [UIColor whiteColor];
-    [self.centerView addSubview:self.branchLabel];
+    self.branchLabel = [UILabel sll_createLabelForView:self.centerView];
     
     // Дата и время обновления изменения
-    self.topicLabel = [[UILabel alloc] init];
-    self.topicLabel.font = [UIFont systemFontOfSize:13 weight:UIFontWeightRegular];
-    self.topicLabel.textColor = [UIColor whiteColor];
-    [self.centerView addSubview:self.topicLabel];
+    self.topicLabel = [UILabel sll_createLabelForView:self.centerView];
 }
 
 

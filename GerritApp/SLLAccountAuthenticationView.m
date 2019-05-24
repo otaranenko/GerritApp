@@ -11,12 +11,13 @@
 #import <GoogleSignIn/GoogleSignIn.h>
 
 
+static const CGFloat SLLmarginFoAuthenticationView = 30.f;
+
 @interface SLLAccountAuthenticationView () <GIDSignInUIDelegate>
 
 @property (nonatomic, strong) GIDSignInButton *signInButton;
 @property (nonatomic, strong) UILabel *authenticationLabel;
 @property (nonatomic, strong) UIButton *backView;
-@property (nonatomic, strong) UILabel *authenticationInfoLabel;
 
 @end
 
@@ -47,13 +48,6 @@
     _signInButton.frame = CGRectMake(100, 100, 100, 200);
     [self.view addSubview:_signInButton];
     
-    _authenticationInfoLabel = [[UILabel alloc] init];
-    _authenticationInfoLabel.font = [UIFont systemFontOfSize:15 weight:UIFontWeightBold];
-    _authenticationInfoLabel.text = @"";
-    _authenticationInfoLabel.textColor = [UIColor whiteColor];
-    _authenticationInfoLabel.numberOfLines = 0;
-    [self.view addSubview:_authenticationInfoLabel];
-    
     GIDSignIn *signIn = [GIDSignIn sharedInstance];
     signIn.uiDelegate = self;
     [self updateConstraints];
@@ -63,23 +57,18 @@
 {
     self.authenticationLabel.translatesAutoresizingMaskIntoConstraints = NO;
     self.signInButton.translatesAutoresizingMaskIntoConstraints = NO;
-    self.authenticationInfoLabel.translatesAutoresizingMaskIntoConstraints = NO;
    
     [NSLayoutConstraint activateConstraints:
      @[
        [self.authenticationLabel.centerXAnchor constraintEqualToAnchor: self.view.centerXAnchor ],
-       [self.authenticationLabel.centerYAnchor constraintEqualToAnchor: self.view.centerYAnchor constant:-30],
+       [self.authenticationLabel.centerYAnchor constraintEqualToAnchor: self.view.centerYAnchor constant:-SLLmarginFoAuthenticationView],
        [self.authenticationLabel.heightAnchor constraintEqualToConstant:20.0],
-       [self.authenticationLabel.bottomAnchor constraintEqualToAnchor: self.signInButton.topAnchor constant:-30],
+       [self.authenticationLabel.bottomAnchor constraintEqualToAnchor: self.signInButton.topAnchor constant:-SLLmarginFoAuthenticationView],
        
        [self.signInButton.centerXAnchor constraintEqualToAnchor: self.view.centerXAnchor ],
-       [self.signInButton.rightAnchor constraintEqualToAnchor: self.view.rightAnchor constant:-30],
-       [self.signInButton.leftAnchor constraintEqualToAnchor: self.view.leftAnchor constant:30],
+       [self.signInButton.rightAnchor constraintEqualToAnchor: self.view.rightAnchor constant:-SLLmarginFoAuthenticationView],
+       [self.signInButton.leftAnchor constraintEqualToAnchor: self.view.leftAnchor constant:SLLmarginFoAuthenticationView],
        [self.signInButton.heightAnchor constraintEqualToConstant:20.0],
-       
-       [self.authenticationInfoLabel.leftAnchor constraintEqualToAnchor: self.view.leftAnchor ],
-       [self.authenticationInfoLabel.rightAnchor constraintEqualToAnchor: self.view.rightAnchor constant:-30],
-       [self.authenticationInfoLabel.topAnchor constraintEqualToAnchor: self.signInButton.bottomAnchor],
         ]];
 }
 

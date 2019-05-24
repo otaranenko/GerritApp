@@ -99,9 +99,9 @@ static  const NSUInteger SLLsystemFontOfSize = 17;
 - (void)defaultValueData
 {
     self.avatarImageView.image = [UIImage imageNamed:@"noun_avatar"];
-    self.authorLabel.text = @"Unknown Unknown";
-    self.authorEmailLabel.text = @"---@---";
-    self.idAccountLabel.text = @"----";
+    self.authorLabel.text = @"Нет данных";
+    self.authorEmailLabel.text = @"Нет данных";
+    self.idAccountLabel.text = @"Нет данных";
 }
 
 - (void)updateConstraints
@@ -115,8 +115,8 @@ static  const NSUInteger SLLsystemFontOfSize = 17;
     self.titleAuthorEmailLabel.translatesAutoresizingMaskIntoConstraints = NO;
     self.titleIdAccountLabel.translatesAutoresizingMaskIntoConstraints = NO;
     
-    CGFloat moveTopCoordinate = self.navigationController.navigationBar.frame.origin.y  + self.navigationController.navigationBar.frame.size.height;
-    CGFloat scaleForRotation = self.navigationController.navigationBar.frame.size.width *0.3  ;
+    CGFloat moveTopCoordinate = CGRectGetMaxY(self.navigationController.navigationBar.frame);
+    CGFloat scaleForRotation = self.navigationController.navigationBar.frame.size.width * 0.3  ;
     
     [NSLayoutConstraint activateConstraints:
      @[

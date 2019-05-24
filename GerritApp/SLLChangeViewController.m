@@ -8,6 +8,8 @@
 
 #import "SLLChangeViewController.h"
 #import "SLLChangesTableViewCell.h"
+#import "UIRefreshControl+SLLDesign.m"
+#import "SLLActivityIndicator.h"
 #import "SLLChange.h"
 
 
@@ -18,6 +20,7 @@
 @property (nonatomic, strong) NSString *identifierCell;
 @property (nonatomic, strong) NSArray<SLLChange *> *dataChangeForCell;
 @property (nonatomic, strong) NSDictionary<NSNumber *, SLLAccount *> *dataAccountForChange;
+@property (nonatomic, strong) SLLActivityIndicator *spinner;
 
 @end
 
@@ -31,7 +34,6 @@
     self.navigationItem.title = @"Изменения";
     
     [self buildUI];
-    [self setupRefreshControl];
     [self updateViewConstraints];
     [self actionRefreshParties];
 }
@@ -54,39 +56,41 @@
     self.segmentedControl.tintColor = [UIColor grayColor];
     self.navigationItem.titleView = self.segmentedControl;
     
+    // Устанавливаем таблицу
     self.identifierCell = NSStringFromClass([SLLChangesTableViewCell class]);
     self.changesTableView = [[UITableView alloc] init];
-    
     self.changesTableView.delegate = self;
     self.changesTableView.dataSource = self;
-    
     self.changesTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.changesTableView.showsVerticalScrollIndicator = NO;
     self.changesTableView.showsHorizontalScrollIndicator = NO;
-    
     [self.changesTableView registerClass:[SLLChangesTableViewCell class] forCellReuseIdentifier:self.identifierCell];
-    
     [self.view addSubview:self.changesTableView];
-}
-
-- (void)setupRefreshControl
-{
-    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
-    refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"Обновление"];
-    [refreshControl addTarget:self action:@selector(actionRefreshParties) forControlEvents:UIControlEventValueChanged];
-    self.changesTableView.refreshControl = refreshControl;
+    
+    // Устанавливаем Preload для  Pull-to-refresh
+    self.changesTableView.refreshControl = [UIRefreshControl sll_createRefreshControl:@selector(actionRefreshParties)];
+    
+    // Устанавливаем Preload
+    self.spinner = [SLLActivityIndicator createActivityIndicatorForSubview:self.changesTableView];
+    [self.spinner startAnimating];
 }
 
 - (void)updateViewConstraints
 {
+    self.spinner.translatesAutoresizingMaskIntoConstraints = NO;
     self.changesTableView.translatesAutoresizingMaskIntoConstraints = NO;
+
     [NSLayoutConstraint activateConstraints:
      @[
        [self.changesTableView.topAnchor constraintEqualToAnchor: self.view.topAnchor],
        [self.changesTableView.leftAnchor constraintEqualToAnchor: self.view.leftAnchor ],
        [self.changesTableView.rightAnchor constraintEqualToAnchor: self.view.rightAnchor ],
        [self.changesTableView.bottomAnchor constraintEqualToAnchor: self.view.bottomAnchor],
+       
+       [self.spinner.centerXAnchor constraintEqualToAnchor: self.view.centerXAnchor],
+       [self.spinner.centerYAnchor constraintEqualToAnchor: self.view.centerYAnchor],
        ]];
+    
     [super updateViewConstraints];
 }
 
@@ -122,6 +126,8 @@
     {
         UISegmentedControl *segmentedControl = (UISegmentedControl *)sender;
         [self actionForSelectionSegmentControl:segmentedControl];
+        [self.spinner startAnimating];
+        self.changesTableView.scrollEnabled = NO;
     }
     [self.changesTableView reloadData];
 }
@@ -185,6 +191,8 @@
 - (void)setTableViewForCellData:(NSArray<SLLChange *> *)data
 {
     dispatch_async(dispatch_get_main_queue(), ^{
+        self.changesTableView.scrollEnabled = YES;
+        [self.spinner stopAnimating];
         self.dataChangeForCell = data;
         [self reloadTableView];
     });
