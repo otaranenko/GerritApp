@@ -199,10 +199,11 @@
     
     OCMStub([downloadTask currentRequest]).andReturn(request);
     OCMStub([self.network clearMagicSimbolsForRAWData:nil]).andReturn(dataInput);
-    [self.network URLSession:session downloadTask:downloadTask didFinishDownloadingToURL:url];
     
     OCMReject([self.network.interactor finishLoadingParallelData:nil]);
-    OCMVerify([self.network.interactor finishLoadingData:nil]);
+    //OCMReject([self.network.interactor finishLoadingData:nil]);
+    [self.network URLSession:session downloadTask:downloadTask didFinishDownloadingToURL:url];
+     OCMVerify([self.network.interactor finishLoadingData:nil]);
 }
 
 

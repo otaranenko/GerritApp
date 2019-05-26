@@ -25,40 +25,31 @@
     return self;
 }
 
-- (void)reportAuthenticatedStatus
+- (BOOL)reportAuthenticatedStatus
 {
-    GIDGoogleUser *googleUser = [[GIDSignIn sharedInstance] currentUser];
-    if (googleUser.authentication)
-    {
-        NSLog(@"Authenticated");
-        self.statusAuthention = YES;
-    }
-    else
-    {
-        NSLog(@"Not Authenticated");
-        self.statusAuthention = NO;
-    }
-    [self checkAuthenticationService];
-    [self refreshUserInfo];
+    SLLAccount *account = [self refreshUserInfo];
+    [self.interactor dataAuthenticationForUser:account];
+    return account ? YES : NO;
 }
 
-- (void)refreshUserInfo
+- (SLLAccount *)refreshUserInfo
 {
-    if ([GIDSignIn sharedInstance].currentUser.authentication == nil)
+    GIDAuthentication *auth = [GIDSignIn sharedInstance].currentUser.authentication;
+    if (!auth)
     {
-        return;
+        return nil;
     }
     SLLAccount *accountSelf = [SLLAccount new];
     accountSelf.email = [GIDSignIn sharedInstance].currentUser.profile.email;
     accountSelf.name = [GIDSignIn sharedInstance].currentUser.profile.name;
+    
     if (![GIDSignIn sharedInstance].currentUser.profile.hasImage)
     {
-        return;
+        return accountSelf;
     }
-    
     NSURL *imageURL = [[GIDSignIn sharedInstance].currentUser.profile imageURLWithDimension:100];
     accountSelf.avatarURL = imageURL.absoluteString;
-    [self.interactor dataAuthenticationForUser:accountSelf];
+    return accountSelf;
 }
 
 
@@ -71,12 +62,14 @@
         [NSString stringWithFormat:@"Status: Authentication error: %@", error];
         return;
     }
-    [self reportAuthenticatedStatus];
+    self.statusAuthention = [self reportAuthenticatedStatus];
+    [self checkAuthenticationService];
 }
 
 - (void)signIn:(GIDSignIn *)signIn didDisconnectWithUser:(GIDGoogleUser *)user withError:(NSError *)error
 {
-    [self reportAuthenticatedStatus];
+    self.statusAuthention = [self reportAuthenticatedStatus];
+    [self checkAuthenticationService];
 }
 
 
@@ -84,13 +77,14 @@
 
 - (void)checkAuthenticationService
 {
-    [self.interactor isAuthenticationService:self.statusAuthention] ;
+    [self.interactor isAuthenticationService:self.statusAuthention];
 }
 
 - (void)sigOutAuthenticationService
 {
     [[GIDSignIn sharedInstance] signOut];
-    [self reportAuthenticatedStatus];
+    self.statusAuthention = [self reportAuthenticatedStatus];
+    [self checkAuthenticationService];
 }
 
 

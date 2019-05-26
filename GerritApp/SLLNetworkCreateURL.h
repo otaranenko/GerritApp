@@ -15,7 +15,8 @@ typedef NS_ENUM(NSUInteger, SLLRequestLeveLType) {
     SLLRequestTypeChange = 1,
     SLLRequestTypeProject,
     SLLRequestTypeAccount,
-    SLLRequestTypeChangeForOpen = 32,
+    SLLRequestTypeNextGroup = 32,
+    SLLRequestTypeChangeForOpen,
     SLLRequestTypeChangeForMerged,
     SLLRequestTypeChangeForAbandoned,
     SLLRequestTypeProjectAll

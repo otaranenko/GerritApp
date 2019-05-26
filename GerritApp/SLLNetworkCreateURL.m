@@ -41,7 +41,7 @@ static NSString *const SLLdomainNameString = @"gerrit-review.googlesource.com";
 
 + (NSString *)createURLFromOneLevelType:(SLLRequestLeveLType)oneType andTwoLevelType:(SLLRequestLeveLType)twoType;
 {
-    if (oneType > 32)
+    if (oneType >= SLLRequestTypeNextGroup)
     {
         [NSException raise:NSGenericException format:@"Wrong enum type for one parametr!"];
     }
@@ -83,7 +83,6 @@ static NSString *const SLLdomainNameString = @"gerrit-review.googlesource.com";
         default:
             [NSException raise:NSGenericException format:@"Unknown type."];
     }
-    
     return result;
 }
 

@@ -27,6 +27,25 @@
     [super tearDown];
 }
 
+- (void)testCreateURLFromCustomString_NilString
+{
+    NSString *sourceString = nil;
+    
+    NSString *string = [SLLNetworkCreateURL createURLFromCustomString:sourceString];
+    
+    XCTAssertNil(string);
+}
+
+- (void)testCreateURLFromCustomString_validString
+{
+    NSString *sourceString = @"?request=account&n=2";
+    
+    NSString *string = [SLLNetworkCreateURL createURLFromCustomString:sourceString];
+    
+    XCTAssertNotNil(string);
+    XCTAssertTrue([string isEqualToString:@"https://gerrit-review.googlesource.com/accounts/?request=account&n=2"]);
+}
+
 - (void)testCreateURLFromAccountId_NilNumber
 {
     NSString *sourceString = nil;
@@ -44,6 +63,15 @@
     
     XCTAssertNotNil(string);
     XCTAssertTrue([string isEqualToString:@"https://gerrit-review.googlesource.com/accounts/123456789"]);
+}
+
+- (void)testCreateURLFromOneLevelTypeAndTwoLevelType_Error
+{
+    SLLRequestLeveLType oneFormatType = 32;
+    SLLRequestLeveLType twoFormatType = SLLRequestTypeChangeForOpen;
+    
+  //  NSString *string = [SLLNetworkCreateURL createURLFromOneLevelType:oneFormatType andTwoLevelType:twoFormatType];
+    XCTAssertThrows([SLLNetworkCreateURL createURLFromOneLevelType:oneFormatType andTwoLevelType:twoFormatType], @"Wrong enum type for one parametr!");
 }
 
 - (void)testCreateURLFromOneLevelTypeAndTwoLevelType_ForOpen
@@ -112,4 +140,11 @@
     XCTAssertTrue([string isEqualToString:@"accounts"]);
 }
 
+- (void)testFormatTypeToString_ForALL
+{
+    SLLRequestLeveLType formatType = SLLRequestTypeProjectAll;
+    XCTAssertNoThrow([SLLNetworkCreateURL formatTypeToString:formatType], @"Unknown type.");
+    NSString *string = [SLLNetworkCreateURL formatTypeToString:formatType];
+    XCTAssertTrue([string isEqualToString:@"?all"]);
+}
 @end

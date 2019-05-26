@@ -50,6 +50,18 @@
 		BABD52292297E1C1004DD6CD /* UIRefreshControl+SLLDesign.m in Sources */ = {isa = PBXBuildFile; fileRef = BABD52282297E1C1004DD6CD /* UIRefreshControl+SLLDesign.m */; };
 		BABD52302297FAFE004DD6CD /* SLLActivityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = BABD522F2297FAFE004DD6CD /* SLLActivityIndicator.m */; };
 		BABD523322982256004DD6CD /* UILabel+SLLDesign.m in Sources */ = {isa = PBXBuildFile; fileRef = BABD523222982256004DD6CD /* UILabel+SLLDesign.m */; };
+		BABD52342298C39C004DD6CD /* SLLNetworkCreateURL.m in Sources */ = {isa = PBXBuildFile; fileRef = BA37418B226E5EA20081591A /* SLLNetworkCreateURL.m */; };
+		BABD52352298C3AE004DD6CD /* SLLNetworkService.m in Sources */ = {isa = PBXBuildFile; fileRef = BA2D99E9223807EE006960C6 /* SLLNetworkService.m */; };
+		BABD52362298CB36004DD6CD /* SLLAuthenticationGoogle.m in Sources */ = {isa = PBXBuildFile; fileRef = BA3D8E3E22956D38005D1B2A /* SLLAuthenticationGoogle.m */; };
+		BABD52382298CBE0004DD6CD /* SLLAuthenticationGoogleTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BABD52372298CBE0004DD6CD /* SLLAuthenticationGoogleTest.m */; };
+		BABD52392298D78A004DD6CD /* SLLAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = BA91F18D22849B120081B509 /* SLLAccount.m */; };
+		BABD523A2298D7AA004DD6CD /* SLLAccountCoreData+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = BA281BBE2288DDD10026E18A /* SLLAccountCoreData+CoreDataClass.m */; };
+		BABD523B2298D7B1004DD6CD /* SLLAccountCoreData+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = BA281BBF2288DDD10026E18A /* SLLAccountCoreData+CoreDataProperties.m */; };
+		BABD523C2298D7CD004DD6CD /* GoogleSignIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA3D8E2922934673005D1B2A /* GoogleSignIn.framework */; };
+		BABD523D2298D7D4004DD6CD /* GoogleSignInDependencies.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA3D8E2822934673005D1B2A /* GoogleSignInDependencies.framework */; };
+		BABD523E2298DD20004DD6CD /* GoogleSignIn.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BA3D8E3422934984005D1B2A /* GoogleSignIn.bundle */; };
+		BABD5240229B3455004DD6CD /* SLLCoreDataServiceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BABD523F229B3455004DD6CD /* SLLCoreDataServiceTest.m */; };
+		BABD5241229B37D7004DD6CD /* SLLCoreDataService.m in Sources */ = {isa = PBXBuildFile; fileRef = BA281BBA2288CE390026E18A /* SLLCoreDataService.m */; };
 		BAC354E4228C6ABA00644FB7 /* SLLNetworkCreateURLTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BAC354E3228C6ABA00644FB7 /* SLLNetworkCreateURLTest.m */; };
 		BAC354E7228CA79300644FB7 /* SLLNetworkServiceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BAC354E6228CA79300644FB7 /* SLLNetworkServiceTest.m */; };
 /* End PBXBuildFile section */
@@ -179,6 +191,8 @@
 		BABD522F2297FAFE004DD6CD /* SLLActivityIndicator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLLActivityIndicator.m; sourceTree = "<group>"; };
 		BABD523122982256004DD6CD /* UILabel+SLLDesign.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UILabel+SLLDesign.h"; sourceTree = "<group>"; };
 		BABD523222982256004DD6CD /* UILabel+SLLDesign.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UILabel+SLLDesign.m"; sourceTree = "<group>"; };
+		BABD52372298CBE0004DD6CD /* SLLAuthenticationGoogleTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLLAuthenticationGoogleTest.m; sourceTree = "<group>"; };
+		BABD523F229B3455004DD6CD /* SLLCoreDataServiceTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLLCoreDataServiceTest.m; sourceTree = "<group>"; };
 		BAC354E3228C6ABA00644FB7 /* SLLNetworkCreateURLTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLLNetworkCreateURLTest.m; sourceTree = "<group>"; };
 		BAC354E6228CA79300644FB7 /* SLLNetworkServiceTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLLNetworkServiceTest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -197,7 +211,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BABD523D2298D7D4004DD6CD /* GoogleSignInDependencies.framework in Frameworks */,
 				BA3D8E37229349C2005D1B2A /* OCMock.framework in Frameworks */,
+				BABD523C2298D7CD004DD6CD /* GoogleSignIn.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,6 +430,8 @@
 			children = (
 				BAC354E3228C6ABA00644FB7 /* SLLNetworkCreateURLTest.m */,
 				BAC354E6228CA79300644FB7 /* SLLNetworkServiceTest.m */,
+				BABD52372298CBE0004DD6CD /* SLLAuthenticationGoogleTest.m */,
+				BABD523F229B3455004DD6CD /* SLLCoreDataServiceTest.m */,
 			);
 			name = Service;
 			sourceTree = "<group>";
@@ -529,7 +547,6 @@
 					};
 					BABC2408227395DA006128BD = {
 						CreatedOnToolsVersion = 10.2.1;
-						TestTargetID = BA355BB32228247F00EB90C4;
 					};
 				};
 			};
@@ -567,6 +584,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BABD523E2298DD20004DD6CD /* GoogleSignIn.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -620,8 +638,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BABD52382298CBE0004DD6CD /* SLLAuthenticationGoogleTest.m in Sources */,
+				BABD52352298C3AE004DD6CD /* SLLNetworkService.m in Sources */,
+				BABD5240229B3455004DD6CD /* SLLCoreDataServiceTest.m in Sources */,
 				BAC354E7228CA79300644FB7 /* SLLNetworkServiceTest.m in Sources */,
+				BABD523B2298D7B1004DD6CD /* SLLAccountCoreData+CoreDataProperties.m in Sources */,
+				BABD52392298D78A004DD6CD /* SLLAccount.m in Sources */,
+				BABD523A2298D7AA004DD6CD /* SLLAccountCoreData+CoreDataClass.m in Sources */,
 				BAC354E4228C6ABA00644FB7 /* SLLNetworkCreateURLTest.m in Sources */,
+				BABD5241229B37D7004DD6CD /* SLLCoreDataService.m in Sources */,
+				BABD52342298C39C004DD6CD /* SLLNetworkCreateURL.m in Sources */,
+				BABD52362298CB36004DD6CD /* SLLAuthenticationGoogle.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -808,12 +835,13 @@
 		BABC2410227395DA006128BD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/lib",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = GerritAppTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
@@ -824,20 +852,21 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.soulocal.GerritAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GerritApp.app/GerritApp";
 			};
 			name = Debug;
 		};
 		BABC2411227395DA006128BD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/lib",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = GerritAppTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
@@ -848,8 +877,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.soulocal.GerritAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GerritApp.app/GerritApp";
 			};
 			name = Release;
 		};

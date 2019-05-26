@@ -36,12 +36,12 @@
 {
     static NSPersistentContainer *_persistentContainer;
     
-    if (_persistentContainer == nil)
+    if (!_persistentContainer)
     {
         _persistentContainer = [[NSPersistentContainer alloc] initWithName:@"GerritApp"];
         [_persistentContainer loadPersistentStoresWithCompletionHandler:^(NSPersistentStoreDescription *storeDescription, NSError *error)
          {
-             if (error != nil)
+             if (error)
              {
                  NSLog(@"Unresolved error %@, %@", error, error.userInfo);
                  abort();

@@ -13,6 +13,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface CAGradientLayer (SLLGradients)
 
+/**
+ Шаблон создания объектов типа GradientLayer
+ 
+ @return возращает созданный и настроенный CAGradientLayer
+ */
 + (CAGradientLayer *)sll_linearGradientLayer;
 
 @end
